@@ -5,11 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-<<<<<<< HEAD
         TAILS OF LIFE
-=======
-        Tails Of Life
->>>>>>> origin/Arune-branch
       </header>
     </div>
   );
