@@ -23,20 +23,20 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 ## Routes
 | Path                      | Component                      | Permissions | Behavior                                                     |
 | ------------------------- | --------------------           | ----------- | ------------------------------------------------------------ |
-| `/`                       | SplashPage                     | public `<Route>`            | Home page                                        |
-| `/signup-shelter`                 | SignupPage/log in  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login/signup, navigate to profilepage after signup |
+| `/`                       | SplashPage                     | public `<Route>`            | Home page     
+| `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session
 | `/signup-user`                  | LoginPage/signup for users                      | anon only `<AnonRoute>`     | Login form, link link to login/signup, navigate to profile after login, navigate to application after button signup  |
 | `/application-user`                 | Application for users                    | anon only  `<AnonRoute>`    | link to application, navigate to profile after signup |
-| `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session
-| `/find-user`                  | App to find animals for users                      | anon only `<AnonRoute>`     | link to app, find animals that you like. like them or skip them.  |
-| `/backlog/series`         | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all tv series on backlog                                |
-| `/backlog/films`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all films on backlog                                    |
-| `/backlog/games`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all games on backlog                                    |
-| `/search/series`          | SearchForm, SearchResults      | user only  `<PrivateRoute>` | Search a tv series to be added                                |
-| `/search/films`           | SearchForm, SearchResults      | user only `<PrivateRoute>`  | Search a film to be added                                     |
-| `/search/games`           | SearchForm, SearchResults      | user only `<PrivateRoute>`  | Search a game to be added                                     |
-| `/add/:id`                | ElementInfo                    | user only `<PrivateRoute>`  | Add an element to the backlog                                 |
-| `/profile`                | Profile, Stats                 | user only  `<PrivateRoute>` | Check profile with stat information                           |
+| `/find-user`                  | App to find animals for users                      | anon only `<AnonRoute>`     | link to App, navbar, find animals that you like. like them or skip them.  |
+| `/profile-user`         | NavBar, edit some of your info | user only `<PrivateRoute>`  | profile info                                |
+| `/Favorite-user`          | NavBar, All favorited animals, 2buttons- deleting, and going to adoption | user only `<PrivateRoute>`  | Shows all animals                                   |
+| `/favorite/:id`          | NavBar, application to fill in for adiption | user only `<PrivateRoute>`  | Show form for adopting that animal                                    |
+| `/backlog/donate`          | Map      | user only  `<PrivateRoute>` | All animal shelters in the world                               |
+| `/backlog/donate/:id`           | Showing all info of chosen shelter      | public `<Route>`  | See shelter detailes                                     |
+| `/backlog/donate/:id/pay`           | Paypal section      | public `<Route>`  | Donate to selected shelter                                    |
+| `/signup-shelter`                 | SignupPage/log in  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login/signup, navigate to profilepage after signup |
+| `/profile-shelter`                | Form to update or see info of your data                   | user only `<PrivateRoute>`  | Info                                |
+| `/animals-shelter`                | Animal collection                | user only  `<PrivateRoute>` | All animals that shelter added and can add more                           |
 | `/done/series`            | Done list for Series           | user only  `<PrivateRoute>` | Shows all tv series finished                                  |
 | `/done/films`             | Done list for films            | user only `<PrivateRoute>`  | Shows all films finished                                      |
 | `/done/games`             | Done list for games            | user only `<PrivateRoute>`  | Shows all videogames finished                                 |
