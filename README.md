@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Happy Paws
 
 ## Description
@@ -27,6 +25,8 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 | ------------------------- | --------------------           | ----------- | ------------------------------------------------------------ |
 | `/`                       | SplashPage                     | public `<Route>`            | Home page                                        |
 | `/signup-shelter`                 | SignupPage  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
+| `/login-shelter`                  | LoginPage for users                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
+| `/signup-user`                 | SignupPage  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
 | `/login-user`                  | LoginPage for users                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
 | `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session             |
 | `/backlog/series`         | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all tv series on backlog                                |
@@ -86,9 +86,8 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
   - auth.me() 
   
 - External API
-  - API for games
-  - API for series
-  - API for films
+  - API for pets
+  - API for shelters
 
 
 <br>
