@@ -110,12 +110,9 @@ User model
   phone : {type: String, required: true, unique: true},
   job: {enum: [full-time, part-time, no job, remote]}
   living-place: {enum: [house with garden, apartment with garden, rented apartment, rented house, owned apartment, owned house]},
-  have: {enum: [dogs, cats, children, ]},
-  hours: {type: Number, required: true},
+  have: {enum: [dogs, cats, children, other]},
+  availability: {type: Number, required: true},
   favorites: [ObjectID <puppiest>],
-  adoption: [{
-      type: mongoose.Schema.Types.ObjectId, ref: 'dog'
-    }]
 }
 ```
 
@@ -129,9 +126,6 @@ Shelter model
   location:{type: String, required: true}, 
   description: {type: String, required: true},
   url: {tyoe: String, required: true}
-    adoption: [{
-      type: mongoose.Schema.Types.ObjectId, ref: 'user'
-    }]
 }
 ```
 
@@ -141,7 +135,7 @@ Pets model
  {
    name: {type: String, required: true},
    breed: {type: String, required: true},
-   age: {type: String, required: true},
+   age: {type: Number, required: true},
    height: {type: Number, required: true},
    weight: {type: Number, required: true},
    image: {type: String, required: true}
@@ -150,6 +144,22 @@ Pets model
    location: {type: String, required: true},
    organisation: [{
       type: mongoose.Schema.Types.ObjectId, ref: 'Shelter'
+    }]
+ }
+```
+
+Transaction model
+
+```javascript
+ {
+   shelter: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'Shelter'
+    }]
+       pets: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'Pets'
+    }]
+       user: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'User'
     }]
  }
 ```
