@@ -37,8 +37,8 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 | `/signup-shelter`                 | SignupPage/log in  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login/signup, navigate to profilepage after signup |
 | `/profile-shelter`                | Navbar, Form                  | user only `<PrivateRoute>`  | Form to update or see info of your data                                |
 | `/animals-shelter`                | Animal collection                | user only  `<PrivateRoute>` | All animals that shelter added and can add more                           |
-| `/animals-shelter/:id/edit`            | Navbar, form           | user only  `<PrivateRoute>` | Shows                                  |form to edit your collection
-| `/animals-shelter/:id/add`            | Navbar, form           | user only  `<PrivateRoute>` | Shows                                  |form to add to your collection
+| `/animals-shelter/:id/edit`            | Navbar, form           | user only  `<PrivateRoute>` | Shows form to edit your collection
+| `/animals-shelter/:id/add`            | Navbar, form           | user only  `<PrivateRoute>` | Shows form to add to your collection
 | `/applications-shelter`             | Navbar, collection of applications            | user only `<PrivateRoute>`  | See all applications from users who want to adopt shelter's animals                                     |
 | `/application-shelter/:id`             | Navbar, details of application, 2 buttons           | user only `<PrivateRoute>`  | See all details of chosen application and 3 buttons-aprove, declaine                                |
           
