@@ -155,6 +155,9 @@ Pets model
     - password
 - POST /application-user
   - body:
+    - username
+    - email
+    - password
     - full-name
     - location
     - phone
