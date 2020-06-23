@@ -99,29 +99,44 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 
 ## Models
 
+User model
 ```javascript
 {
   username: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  platform: [platforms]
-  elements: [{type: Schema.Types.ObjectId,ref:'Media'}]
+  
+  favorites: [ObjectID <puppiest>]
+  
+}
+```
+Shelter model
+```javascript
+{
+  username: {type: String, required: true, unique: true},
+  email: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  shelter_name: {type: String, required: true},
+  location:{type: String, required: true}, 
+  description: {type: String, required: true}
 }
 ```
 
 
 
-Media model
+Pets model
 
 ```javascript
  {
-   title: {type: String, required: true},
-   type: {type: String, required: true},
-   done: {type: Boolean, required: true},
-   platform: {type: String, required: true},
+   name: {type: String, required: true},
+   breed: {type: String, required: true},
+   age: {type: String, required: true},
+   height: {type: Number, required: true},
+   weight: {type: Number, required: true},
    image: {type: String, required: true}
-   description: {type, String, required: true}
-   user: {type: Schema.Types.ObjectId,ref:'User'},
+   description: {type: String, required: true}
+   funfact: {type: String, required: true},
+   location: {type: String, required: true},
  }
 ```
 
@@ -159,13 +174,13 @@ Media model
 
 ### Trello/Kanban
 
-https://trello.com/b/HawL7mgm/tails-of-life
+https://trello.com/b/HawL7mgm/happy-paws
 
 ### Git
 
 
 [Client repository Link](https://github.com/abdyguev/Happy-Paws-Client)
-[Server repository Link](http://github.com)
+[Server repository Link](https://github.com/AruneM/Happy-paws-backend)
 
 [Deploy Link](http://heroku.com)
 
