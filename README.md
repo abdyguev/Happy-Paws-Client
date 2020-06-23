@@ -155,8 +155,14 @@ Pets model
     - password
 - POST /application-user
   - body:
-    - username
-    - password
+    - full-name
+    - location
+    - phone
+    - job
+    - living-place
+    - have
+    - hours
+    
 - POST /auth/signup-shelter
   - body:
     - username
@@ -172,27 +178,21 @@ Pets model
     - color
     - breed
     - description
-    - location
-- GET /find-user
+    - location   
+- GET /applications-shelter
   - body:
-    - image
-    - name
-    - color
-    - breed
-    - description
+    - username
+    - full-name
     - location
-- GET /find-user
-  - body:
-    - image
-    - name
-    - color
-    - breed
-    - description
-    - location    
+    - phone
+    - job
+    - living-place
+    - have
+    - hours
 - GET /animals-shelter
   - body:
-    - image
-    - name
+    - full-name
+    - email
     - color
     - breed
     - description
@@ -207,6 +207,15 @@ Pets model
     - location  
 - PATCH /animals-shelter/:id/edit    
   - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location 
+- GET /favorite/:id 
+  - body:
+    - _id
     - image
     - name
     - color
