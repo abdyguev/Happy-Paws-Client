@@ -45,17 +45,88 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 ## Pages
 
 ## Components
+- LandingPage 
+
+- LoginPage
+
+- SignupPage
+
+- NavBar
+
+- FooterBar
+
+- Application
+
+- PetsProfile
+
+- UserProfile
+
+- Favorites 
+
+- Donate
+
+- SheltersMap
+
 
 ## IO
 
 
 ## Services
+- Auth Service / Shelters
+  - auth.login(shelter)
+  - auth.signup(shelter)
+  - auth.logout()
+  - auth.me()
+  
+ - Auth Service /User
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.logout()
+  - auth.me() 
+  
+- External API
+  - API for games
+  - API for series
+  - API for films
+
+
+<br>
+
 
 ## Learn More
 
-# Server
+# Server / Backend
 
 ## Models
+
+```javascript
+{
+  username: {type: String, required: true, unique: true},
+  email: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  platform: [platforms]
+  elements: [{type: Schema.Types.ObjectId,ref:'Media'}]
+}
+```
+
+
+
+Media model
+
+```javascript
+ {
+   title: {type: String, required: true},
+   type: {type: String, required: true},
+   done: {type: Boolean, required: true},
+   platform: {type: String, required: true},
+   image: {type: String, required: true}
+   description: {type, String, required: true}
+   user: {type: Schema.Types.ObjectId,ref:'User'},
+ }
+```
+
+
+<br>
 
 ### Deployment
 
@@ -92,9 +163,8 @@ https://trello.com/b/HawL7mgm/tails-of-life
 
 ### Git
 
-The url to your repository and to your deployed project
 
-[Client repository Link](http://github.com)
+
 [Server repository Link](http://github.com)
 
 [Deploy Link](http://heroku.com)
