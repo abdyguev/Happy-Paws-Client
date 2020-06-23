@@ -148,16 +148,73 @@ Pets model
 ## API Endpoints/Backend Routes
 
 - GET /auth/me
-- POST /auth/signup
+- POST auth/signup-user
   - body:
     - username
     - email
     - password
-- POST /auth/login
+- POST /application-user
   - body:
     - username
     - password
-- POST /auth/logout
+- POST /auth/signup-shelter
+  - body:
+    - username
+    - email
+    - password
+    - shelter_name
+    - location
+    - description  
+- GET /find-user
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location
+- GET /find-user
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location
+- GET /find-user
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location    
+- GET /animals-shelter
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location     
+- POST /animals-shelter/:id/add
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location  
+- PATCH /animals-shelter/:id/edit    
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location 
+    
+- POST /
   - body: (empty)
 - POST 
   - body:
@@ -166,7 +223,7 @@ Pets model
 - GET 
 - POST 
   - body:
-- GET 
+- GET animals-shelter
 
   
 
