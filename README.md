@@ -200,7 +200,7 @@ Pets model
     - breed
     - description
     - location     
-- POST /animals-shelter/:id/add
+- POST /animals-shelter/add
   - body:
     - image
     - name
@@ -225,17 +225,14 @@ Pets model
     - breed
     - description
     - location 
-    
-- POST /
-  - body: (empty)
-- POST 
+- DELETE /animals-shelter 
   - body:
-- DELETE 
-  - body: (empty)
-- GET 
-- POST 
-  - body:
-- GET animals-shelter
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location
 
   
 
