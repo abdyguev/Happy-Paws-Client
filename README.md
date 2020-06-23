@@ -1,68 +1,105 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Tails of Life
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Web app that pairs Animal shelters to the ideal owner and owners to their ideal pet.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User Stories `
+-  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+-  **Signup/Shelter:** As an anon I can sign up as a shelter to post pets that are up for adoption
+-  **Signup/User:** As an anon I can sign up as a user to adopt pets
+-  **Login/shelter:** As a shelter I can login to the platform so that I can start adding the list of pets we have available
+-  **Login/User:** As a user I can login to the platform so that I can start looking for pets that would match with me 
+-  **Logout:** As a user pr shelter I can logout from the platform 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Backlog
 
-### `npm test`
+- create a social media type platform where people can post how their pets are growing, any tips on how to adopt new pets for new users.
+- add a third party trasporter option for easy transportation of pets from shelter to new home
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Client/Frontend
 
-### `npm run build`
+## Routes
+| Path                      | Component                      | Permissions | Behavior                                                     |
+| ------------------------- | --------------------           | ----------- | ------------------------------------------------------------ |
+| `/`                       | SplashPage                     | public `<Route>`            | Home page                                        |
+| `/signup-shelter`                 | SignupPage  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
+| `/login-user`                  | LoginPage for users                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
+| `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session             |
+| `/backlog/series`         | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all tv series on backlog                                |
+| `/backlog/films`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all films on backlog                                    |
+| `/backlog/games`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all games on backlog                                    |
+| `/search/series`          | SearchForm, SearchResults      | user only  `<PrivateRoute>` | Search a tv series to be added                                |
+| `/search/films`           | SearchForm, SearchResults      | user only `<PrivateRoute>`  | Search a film to be added                                     |
+| `/search/games`           | SearchForm, SearchResults      | user only `<PrivateRoute>`  | Search a game to be added                                     |
+| `/add/:id`                | ElementInfo                    | user only `<PrivateRoute>`  | Add an element to the backlog                                 |
+| `/profile`                | Profile, Stats                 | user only  `<PrivateRoute>` | Check profile with stat information                           |
+| `/done/series`            | Done list for Series           | user only  `<PrivateRoute>` | Shows all tv series finished                                  |
+| `/done/films`             | Done list for films            | user only `<PrivateRoute>`  | Shows all films finished                                      |
+| `/done/games`             | Done list for games            | user only `<PrivateRoute>`  | Shows all videogames finished                                 |
+          
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Pages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Components
 
-### `npm run eject`
+## IO
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Services
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Models
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## API Endpoints/Backend Routes
 
-### `npm run build` fails to minify
+- GET /auth/me
+- POST /auth/signup
+  - body:
+    - username
+    - email
+    - password
+- POST /auth/login
+  - body:
+    - username
+    - password
+- POST /auth/logout
+  - body: (empty)
+- POST 
+  - body:
+- DELETE 
+  - body: (empty)
+- GET 
+- POST 
+  - body:
+- GET 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  
+
+## Links
+
+### Trello/Kanban
+
+https://trello.com/b/HawL7mgm/tails-of-life
+
+### Git
+
+The url to your repository and to your deployed project
+
+[Client repository Link](http://github.com)
+[Server repository Link](http://github.com)
+
+[Deploy Link](http://heroku.com)
+
+### Slides
+
+
+
