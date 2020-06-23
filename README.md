@@ -18,6 +18,7 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 
 - create a social media type platform where people can post how their pets are growing, any tips on how to adopt new pets for new users.
 - add a third party trasporter option for easy transportation of pets from shelter to new home
+-Paypal to donate
 
 # Client/Frontend
 
@@ -164,7 +165,7 @@ https://trello.com/b/HawL7mgm/tails-of-life
 ### Git
 
 
-
+[Client repository Link](https://github.com/abdyguev/Happy-Paws-Client)
 [Server repository Link](http://github.com)
 
 [Deploy Link](http://heroku.com)
