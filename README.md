@@ -24,11 +24,11 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 | Path                      | Component                      | Permissions | Behavior                                                     |
 | ------------------------- | --------------------           | ----------- | ------------------------------------------------------------ |
 | `/`                       | SplashPage                     | public `<Route>`            | Home page                                        |
-| `/signup-shelter`                 | SignupPage  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
-| `/login-shelter`                  | LoginPage for users                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
-| `/signup-user`                 | SignupPage  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
-| `/login-user`                  | LoginPage for users                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
-| `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session             |
+| `/signup-shelter`                 | SignupPage/log in  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login/signup, navigate to profilepage after signup |
+| `/signup-user`                  | LoginPage/signup for users                      | anon only `<AnonRoute>`     | Login form, link link to login/signup, navigate to profile after login, navigate to application after button signup  |
+| `/application-user`                 | Application for users                    | anon only  `<AnonRoute>`    | link to application, navigate to profile after signup |
+| `/logout`                 | n/a                            | user only `<PrivateRoute>`  | Navigate to homepage after logout, expire session
+| `/find-user`                  | App to find animals for users                      | anon only `<AnonRoute>`     | link to app, find animals that you like. like them or skip them.  |
 | `/backlog/series`         | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all tv series on backlog                                |
 | `/backlog/films`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all films on backlog                                    |
 | `/backlog/games`          | NavBar, ElementList, FooterBar | user only `<PrivateRoute>`  | Shows all games on backlog                                    |
