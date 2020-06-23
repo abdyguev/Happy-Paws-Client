@@ -100,13 +100,17 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 
 ## Models
 
+User model
 ```javascript
 {
-  username: {type: String, required: true, unique: true},
+  full-name: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
+  location: {type: String, required: true},
   password: {type: String, required: true},
-  platform: [platforms]
-  elements: [{type: Schema.Types.ObjectId,ref:'Media'}]
+  phone : {type: String, required: true, unique: true},
+  job: {enum: [full-time, part-time, no job, remote]}
+  living-place: {enum: [house with garden, apartment with garden, rented apartment, rented house, owned apartment, owned house]}
+  have: {enum: [dogs, cats, children, ]}
 }
 ```
 
