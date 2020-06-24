@@ -2,18 +2,18 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import {Switch, Route} from 'react-router-dom' 
-import AnimalList from './components/Animallist';
-import AddAnimals from './components/Addanimals';
-import Nav from './components/Nav'
-import axios from 'axios'
-import AnimalDetail from './components/Animaldetails'
-import EditAnimals from './components/Editanimals'
 import {withRouter} from 'react-router-dom'
+import axios from 'axios'
+
+import AnimalList from './components/shelters/Animallist';
+import AddAnimals from './components/shelters/Addanimals';
+import Nav from './components/shelters/Nav'
+import AnimalDetail from './components/shelters/Animaldetails'
+import EditAnimals from './components/shelters/Editanimals'
 import SignupUser from './components/SignupUser';
 import config from './config';
-import ShelterProfile from './components/ShelterProfile'
-import ShelterAplic from './components/ShelterAplic'
-import './App.css';
+import ShelterProfile from './components/shelters/ShelterProfile'
+import ShelterAplic from './components/shelters/ShelterAplic'
 import LandingPage from './components/LandingPage'
 import SignupShelter from './components/SignupShelter';
 
@@ -184,7 +184,7 @@ class App extends React.Component {
                   {...routeProps} 
               />
             }}/>
-           <Route exact path="/shelter/animals/:id" render={(routeProps) => {
+           <Route exact path="/shelter/animal/:id" render={(routeProps) => {
               return <AnimalDetail 
                 loggedInUser={loggedInUser} 
                 afterDelete={this.handleDelete} 

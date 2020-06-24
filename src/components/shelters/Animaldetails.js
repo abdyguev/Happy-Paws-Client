@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import config from '../config'
+import config from '../../config'
 import { Redirect } from 'react-router-dom';
 
 
@@ -21,7 +21,7 @@ export default class AnimalDetail extends React.Component{
             })
             .catch((err) => {
                 if(err.response.status === 401) {
-                  this.props.history.push('/sign-in')
+                  this.props.history.push('/')
                 }
               })
     }
