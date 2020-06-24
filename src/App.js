@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import {Switch, Route} from 'react-router-dom' 
@@ -200,3 +201,18 @@ class App extends React.Component {
 export default withRouter(App)
 
 //Higher Order Component
+=======
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        happyPAWS
+      </header>
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> origin/Abdy-Branch

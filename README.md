@@ -80,7 +80,7 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
   - auth.logout()
   - auth.me()
   
- - Auth Service /User
+ - Auth Service / User
   - auth.login(user)
   - auth.signup(user)
   - auth.logout()
@@ -107,29 +107,12 @@ User model
   email: {type: String, required: true, unique: true},
   location: {type: String, required: true},
   password: {type: String, required: true},
-<<<<<<< HEAD
-  
-  favorites: [ObjectID <puppiest>]
-  
-}
-```
-Shelter model
-```javascript
-{
-  username: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  shelter_name: {type: String, required: true},
-  location:{type: String, required: true}, 
-  description: {type: String, required: true}
-=======
   phone : {type: String, required: true, unique: true},
   job: {enum: [full-time, part-time, no job, remote]}
   living-place: {enum: [house with garden, apartment with garden, rented apartment, rented house, owned apartment, owned house]},
   have: {enum: [dogs, cats, children, other]},
   availability: {type: Number, required: true},
   favorites: [ObjectID <puppiest>],
->>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
 }
 ```
 
@@ -157,16 +140,21 @@ Pets model
    name: {type: String, required: true},
    breed: {type: String, required: true},
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+   color: {type: String, required: true}, 
+>>>>>>> origin/Abdy-Branch
    age: {type: String, required: true},
 =======
    age: {type: Number, required: true},
 >>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
    height: {type: Number, required: true},
    weight: {type: Number, required: true},
-   image: {type: String, required: true}
-   description: {type: String, required: true}
+   image: {type: String, required: true},
+   description: {type: String, required: true},
    funfact: {type: String, required: true},
    location: {type: String, required: true},
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
    organisation: [{
@@ -189,6 +177,9 @@ Transaction model
       type: mongoose.Schema.Types.ObjectId, ref: 'User'
     }]
 >>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
+=======
+
+>>>>>>> origin/Abdy-Branch
  }
 ```
 
@@ -200,25 +191,91 @@ Transaction model
 ## API Endpoints/Backend Routes
 
 - GET /auth/me
-- POST /auth/signup
+- POST auth/signup-user
   - body:
     - username
     - email
     - password
-- POST /auth/login
+- POST /application-user
   - body:
     - username
+    - email
     - password
-- POST /auth/logout
-  - body: (empty)
-- POST 
+    - full-name
+    - location
+    - phone
+    - job
+    - living-place
+    - have
+    - hours
+    
+- POST /auth/signup-shelter
   - body:
-- DELETE 
-  - body: (empty)
-- GET 
-- POST 
+    - username
+    - email
+    - password
+    - shelter_name
+    - location
+    - description  
+- GET /find-user
   - body:
-- GET 
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location   
+- GET /applications-shelter
+  - body:
+    - username
+    - full-name
+    - location
+    - phone
+    - job
+    - living-place
+    - have
+    - hours
+- GET /animals-shelter
+  - body:
+    - full-name
+    - email
+    - color
+    - breed
+    - description
+    - location     
+- POST /animals-shelter/add
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location  
+- PATCH /animals-shelter/:id/edit    
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location 
+- GET /favorite/:id 
+  - body:
+    - _id
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location 
+- DELETE /animals-shelter 
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location
 
   
 
