@@ -17,6 +17,7 @@ import ShelterAplic from './components/ShelterAplic'
 import './App.css';
 import LandingPage from './components/LandingPage'
 import SignupShelter from './components/SignupShelter';
+import ApplicationUser from './components/ApplicationUser'
 
 class App extends React.Component {
 
@@ -204,10 +205,13 @@ class App extends React.Component {
                 {...routeProps} 
               />
             }}/>
-            <Route exact path="/signup-shelter" render={(routeProps) => {
+            <Route exact path="/user/application" render={(routeProps) => {
+              return <ApplicationUser onSignUp={this.handleSignUp} {...routeProps} />
+            }}/>
+            <Route exact path="/shelter/signup" render={(routeProps) => {
               return <SignupShelter onSignUp={this.handleSignUp} {...routeProps} />
             }}/>
-            <Route exact path="/signup-user" render={(routeProps) => {
+            <Route exact path="/user/signup" render={(routeProps) => {
               return <SignupUser onSignUp={this.handleSignUp} {...routeProps} />
             }}/>
         </Switch>

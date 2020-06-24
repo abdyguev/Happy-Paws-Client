@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default function SignupShelter(props){
     return (
         <>
@@ -23,26 +24,35 @@ export default function SignupShelter(props){
         <h1>Sign up Shelter</h1>    
         <form>
             <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Full Name</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" />
+                <label htmlFor="exampleFullName">Full Name</label>
+                <input type="text" className="form-control" id="exampleInputEmail1" name="FullName" />
                 <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Email</label>
-                <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
-            </div>
+                <input name="email" className="form-control" id="exampleInputEmail1" name="email"  />
+                <small id="emailHelp" className="form-text text-muted"></small></div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
             </div>
             <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Location</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" />
+                <label htmlFor="exampleShelterName">Shelter Name</label>
+                <input type="text" className="form-control" id="exampleShelterName" name="shelter name"  />
                 <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Description</label>
-                <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
+                <label htmlFor="exampleInputEmail1">Location</label>
+                <input type="text" className="form-control" id="exampleInputEmail1" name="location"  />
+                <small id="emailHelp" className="form-text text-muted"></small>
+            </div>
+            <div className="form-group">
+                <label htmlFor="exampleDescription">Description</label>
+                <input name="description" type="text" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="exampleUrl">Shelter Website</label>
+                <input name="url" type="text" className="form-control"  />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
