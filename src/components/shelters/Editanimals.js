@@ -52,7 +52,7 @@ export default class EditAnimals extends React.Component {
 
     render(){
         if (!this.props.loggedInUser) {
-            return <Redirect to='/sign-in' />
+            return <Redirect to='/' />
         }
         if (!this.state.todo){
             return(

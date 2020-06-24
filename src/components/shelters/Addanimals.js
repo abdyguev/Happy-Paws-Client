@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 export default function AddAnimals(props){
 
     if (!props.loggedInUser) {
-        return <Redirect to='/sign-up' />
+        return <Redirect to='/' />
     }
     return (
         <>
