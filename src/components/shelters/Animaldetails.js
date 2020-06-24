@@ -41,9 +41,9 @@ export default class AnimalDetail extends React.Component{
     }
 
     render(){
-        // if (!this.props.loggedInUser) {
-        //     return <Redirect to='/' />
-        // }
+        if (!this.props.loggedInUser) {
+            return <Redirect to='/' />
+        }
         if (!this.state.animal){
             return(
                 <div className="text-center">

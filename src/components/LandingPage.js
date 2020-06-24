@@ -7,8 +7,8 @@ export default class LandingPage extends Component {
             <div>
                 this is the Landing Page
 
-                <button ><Link to={'/signup-shelter'}>Shelter</Link></button>
-                <button ><Link to={'/signup-user'}>User</Link></button>
+                <button ><Link to={'/shelter/signup'}>Shelter</Link></button>
+                <button ><Link to={'/user/signup'}>User</Link></button>
             </div>
         )
     }

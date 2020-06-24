@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 export default function SignupUser(props){
     return (
@@ -21,7 +22,7 @@ export default function SignupUser(props){
 
         <div>
         <h1>Sign Up User</h1>
-        <button>Sign Up</button>
+        <button><Link to={'/user/application'}>Sign Up</Link></button>
         </div>
         </>
         

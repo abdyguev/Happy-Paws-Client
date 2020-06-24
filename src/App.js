@@ -16,6 +16,7 @@ import ShelterProfile from './components/shelters/ShelterProfile'
 import ShelterAplic from './components/shelters/ShelterAplic'
 import LandingPage from './components/LandingPage'
 import SignupShelter from './components/SignupShelter';
+import ApplicationUser from './components/ApplicationUser'
 
 class App extends React.Component {
 
@@ -54,9 +55,9 @@ class App extends React.Component {
 
   componentDidMount(){
     this.getAnimals();
-    // if (!this.state.loggedInUser) {
-    //   this.getUser();
-    // }
+    if (!this.state.loggedInUser) {
+      this.getUser();
+    }
   }
 
 
@@ -136,13 +137,22 @@ class App extends React.Component {
 
   handleSignUp = (e) => {
     e.preventDefault()
+    let full_name = e.target.full_name.value;
     let email = e.target.email.value;
-    let username = e.target.username.value
-    let password = e.target.password.value
-    axios.post(`${config.API_URL}/signup`, {
+    let password = e.target.password.value;
+    let shelter_name = e.target.shelter_name.value;
+    let location = e.target.location.value;
+    let description = e.target.description.value;
+    let url = e.target.url.value;
+
+    axios.post(`${config.API_URL}/shelter/signup`, {
+      full_name: full_name,
       email: email,
-      username: username,
-      password: password
+      password: password,
+      shelter_name: shelter_name,
+      location: location,
+      description: description,
+      url: url
     }, { withCredentials: true})
     .then((res) => {
         this.setState({
@@ -197,10 +207,13 @@ class App extends React.Component {
                 {...routeProps} 
               />
             }}/>
-            <Route exact path="/signup-shelter" render={(routeProps) => {
+            <Route exact path="/user/application" render={(routeProps) => {
+              return <ApplicationUser onSignUp={this.handleSignUp} {...routeProps} />
+            }}/>
+            <Route exact path="/shelter/signup" render={(routeProps) => {
               return <SignupShelter onSignUp={this.handleSignUp} {...routeProps} />
             }}/>
-            <Route exact path="/signup-user" render={(routeProps) => {
+            <Route exact path="/user/signup" render={(routeProps) => {
               return <SignupUser onSignUp={this.handleSignUp} {...routeProps} />
             }}/>
         </Switch>
