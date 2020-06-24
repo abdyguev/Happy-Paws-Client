@@ -11,7 +11,7 @@ export default class EditAnimals extends React.Component {
 
     componentDidMount(){
         let id = this.props.match.params.id
-        axios.get(`${config.API_URL}/animal/${id}`, {withCredentials: true})
+        axios.get(`${config.API_URL}/shelter/animal/${id}`, {withCredentials: true})
             .then((res) => {
                 this.setState({
                     todo: res.data
@@ -22,7 +22,7 @@ export default class EditAnimals extends React.Component {
     handleEdit = (e) => {
         e.preventDefault();
         let id = this.props.match.params.id
-        axios.patch(`${config.API_URL}/animal/${id}`, {
+        axios.patch(`${config.API_URL}/shelter/animal/${id}`, {
             name: this.state.todo.name,
             description: this.state.todo.description
         }, {withCredentials: true})

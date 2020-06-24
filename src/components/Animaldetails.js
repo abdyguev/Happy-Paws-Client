@@ -13,7 +13,7 @@ export default class AnimalDetail extends React.Component{
 
     componentDidMount(){
         let id = this.props.match.params.id
-        axios.get(`${config.API_URL}/animal/${id}`, { withCredentials: true})
+        axios.get(`${config.API_URL}/shelter/animal/${id}`, { withCredentials: true})
             .then((res) => {
                 this.setState({
                     todo: res.data
@@ -28,7 +28,7 @@ export default class AnimalDetail extends React.Component{
 
     handleDeleteTodo = () => {
         let id = this.props.match.params.id
-        axios.delete(`${config.API_URL}/animal/${id}`, { withCredentials: true})
+        axios.delete(`${config.API_URL}/shelter/animal/${id}`, { withCredentials: true})
             .then(() => {
                // we will redirect here
                this.props.afterDelete(id)
@@ -60,7 +60,7 @@ export default class AnimalDetail extends React.Component{
                <p>{name}</p>
                <p>{description}</p>
                <button type="submit" className="btn btn-primary">
-                   <Link to={`/todo/${id}/edit`}>Edit</Link>
+                   <Link to={`/shelter/animal/${id}/edit`}>Edit</Link>
                </button>
                <button onClick={this.handleDeleteTodo} type="submit" className="btn btn-primary">Delete</button>
             </>

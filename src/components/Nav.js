@@ -6,10 +6,13 @@ export default function Nav(props){
     return (
         <ul className="nav ">
             <li className="nav-item">
-                <Link className="nav-link" to="/Profile">Profile</Link>
+                <Link className="nav-link" to="/shelter/profile">Profile</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link active myContainer" to="/">Animals</Link>
+                <Link className="nav-link active myContainer" to="/shelter/animals">Animals</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link active myContainer" to="/shelter/applications">Applications</Link>
             </li>
             {
                 props.loggedInUser ? (

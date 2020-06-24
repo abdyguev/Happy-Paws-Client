@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import {Switch, Route} from 'react-router-dom' 
@@ -13,6 +12,8 @@ import {withRouter} from 'react-router-dom'
 import SignIn from './components/Login';
 import SignUp from './components/Signup';
 import config from './config';
+import ShelterProfile from './components/ShelterProfile'
+import ShelterAplic from './components/ShelterAplic'
 
 class App extends React.Component {
 
@@ -75,7 +76,7 @@ class App extends React.Component {
         this.setState({
           todos: [...this.state.todos, res.data]
         }, () => {
-          this.props.history.push('/')
+          this.props.history.push('/shelter/animals')
         })
         // this.setState({} , function)
       })
@@ -95,7 +96,7 @@ class App extends React.Component {
       this.setState({
         todos: newTodos
       }, () => {
-        this.props.history.push('/')
+        this.props.history.push('/shelter/animals')
       })
       console.log(this.state.todos)
   }
@@ -126,7 +127,7 @@ class App extends React.Component {
       this.setState({
         loggedInUser: res.data
       }, () => {
-        this.props.history.push('/')
+        this.props.history.push('/shelter/animals')
       })
     })
   }
@@ -145,7 +146,7 @@ class App extends React.Component {
         this.setState({
           loggedInUser: res.data
         }, () => {
-          this.props.history.push('/')
+          this.props.history.push('/shelter/animals')
         })
     })
   }
@@ -157,19 +158,26 @@ class App extends React.Component {
         <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
         <h3>My Shopping List</h3>
         <Switch>
-            <Route exact path="/"  render={() => {
+            <Route exact path="/shelter/profile"  render={() => {
+              return <ShelterProfile />
+            }}/>
+            <Route exact path="/shelter/animals"  render={(routeProps) => {
               return <AnimalList 
                   todos={this.state.todos} 
+                  {...routeProps} 
                 />
             }}/>
-            <Route path="/add-form" render={(routeProps) => {
+            <Route exact path="/shelter/applications"  render={() => {
+              return <ShelterAplic  />
+            }}/>
+            <Route path="/shelter/add-form" render={(routeProps) => {
               return <AddAnimals 
                   loggedInUser={loggedInUser} 
                   onAdd={this.handleAddTodo} 
                   {...routeProps} 
               />
             }}/>
-           <Route exact path="/animal/:id" render={(routeProps) => {
+           <Route exact path="/animals/:id" render={(routeProps) => {
               return <AnimalDetail 
                 loggedInUser={loggedInUser} 
                 afterDelete={this.handleDelete} 
@@ -201,18 +209,3 @@ class App extends React.Component {
 export default withRouter(App)
 
 //Higher Order Component
-=======
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        happyPAWS
-      </header>
-    </div>
-  );
-}
-
-export default App;
->>>>>>> origin/Abdy-Branch
