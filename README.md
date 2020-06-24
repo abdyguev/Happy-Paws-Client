@@ -129,34 +129,21 @@ Shelter model
 }
 ```
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
 Pets model
 
 ```javascript
  {
    name: {type: String, required: true},
    breed: {type: String, required: true},
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
    color: {type: String, required: true}, 
->>>>>>> origin/Abdy-Branch
    age: {type: String, required: true},
-=======
    age: {type: Number, required: true},
->>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
    height: {type: Number, required: true},
    weight: {type: Number, required: true},
    image: {type: String, required: true},
    description: {type: String, required: true},
    funfact: {type: String, required: true},
    location: {type: String, required: true},
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
    organisation: [{
       type: mongoose.Schema.Types.ObjectId, ref: 'Shelter'
     }]
@@ -176,13 +163,6 @@ Transaction model
        user: [{
       type: mongoose.Schema.Types.ObjectId, ref: 'User'
     }]
->>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
-=======
-
->>>>>>> origin/Abdy-Branch
- }
-```
-
 
 <br>
 
