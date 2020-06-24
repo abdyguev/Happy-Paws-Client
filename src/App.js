@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import {Switch, Route} from 'react-router-dom' 
@@ -11,8 +10,11 @@ import AnimalDetail from './components/Animaldetails'
 import EditAnimals from './components/Editanimals'
 import {withRouter} from 'react-router-dom'
 import SignIn from './components/Login';
-import SignUp from './components/Signup';
+import SignupUser from './components/SignupUser';
 import config from './config';
+import './App.css';
+import LandingPage from './components/LandingPage'
+import SignupShelter from './components/SignupShelter';
 
 class App extends React.Component {
 
@@ -51,9 +53,9 @@ class App extends React.Component {
 
   componentDidMount(){
     this.getTodos();
-    if (!this.state.loggedInUser) {
-      this.getUser();
-    }
+    // if (!this.state.loggedInUser) {
+    //   this.getUser();
+    // }
   }
 
 
@@ -79,7 +81,7 @@ class App extends React.Component {
         })
         // this.setState({} , function)
       })
-      .catch((err) => {
+      .catch((err) => {''
         if(err.response.status === 401) {
           this.props.history.push('/sign-in')
         }
@@ -154,15 +156,20 @@ class App extends React.Component {
     const {loggedInUser} = this.state
     return (
       <>
-        <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
-        <h3>My Shopping List</h3>
+      {/* <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/> */}
+              
+        
         <Switch>
-            <Route exact path="/"  render={() => {
+        <Route exact path="/"  render={() => {
+              return <LandingPage 
+                />
+              }}/>
+            <Route exact path="/shelter/animals"  render={() => {
               return <AnimalList 
                   todos={this.state.todos} 
                 />
             }}/>
-            <Route path="/add-form" render={(routeProps) => {
+            <Route exact path="/add-form" render={(routeProps) => {
               return <AddAnimals 
                   loggedInUser={loggedInUser} 
                   onAdd={this.handleAddTodo} 
@@ -182,14 +189,17 @@ class App extends React.Component {
                 {...routeProps} 
               />
             }}/>
-            <Route path="/sign-in" render={(routeProps) => {
+            <Route exact path="/sign-in" render={(routeProps) => {
               return <SignIn 
                 onSignIn={this.handleSignIn} 
                 {...routeProps} 
               />
             }}/>
-            <Route path="/sign-up" render={(routeProps) => {
-              return <SignUp onSignUp={this.handleSignUp} {...routeProps} />
+            <Route exact path="/signup-shelter" render={(routeProps) => {
+              return <SignupShelter onSignUp={this.handleSignUp} {...routeProps} />
+            }}/>
+            <Route exact path="/signup-user" render={(routeProps) => {
+              return <SignupUser onSignUp={this.handleSignUp} {...routeProps} />
             }}/>
         </Switch>
       </> 
@@ -200,19 +210,4 @@ class App extends React.Component {
 
 export default withRouter(App)
 
-//Higher Order Component
-=======
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        happyPAWS
-      </header>
-    </div>
-  );
-}
-
-export default App;
->>>>>>> origin/Abdy-Branch

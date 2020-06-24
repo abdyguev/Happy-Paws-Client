@@ -1,12 +1,11 @@
 import React from 'react';
 
-export default function SignUp(props){
+export default function SignupUser(props){
     return (
-        <form onSubmit={props.onSignUp}>
-            <div className="form-group">
-                <label htmlFor="exampleInputUsername">Username</label>
-                <input type="text" className="form-control" id="exampleInputUsername" name="username" />
-            </div>
+        <>
+        <div>
+        <h1>Sign In User</h1>
+        <form >
             <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" />
@@ -18,5 +17,15 @@ export default function SignUp(props){
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+        </div>
+
+        <div>
+        <h1>Sign Up User</h1>
+        <button>Sign Up</button>
+        </div>
+        </>
+        
+        
+        
     )
 }
