@@ -80,7 +80,7 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
   - auth.logout()
   - auth.me()
   
- - Auth Service /User
+ - Auth Service / User
   - auth.login(user)
   - auth.signup(user)
   - auth.logout()
@@ -107,7 +107,7 @@ User model
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   
-  favorites: [ObjectID <puppiest>]
+  favorites: [ObjectID <puppies>]
   
 }
 ```

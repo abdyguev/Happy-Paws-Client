@@ -1,7 +1,13 @@
 * {
-  --main-text-color: #2o2o2b, 
+  font-family: 'Rufina', serif;
+  font-family: 'Sintony', sans-serif;
 }
 
 body {
-  background-color: #d4c8be
+  font-family: 'Rufina', serif;
+  background-color: #eae6df
+}
+
+svg {
+  fill: #b8926a
 }
