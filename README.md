@@ -151,25 +151,91 @@ Pets model
 ## API Endpoints/Backend Routes
 
 - GET /auth/me
-- POST /auth/signup
+- POST auth/signup-user
   - body:
     - username
     - email
     - password
-- POST /auth/login
+- POST /application-user
   - body:
     - username
+    - email
     - password
-- POST /auth/logout
-  - body: (empty)
-- POST 
+    - full-name
+    - location
+    - phone
+    - job
+    - living-place
+    - have
+    - hours
+    
+- POST /auth/signup-shelter
   - body:
-- DELETE 
-  - body: (empty)
-- GET 
-- POST 
+    - username
+    - email
+    - password
+    - shelter_name
+    - location
+    - description  
+- GET /find-user
   - body:
-- GET 
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location   
+- GET /applications-shelter
+  - body:
+    - username
+    - full-name
+    - location
+    - phone
+    - job
+    - living-place
+    - have
+    - hours
+- GET /animals-shelter
+  - body:
+    - full-name
+    - email
+    - color
+    - breed
+    - description
+    - location     
+- POST /animals-shelter/add
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location  
+- PATCH /animals-shelter/:id/edit    
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location 
+- GET /favorite/:id 
+  - body:
+    - _id
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location 
+- DELETE /animals-shelter 
+  - body:
+    - image
+    - name
+    - color
+    - breed
+    - description
+    - location
 
   
 
