@@ -6,8 +6,8 @@ export default function AnimalsList(props){
     return (
         <>
             {
-                props.todos.map((todo, i) => {
-                    return <p key={i}><Link to={`/shelter/animal/${todo._id}`}>{todo.name}</Link></p>
+                props.animals.map((animal, i) => {
+                    return <p key={i}><Link to={`/shelter/animal/${animal._id}`}>{animal.name}</Link></p>
                 })
             }
             <li className="nav-item">

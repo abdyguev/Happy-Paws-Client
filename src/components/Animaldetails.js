@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 export default class AnimalDetail extends React.Component{
 
     state = {
-        todo: ''
+        animal: ''
     }
 
     componentDidMount(){
@@ -16,7 +16,7 @@ export default class AnimalDetail extends React.Component{
         axios.get(`${config.API_URL}/shelter/animal/${id}`, { withCredentials: true})
             .then((res) => {
                 this.setState({
-                    todo: res.data
+                    animal: res.data
                 })
             })
             .catch((err) => {
@@ -26,7 +26,7 @@ export default class AnimalDetail extends React.Component{
               })
     }
 
-    handleDeleteTodo = () => {
+    handleDeleteAnimal = () => {
         let id = this.props.match.params.id
         axios.delete(`${config.API_URL}/shelter/animal/${id}`, { withCredentials: true})
             .then(() => {
@@ -35,16 +35,16 @@ export default class AnimalDetail extends React.Component{
             })
             .catch((err) => {
                 if(err.response.status === 401) {
-                    this.props.history.push('/sign-in')
+                    this.props.history.push('/')
                 }
             })
     }
 
     render(){
         if (!this.props.loggedInUser) {
-            return <Redirect to='/sign-in' />
+            return <Redirect to='/' />
         }
-        if (!this.state.todo){
+        if (!this.state.animal){
             return(
                 <div className="text-center">
                     <div className="spinner-border" role="status">
@@ -53,7 +53,7 @@ export default class AnimalDetail extends React.Component{
                 </div>
             )
         }
-        const {name, description} = this.state.todo
+        const {name, description} = this.state.animal
         let id = this.props.match.params.id
         return (
             <>
@@ -62,7 +62,7 @@ export default class AnimalDetail extends React.Component{
                <button type="submit" className="btn btn-primary">
                    <Link to={`/shelter/animal/${id}/edit`}>Edit</Link>
                </button>
-               <button onClick={this.handleDeleteTodo} type="submit" className="btn btn-primary">Delete</button>
+               <button onClick={this.handleDeleteAnimal} type="submit" className="btn btn-primary">Delete</button>
             </>
         )
     }

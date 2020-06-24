@@ -9,7 +9,6 @@ import axios from 'axios'
 import AnimalDetail from './components/Animaldetails'
 import EditAnimals from './components/Editanimals'
 import {withRouter} from 'react-router-dom'
-import SignIn from './components/Login';
 import SignupUser from './components/SignupUser';
 import config from './config';
 import ShelterProfile from './components/ShelterProfile'
@@ -21,20 +20,20 @@ import SignupShelter from './components/SignupShelter';
 class App extends React.Component {
 
   state = {
-    todos: [],
+    animals: [],
     loggedInUser: null
   }
 
-  getTodos = () => {
-    axios.get(`${config.API_URL}/todos`)
+  getAnimals = () => {
+    axios.get(`${config.API_URL}/shelter/animals`)
       .then((res) => {
         this.setState({
-          todos: res.data
+          animals: res.data
         })
       })
       .catch((err) => {
         if(err.response.status === 401) {
-          this.props.history.push('/sign-in')
+          this.props.history.push('/')
         }
       })  
   }
@@ -48,20 +47,20 @@ class App extends React.Component {
     })
     .catch((err) => {
       if(err.response.status === 401) {
-        this.props.history.push('/sign-in')
+        this.props.history.push('/')
       }
     })  
   }
 
   componentDidMount(){
-    this.getTodos();
+    this.getAnimals();
     // if (!this.state.loggedInUser) {
     //   this.getUser();
     // }
   }
 
 
-  handleAddTodo = (e) => {
+  handleAddAnimals = (e) => {
       e.preventDefault()
       let name = e.target.name.value
       let description = e.target.description.value
@@ -77,7 +76,7 @@ class App extends React.Component {
       }, {withCredentials: true})
       .then((res) => {
         this.setState({
-          todos: [...this.state.todos, res.data]
+          animals: [...this.state.animals, res.data]
         }, () => {
           this.props.history.push('/shelter/animals')
         })
@@ -85,23 +84,23 @@ class App extends React.Component {
       })
       .catch((err) => {''
         if(err.response.status === 401) {
-          this.props.history.push('/sign-in')
+          this.props.history.push('/')
         }
       })
   }
 
   handleDelete = (id) => {
-      //filter todos
-      let newTodos = this.state.todos.filter((todo) => {
-          return todo._id !== id
+      //filter animals
+      let newAnimal = this.state.animals.filter((animal) => {
+          return animal._id !== id
       })
 
       this.setState({
-        todos: newTodos
+        animals: newAnimal 
       }, () => {
         this.props.history.push('/shelter/animals')
       })
-      console.log(this.state.todos)
+      console.log(this.state.animals)
   }
 
   handleLogout = () => {
@@ -158,20 +157,20 @@ class App extends React.Component {
     const {loggedInUser} = this.state
     return (
       <>
-      {/* <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/> */}
+          <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
               
         
         <Switch>
             <Route exact path="/shelter/profile"  render={() => {
               return <ShelterProfile />
             }}/>
-        <Route exact path="/"  render={() => {
+            <Route exact path="/"  render={() => {
               return <LandingPage 
                 />
               }}/>
             <Route exact path="/shelter/animals"  render={(routeProps) => {
               return <AnimalList 
-                  todos={this.state.todos} 
+                  animals={this.state.animals} 
                   {...routeProps} 
                 />
             }}/>
@@ -181,26 +180,20 @@ class App extends React.Component {
             <Route path="/shelter/add-form" render={(routeProps) => {
               return <AddAnimals 
                   loggedInUser={loggedInUser} 
-                  onAdd={this.handleAddTodo} 
+                  onAdd={this.handleAddAnimals} 
                   {...routeProps} 
               />
             }}/>
-           <Route exact path="/animals/:id" render={(routeProps) => {
+           <Route exact path="/shelter/animals/:id" render={(routeProps) => {
               return <AnimalDetail 
                 loggedInUser={loggedInUser} 
                 afterDelete={this.handleDelete} 
                 {...routeProps} 
               />
             }}/>
-            <Route path="/animal/:id/edit" render={(routeProps) => {
+            <Route path="/shelter/animal/:id/edit" render={(routeProps) => {
               return <EditAnimals 
                 loggedInUser={loggedInUser} 
-                {...routeProps} 
-              />
-            }}/>
-            <Route exact path="/sign-in" render={(routeProps) => {
-              return <SignIn 
-                onSignIn={this.handleSignIn} 
                 {...routeProps} 
               />
             }}/>
