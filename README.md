@@ -107,7 +107,7 @@ User model
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   
-  favorites: [ObjectID <puppies>]
+  d
   
 }
 ```
@@ -131,13 +131,15 @@ Pets model
  {
    name: {type: String, required: true},
    breed: {type: String, required: true},
+   color: {type: String, required: true}, 
    age: {type: String, required: true},
    height: {type: Number, required: true},
    weight: {type: Number, required: true},
-   image: {type: String, required: true}
-   description: {type: String, required: true}
+   image: {type: String, required: true},
+   description: {type: String, required: true},
    funfact: {type: String, required: true},
    location: {type: String, required: true},
+
  }
 ```
 
@@ -149,91 +151,25 @@ Pets model
 ## API Endpoints/Backend Routes
 
 - GET /auth/me
-- POST auth/signup-user
+- POST /auth/signup
   - body:
     - username
     - email
     - password
-- POST /application-user
+- POST /auth/login
   - body:
     - username
-    - email
     - password
-    - full-name
-    - location
-    - phone
-    - job
-    - living-place
-    - have
-    - hours
-    
-- POST /auth/signup-shelter
+- POST /auth/logout
+  - body: (empty)
+- POST 
   - body:
-    - username
-    - email
-    - password
-    - shelter_name
-    - location
-    - description  
-- GET /find-user
+- DELETE 
+  - body: (empty)
+- GET 
+- POST 
   - body:
-    - image
-    - name
-    - color
-    - breed
-    - description
-    - location   
-- GET /applications-shelter
-  - body:
-    - username
-    - full-name
-    - location
-    - phone
-    - job
-    - living-place
-    - have
-    - hours
-- GET /animals-shelter
-  - body:
-    - full-name
-    - email
-    - color
-    - breed
-    - description
-    - location     
-- POST /animals-shelter/add
-  - body:
-    - image
-    - name
-    - color
-    - breed
-    - description
-    - location  
-- PATCH /animals-shelter/:id/edit    
-  - body:
-    - image
-    - name
-    - color
-    - breed
-    - description
-    - location 
-- GET /favorite/:id 
-  - body:
-    - _id
-    - image
-    - name
-    - color
-    - breed
-    - description
-    - location 
-- DELETE /animals-shelter 
-  - body:
-    - image
-    - name
-    - color
-    - breed
-    - description
-    - location
+- GET 
 
   
 
