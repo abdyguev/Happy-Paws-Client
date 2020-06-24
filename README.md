@@ -32,8 +32,8 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 | `/Favorite-user`          | NavBar, All favorited animals, 2buttons- deleting, and going to adoption | user only `<PrivateRoute>`  | Shows all animals with details and 2buttons                                   |
 | `/favorite/:id`          | NavBar, form to fill in for adoption | user only `<PrivateRoute>`  | Show form for adoption of the chosen animal                                   |
 | `/backlog/donate`          | Map      | user only  `<PrivateRoute>` | All animal shelters in the world                               |
-| `/backlog/donate/:id`           | Navbar, map, Info of chosen shelter      | public `<Route>`  | See shelter detailes on the same page as the map with dropout window                                  |
-| `/backlog/donate/:id/pay`           | Paypal section      | public `<Route>`  | Donate to selected shelter                                    |
+| `/backlog/map`           | Navbar, map, Info of chosen shelter      | public `<Route>`  | See shelter detailes on the same page as the map with dropout window                                  |
+| `/backlog/map/:id`           | Paypal section      | public `<Route>`  | Donate to selected shelter                                    |
 | `/signup-shelter`                 | SignupPage/log in  for shelters                    | anon only  `<AnonRoute>`    | Signup form, link to login/signup, navigate to profilepage after signup |
 | `/profile-shelter`                | Navbar, Form                  | user only `<PrivateRoute>`  | Form to update or see info of your data                                |
 | `/animals-shelter`                | Animal collection                | user only  `<PrivateRoute>` | All animals that shelter added and can add more                           |
@@ -103,9 +103,11 @@ Web app that pairs Animal shelters to the ideal owner and owners to their ideal 
 User model
 ```javascript
 {
-  username: {type: String, required: true, unique: true},
+  full-name: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
+  location: {type: String, required: true},
   password: {type: String, required: true},
+<<<<<<< HEAD
   
   favorites: [ObjectID <puppiest>]
   
@@ -120,24 +122,73 @@ Shelter model
   shelter_name: {type: String, required: true},
   location:{type: String, required: true}, 
   description: {type: String, required: true}
+=======
+  phone : {type: String, required: true, unique: true},
+  job: {enum: [full-time, part-time, no job, remote]}
+  living-place: {enum: [house with garden, apartment with garden, rented apartment, rented house, owned apartment, owned house]},
+  have: {enum: [dogs, cats, children, other]},
+  availability: {type: Number, required: true},
+  favorites: [ObjectID <puppiest>],
+>>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
 }
 ```
 
+Shelter model
+```javascript
+{
+  full-name: {type: String, required: true, unique: true},
+  email: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  shelter_name: {type: String, required: true},
+  location:{type: String, required: true}, 
+  description: {type: String, required: true},
+  url: {tyoe: String, required: true}
+}
+```
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
 Pets model
 
 ```javascript
  {
    name: {type: String, required: true},
    breed: {type: String, required: true},
+<<<<<<< HEAD
    age: {type: String, required: true},
+=======
+   age: {type: Number, required: true},
+>>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
    height: {type: Number, required: true},
    weight: {type: Number, required: true},
    image: {type: String, required: true}
    description: {type: String, required: true}
    funfact: {type: String, required: true},
    location: {type: String, required: true},
+<<<<<<< HEAD
+=======
+   organisation: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'Shelter'
+    }]
+ }
+```
+
+Transaction model
+
+```javascript
+ {
+   shelter: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'Shelter'
+    }]
+       pets: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'Pets'
+    }]
+       user: [{
+      type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    }]
+>>>>>>> 81a3bd38498b9fc16c40d2088831e524e91979fc
  }
 ```
 
