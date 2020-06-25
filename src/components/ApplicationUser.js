@@ -50,9 +50,9 @@ export default function ApplicationUser() {
                     </div>
                 </div>
                 <div class="form-group">
-                        <label for="inputPhone">Phone</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="123-456-7890"></input>
-                    </div>
+                    <label for="inputPhone">Phone</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="123-456-7890"></input>
+                </div>
                 <form class="form-inline">
                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Job</label>
                     <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">

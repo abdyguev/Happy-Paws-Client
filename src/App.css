@@ -5,9 +5,26 @@
 
 body {
   font-family: 'Rufina', serif;
-  background-color: #eae6df
+  background-color: #fffcf8
 }
 
 svg {
   fill: #b8926a
+}
+
+.content-wrapper {
+  width: 90%;
+  margin-left: 10%; 
+  margin-right: 3%;
+  margin-top: 5%; 
+}
+.content-wrapper img{
+  width: 95%
+}
+
+.text-wrapper{
+  width: 100%;
+  position: relative;
+  margin-top: -40%;
+  margin-left: -10%;
 }

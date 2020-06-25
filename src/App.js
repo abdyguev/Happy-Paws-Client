@@ -9,7 +9,6 @@ import axios from 'axios'
 import AnimalDetail from './components/Animaldetails'
 import EditAnimals from './components/Editanimals'
 import {withRouter} from 'react-router-dom'
-import SignIn from './components/Login';
 import SignupUser from './components/SignupUser';
 import config from './config';
 import ShelterProfile from './components/ShelterProfile'
@@ -196,12 +195,6 @@ class App extends React.Component {
             <Route path="/animal/:id/edit" render={(routeProps) => {
               return <EditAnimals 
                 loggedInUser={loggedInUser} 
-                {...routeProps} 
-              />
-            }}/>
-            <Route exact path="/sign-in" render={(routeProps) => {
-              return <SignIn 
-                onSignIn={this.handleSignIn} 
                 {...routeProps} 
               />
             }}/>
