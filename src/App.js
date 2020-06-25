@@ -71,7 +71,7 @@ class App extends React.Component {
       let weight= e.target.weight.value;
       let funfact = e.target.funfact.value;
       let location = e.target.location.value;
-      let hair_length = e.target.hair_lengthvalue;
+      let hair_length = e.target.hair_length.value;
       let available_housing = e.target.available_housing.value;
       let good_with = e.target.good_with.value;
       let bad_with = e.target.bad_with.value;

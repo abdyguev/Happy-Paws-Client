@@ -59,7 +59,7 @@ export default class AnimalDetail extends React.Component{
             <>
                <p>{name}</p>
                <p>{description}</p>
-               <button type="submit" className="btn btn-primary">
+               <button type="submit" className="btn btn-info">
                    <Link to={`/shelter/animal/${id}/edit`}>Edit</Link>
                </button>
                <button onClick={this.handleDeleteAnimal} type="submit" className="btn btn-primary">Delete</button>
