@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import HomeNav from './components/HomeNav'
+import HomeNav from './HomeNav'
 
 export default class LandingPage extends Component {
     render() {
         return (<>
-            <HomeNav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
+            <HomeNav />
             <div>
                 <div className="content-wrapper">
                 <img src="/images/pup.jpg" alt="cute puppy" />

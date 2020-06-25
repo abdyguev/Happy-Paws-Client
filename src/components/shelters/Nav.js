@@ -18,10 +18,10 @@ export default function Nav(props){
             <li className="nav-item">
                 <Link className="nav-link active myContainer" to="/shelter/applications">Applications</Link>
             </li>
-                    {/* <li className="nav-item">
+            <li className="nav-item">
                             <button className="nav-link" onClick={props.onLogout}>Logout</button>
-            </li> */}
-            {
+            </li>
+            {/* {
                 props.loggedInUser ? (
                     <li className="nav-item">
                             <button className="nav-link" onClick={props.onLogout}>Logout</button>
@@ -36,7 +36,7 @@ export default function Nav(props){
                         </li>
                     </>
                 )
-            }
+            } */}
         </ul>
     )
 }

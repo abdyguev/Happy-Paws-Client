@@ -15,15 +15,6 @@ export default function HomeNav(props){
             <li className="nav-item">
                 <Link className="nav-link" to="/user/profile">User</Link>
             </li>
-            {/* <li className="nav-item">
-                <Link className="nav-link active myContainer" to="/shelter/animals">Animals</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link active myContainer" to="/shelter/applications">Applications</Link>
-            </li> */}
-                    {/* <li className="nav-item">
-                            <button className="nav-link" onClick={props.onLogout}>Logout</button>
-            </li> */}
             {
                 props.loggedInUser ? (
                     <li className="nav-item">
@@ -31,11 +22,11 @@ export default function HomeNav(props){
                     </li>
                 ) : (
                     <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/sign-in">SignIn</Link>
+                    <li className="nav-item">
+                            <Link className="nav-link" to="/shelter/signup">SignUp/Signin Shelter</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/shelter/signup">SignUp</Link>
+                            <Link className="nav-link" to="/user/signup">SignUp/Signin User</Link>
                         </li>
                     </>
                 )
