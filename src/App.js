@@ -175,7 +175,7 @@ class App extends React.Component {
     let availability = e.target.availability.value;
     
 
-    axios.post(`${config.API_URL}/shelter/signup`, {
+    axios.post(`${config.API_URL}/user/application`, {
       fullName: fullName,
       email: email,
       password: password,
