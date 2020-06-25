@@ -3,16 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import {Switch, Route} from 'react-router-dom' 
 import {withRouter} from 'react-router-dom'
-<<<<<<< HEAD
-=======
 import axios from 'axios'
-
 import AnimalList from './components/shelters/Animallist';
 import AddAnimals from './components/shelters/Addanimals';
 import Nav from './components/shelters/Nav'
 import AnimalDetail from './components/shelters/Animaldetails'
 import EditAnimals from './components/shelters/Editanimals'
->>>>>>> 13a7ecffb04614328855249113e1dfc099dfc3bc
 import SignupUser from './components/SignupUser';
 import config from './config';
 import ShelterProfile from './components/shelters/ShelterProfile'
@@ -170,7 +166,7 @@ class App extends React.Component {
     const {loggedInUser} = this.state
     return (
       <>
-          <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
+          {/* <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/> */}
               
         
         <Switch>

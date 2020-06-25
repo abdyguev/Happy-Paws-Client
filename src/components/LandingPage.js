@@ -11,9 +11,7 @@ export default class LandingPage extends Component {
                      <h1>HAPPY PAWS</h1>
                  </div>
                  <div class="content-wrapper" id="icons">
-                     <img height="15px"  width="auto" src="/images/facebook.png" />
-                     <img height="15px"  width="auto" src="/images/instagram.png" />
-                     <img height="15px"  width="auto" src="/images/twitter.png" />
+                     
                  </div>
                 </div>
                 <button ><Link to={'/shelter/signup'}>Shelter</Link></button>
