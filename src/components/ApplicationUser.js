@@ -97,42 +97,67 @@ export default function ApplicationUser(props) {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> */}
-           <form onSubmit={props.onSignUp} >
-            <div className="form-group">
-                <label htmlFor="exampleFullName">Full Name</label>
-                <input type="text" className="form-control" id="exampleInputEmail1" name="full_name" />
-                <small id="full_name" className="form-text text-muted"></small>
-            </div>
-            <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Email</label>
-                <input name="email" className="form-control" id="exampleInputEmail1" />
-                <small id="email" className="form-text text-muted"></small></div>
-            <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
-                <input name="password" type="password" className="form-control" id="password" />
-            </div>
-            <div className="form-group">
-                <label htmlFor="exampleShelterName">Shelter Name</label>
-                <input type="text" className="form-control" id="exampleShelterName" name="shelter_name"  />
-                <small id="shelter_name" className="form-text text-muted"></small>
-            </div>
-            <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Location</label>
-                <input type="text" className="form-control" id="exampleInputEmail1" name="location"  />
-                <small id="location" className="form-text text-muted"></small>
-            </div>
-            <div className="form-group">
-                <label htmlFor="exampleDescription">Description</label>
-                <input name="description" type="text" className="form-control" />
-                <small id="description" className="form-text text-muted"></small>
-            </div>
-            <div className="form-group">
-                <label htmlFor="exampleUrl">Shelter Website</label>
-                <input name="url" type="text" className="form-control"  />
-                <small id="url" className="form-text text-muted"></small>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+            <form onSubmit={props.onSignUp} >
+                <div className="form-group">
+                    <label htmlFor="exampleFullName">Full Name</label>
+                    <input type="text" className="form-control" id="exampleInputEmail1" name="fullName" />
+                    <small id="fullName" className="form-text text-muted"></small>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleInputPassword1">Email</label>
+                    <input name="email" className="form-control" id="exampleInputEmail1" />
+                    <small id="email" className="form-text text-muted"></small></div>
+                <div className="form-group">
+                    <label htmlFor="exampleInputPassword1">Password</label>
+                    <input name="password" type="password" className="form-control" id="password" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleShelterName">Phone</label>
+                    <input type="text" className="form-control" id="exampleShelterName" name="phone" />
+                    <small id="phone" className="form-text text-muted"></small>
+                </div>
+                <div className="form-group">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Job</label>
+                    <select name="job" class="custom-select my-1 mr-sm-2" id="job">
+                        <option selected>Choose...</option>
+                        <option value="1">Full-Time</option>
+                        <option value="2">Part-Time</option>
+                        <option value="3">No Job</option>
+                        <option value="3">Remote</option>
+                    </select>
+                </div>
+                <div className="form-group">
+
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Living Place</label>
+                    <select name="livingPlace" class="custom-select my-1 mr-sm-2" id="livingPlace">
+                        <option selected>Choose ...</option>
+                        <option value="1">House with Garden</option>
+                        <option value="2">Apartment with Garden</option>
+                        <option value="3">Rented Apartment</option>
+                        <option value="3">Rented House</option>
+                        <option value="4">House with Garden</option>
+                        <option value="5">Apartment with Garden</option>
+                        <option value="6">Owned Apartment</option>
+                        <option value="7">Owned House</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Additional household Members</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></input>
+                        <label class="form-check-label" for="inlineRadio1">Dogs</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></input>
+                        <label class="form-check-label" for="inlineRadio2">Cats</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
+                        <label class="form-check-label" for="inlineRadio3">Children</label>
+                    </div>
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
         </>
     )
 }
