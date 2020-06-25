@@ -6,7 +6,6 @@ import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 import AnimalList from './components/shelters/Animallist';
 import AddAnimals from './components/shelters/Addanimals';
-import Nav from './components/shelters/Nav'
 import AnimalDetail from './components/shelters/Animaldetails'
 import EditAnimals from './components/shelters/Editanimals'
 import SignupUser from './components/SignupUser';
@@ -15,7 +14,12 @@ import ShelterProfile from './components/shelters/ShelterProfile'
 import ShelterAplic from './components/shelters/ShelterAplic'
 import LandingPage from './components/LandingPage'
 import SignupShelter from './components/SignupShelter';
-import ApplicationUser from './components/ApplicationUser'
+import ApplicationUser from './components/users/ApplicationUser'
+
+import UserProfile from './components/users/Profileuser'
+import DonateUser from './components/users/DonateUser'
+import FavoriteUser from './components/users/FavoriteUser'
+import PetsUser from './components/users/PetsUser'
 
 class App extends React.Component {
 
@@ -223,7 +227,6 @@ class App extends React.Component {
     const {loggedInUser} = this.state
     return (
       <>
-          <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
               
         
         <Switch>
@@ -273,6 +276,19 @@ class App extends React.Component {
             }}/>
             <Route exact path="/user/signup" render={(routeProps) => {
               return <SignupUser onSignUp={this.handleSignUp} {...routeProps} />
+            }}/>
+
+            <Route exact path="/user/pets" render={(routeProps) => {
+              return <PetsUser {...routeProps} />
+            }}/>
+            <Route exact path="/user/profile" render={(routeProps) => {
+              return <UserProfile {...routeProps} />
+            }}/>
+            <Route exact path="/user/favorite" render={(routeProps) => {
+              return <FavoriteUser {...routeProps} />
+            }}/>
+            <Route exact path="/user/donate" render={(routeProps) => {
+              return <DonateUser {...routeProps} />
             }}/>
         </Switch>
       </> 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import Nav from './Nav'
 
 export default function AddAnimals(props){
 
@@ -8,6 +9,7 @@ export default function AddAnimals(props){
     }
     return (
         <>
+        <Nav />
             <form onSubmit={props.onAdd}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>

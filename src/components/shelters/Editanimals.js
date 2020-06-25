@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import config from '../../config'
 import { Redirect } from 'react-router-dom';
+import Nav from './Nav'
 
 export default class EditAnimals extends React.Component {
 
@@ -79,6 +80,7 @@ export default class EditAnimals extends React.Component {
         const {name, description} = this.state.animal
         return (
             <>
+            <Nav />
                 <form >
                     <div className="form-group">
                         <label htmlFor="name">Name</label>

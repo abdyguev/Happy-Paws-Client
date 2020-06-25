@@ -1,9 +1,11 @@
 import React from 'react';
+import NavUser from './NavUser' 
 
 export default function PetsUser(props){
     return (
 <>
-User profile page
+<NavUser />
+User pets page
 </>
     )
 }
