@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 export default class EditAnimals extends React.Component {
 
     state = {
-        todo: ''
+        animal: ''
     }
 
     componentDidMount(){
@@ -14,7 +14,7 @@ export default class EditAnimals extends React.Component {
         axios.get(`${config.API_URL}/shelter/animal/${id}`, {withCredentials: true})
             .then((res) => {
                 this.setState({
-                    todo: res.data
+                    animal: res.data
                 })
             })
     }
@@ -23,8 +23,21 @@ export default class EditAnimals extends React.Component {
         e.preventDefault();
         let id = this.props.match.params.id
         axios.patch(`${config.API_URL}/shelter/animal/${id}`, {
-            name: this.state.todo.name,
-            description: this.state.todo.description
+            name: this.state.animal.name,
+            description: this.state.animal.description,
+            image: this.state.animal.image,
+            breed: this.state.animal.breed, 
+            color: this.state.animal.color, 
+            age: this.state.animal.age, 
+            height: this.state.animal.height, 
+            weight: this.state.animal.weight,
+            hair_length: this.state.animal.hair_length,
+            available_housing: this.state.animal.available_housing, 
+            good_with: this.state.animal.good_with,
+            bad_with: this.state.animal.bad_with, 
+            needs_time: this.state.animal.needs_time,  
+            funfact: this.state.animal.funfact, 
+            location: this.state.animal.location
         }, {withCredentials: true})
             .then((res) => {
                //redirect to App.js
@@ -32,20 +45,20 @@ export default class EditAnimals extends React.Component {
     }
 
     handleNameChange = (e) => {
-        let newTodo = JSON.parse(JSON.stringify(this.state.todo))
-        newTodo.name = e.target.value
+        let newAnimal = JSON.parse(JSON.stringify(this.state.animal))
+        newAnimal.name = e.target.value
 
         this.setState({
-            todo: newTodo
+            animal: newAnimal
         })
     }
 
     handleDescChange = (e) => {
-        let newTodo = JSON.parse(JSON.stringify(this.state.todo))
-        newTodo.description = e.target.value
+        let newAnimal = JSON.parse(JSON.stringify(this.state.animal))
+        newAnimal.description = e.target.value
 
         this.setState({
-            todo: newTodo
+            animal: newAnimal
         })
     }
     
@@ -54,7 +67,7 @@ export default class EditAnimals extends React.Component {
         if (!this.props.loggedInUser) {
             return <Redirect to='/' />
         }
-        if (!this.state.todo){
+        if (!this.state.animal){
             return(
                 <div class="text-center">
                     <div class="spinner-border" role="status">
@@ -63,7 +76,7 @@ export default class EditAnimals extends React.Component {
                 </div>
             )
         }
-        const {name, description} = this.state.todo
+        const {name, description} = this.state.animal
         return (
             <>
                 <form >

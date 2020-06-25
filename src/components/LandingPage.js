@@ -5,12 +5,12 @@ export default class LandingPage extends Component {
     render() {
         return (
             <div>
-                <div class="content-wrapper">
-                <img src="/images/pup.jpg" alt="image" />
-                 <div class="text-wrapper">
+                <div className="content-wrapper">
+                <img src="/images/pup.jpg" alt="cute puppy" />
+                 <div className="text-wrapper">
                      <h1>HAPPY PAWS</h1>
                  </div>
-                 <div class="content-wrapper" id="icons">
+                 <div className="content-wrapper" id="icons">
                      
                  </div>
                 </div>

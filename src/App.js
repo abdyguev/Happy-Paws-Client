@@ -62,17 +62,42 @@ class App extends React.Component {
 
   handleAddAnimals = (e) => {
       e.preventDefault()
-      let name = e.target.name.value
-      let description = e.target.description.value
+      let name = e.target.name.value;
+      let description = e.target.description.value;
+      let breed = e.target.breed.value;
+      let color = e.target.color.value;
+      let age = e.target.age.value;
+      let height= e.target.height.value;
+      let weight= e.target.weight.value;
+      let funfact = e.target.funfact.value;
+      let location = e.target.location.value;
+      let hair_length = e.target.hair_lengthvalue;
+      let available_housing = e.target.available_housing.value;
+      let good_with = e.target.good_with.value;
+      let bad_with = e.target.bad_with.value;
+      let needs_time = e.target.needs_time.value;
+      // let image = e.target.image.value
 
-      let myImage = e.target.image.files[0]
-      let uploadData = new FormData();
-      uploadData.append('imageUrl', myImage)
+      // let myImage = e.target.image.files[0]
+      // let uploadData = new FormData();
+      // uploadData.append('imageUrl', myImage)
 
       axios.post(`${config.API_URL}/create`, {
         name: name,
         description: description,
-        image: uploadData
+        // image: uploadData,
+        breed: breed, 
+        color: color, 
+        age: age, 
+        height: height, 
+        weight: weight,
+        hair_length: hair_length,
+        available_housing: available_housing, 
+        good_with: good_with,
+        bad_with: bad_with, 
+        needs_time: needs_time, 
+        funfact: funfact, 
+        location: location
       }, {withCredentials: true})
       .then((res) => {
         this.setState({
@@ -80,7 +105,6 @@ class App extends React.Component {
         }, () => {
           this.props.history.push('/shelter/animals')
         })
-        // this.setState({} , function)
       })
       .catch((err) => {''
         if(err.response.status === 401) {
@@ -166,7 +190,7 @@ class App extends React.Component {
     const {loggedInUser} = this.state
     return (
       <>
-          {/* <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/> */}
+          <Nav loggedInUser={this.state.loggedInUser} onLogout={this.handleLogout}/>
               
         
         <Switch>
@@ -183,8 +207,10 @@ class App extends React.Component {
                   {...routeProps} 
                 />
             }}/>
-            <Route exact path="/shelter/applications"  render={() => {
-              return <ShelterAplic  />
+            <Route exact path="/shelter/applications"  render={(routeProps) => {
+              return <ShelterAplic  
+              loggedInUser={loggedInUser}
+              {...routeProps}  />
             }}/>
             <Route path="/shelter/add-form" render={(routeProps) => {
               return <AddAnimals 
