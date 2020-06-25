@@ -158,7 +158,7 @@ class App extends React.Component {
     })
   }
 
-  handleSignUp = (e) => {
+  handleShelterSignUp = (e) => {
     e.preventDefault()
     let full_name = e.target.full_name.value;
     let email = e.target.email.value;
@@ -184,6 +184,39 @@ class App extends React.Component {
           this.props.history.push('/shelter/animals')
         })
     })
+    
+  }
+
+  handleUserSignUp = (e) => {
+    e.preventDefault()
+    let fullName = e.target.fullName.value;
+    let email = e.target.email.value;
+    let password = e.target.password.value;
+    let phone = e.target.phonevalue;
+    let job = e.target.job.value;
+    let livingPlace = e.target.livingPlace.value;
+    let have = e.target.have.value;
+    let availability = e.target.availability.value;
+    
+
+    axios.post(`${config.API_URL}/shelter/signup`, {
+      fullName: fullName,
+      email: email,
+      password: password,
+      phone: phone,
+      job: job,
+      livingPlace: livingPlace,
+      have: have, 
+      availability: availability,
+    }, { withCredentials: true})
+    .then((res) => {
+        this.setState({
+          loggedInUser: res.data
+        }, () => {
+          this.props.history.push('/user/pets')
+        })
+    })
+    
   }
 
   render(){
