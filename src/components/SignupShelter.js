@@ -22,7 +22,7 @@ export default function SignupShelter(props){
         
         <div>
         <h1>Sign up Shelter</h1>    
-        <form onSubmit={props.onSignUp}>
+        <form onSubmit={props.onSignUp} >
             <div className="form-group">
                 <label htmlFor="exampleFullName">Full Name</label>
                 <input type="text" className="form-control" id="exampleInputEmail1" name="full_name" />

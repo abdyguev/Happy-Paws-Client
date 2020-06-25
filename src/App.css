@@ -28,3 +28,16 @@ svg {
   margin-top: -40%;
   margin-left: -10%;
 }
+
+.signup-form {
+  height: 80vh;
+}
+
+.error {
+  background: red;
+  box-sizing: border-box;
+  color: var(--highlight-color);
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+}
