@@ -69,9 +69,9 @@ export default class EditAnimals extends React.Component {
         }
         if (!this.state.animal){
             return(
-                <div class="text-center">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
+                <div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>
                 </div>
             )
@@ -80,16 +80,16 @@ export default class EditAnimals extends React.Component {
         return (
             <>
                 <form >
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="text" class="form-control" 
+                        <input type="text" className="form-control" 
                         onChange={this.handleNameChange} name="name" id="name" value={name}/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="description">Description</label>
-                        <input type="text" class="form-control"  onChange={this.handleDescChange} name="description" id="description" value={description}/>
+                        <input type="text" className="form-control"  onChange={this.handleDescChange} name="description" id="description" value={description}/>
                     </div>
-                    <button type="submit" class="btn btn-primary" onClick={this.handleEdit}>Submit</button>
+                    <button type="submit" className="btn btn-info" onClick={this.handleEdit}>Submit</button>
                 </form>
             </>
         )
