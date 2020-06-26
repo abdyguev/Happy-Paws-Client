@@ -37,7 +37,7 @@ export default function SignupShelter(props){
                 <input name="password" type="password" className="form-control" id="password" />
             </div>
             <div className="form-group">
-                <label htmlFor="exampleShelterName">Shelter Name</label>
+                <label htmlFor="exampleShelterName">Phone</label>
                 <input type="text" className="form-control" id="exampleShelterName" name="shelter_name"  />
                 <small id="shelter_name" className="form-text text-muted"></small>
             </div>

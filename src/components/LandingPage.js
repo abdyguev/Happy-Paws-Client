@@ -1,24 +1,55 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import HomeNav from './HomeNav'
 
 export default class LandingPage extends Component {
     render() {
         return (<>
-            <HomeNav />
-            <div>
+
+            <div class="landing">
+
                 <div className="content-wrapper">
-                <img src="/images/pup.jpg" alt="cute puppy" />
-                 <div className="text-wrapper">
-                     <h1>HAPPY PAWS</h1>
-                 </div>
-                 <div className="content-wrapper" id="icons">
-                     
-                 </div>
+                    <HomeNav />
+                    <img src="/images/pup.jpg" alt="cute puppy" />
+                    </div>
+                    <div className="text-wrapper">
+                        <h1>HAPPY PAWS</h1>
+                        <p>some text about how amazingthis app is</p> 
+                    </div>
+                    <div className="content-wrapper" id="icons">
+
+                    
                 </div>
-                <button ><Link to={'/shelter/signup'}>Shelter</Link></button>
-                <button ><Link to={'/user/signup'}>User</Link></button>
+
             </div>
-      </>  )
+            <div class="landing-2">
+                <div className="user-1">
+
+                    <div className="content-wrapper-1">
+                        <img src="/images/pup2.jpg" alt="cute puppy" />
+                    </div>
+                </div>
+                <div className="user-2">
+                    <h1>USER</h1>
+                    <button ><Link to={'/user/signup'}>User</Link></button>
+                </div>
+            </div>
+            <div class="landing-3">
+                <div className="shelter-1">
+                    <h1>SHELTER</h1>
+                    <button ><Link to={'/shelter/signup'}>Shelter</Link></button>
+
+
+                </div>
+                <div className="shelter-2">
+
+                    <div className="content-wrapper-2">
+                        <img src="/images/pups.jpg" alt="cute puppy" />
+                    </div>
+                </div>
+
+
+            </div>
+        </>)
     }
 }

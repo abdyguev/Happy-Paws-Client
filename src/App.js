@@ -190,38 +190,38 @@ class App extends React.Component {
     })
     
   }
-
-  handleUserSignUp = (e) => {
-    e.preventDefault()
-    let fullName = e.target.fullName.value;
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-    let phone = e.target.phonevalue;
-    let job = e.target.job.value;
-    let livingPlace = e.target.livingPlace.value;
-    let have = e.target.have.value;
-    let availability = e.target.availability.value;
+  //USER SIGN UP 
+  // handleUserSignUp = (e) => {
+  //   e.preventDefault()
+  //   let fullName = e.target.fullName.value;
+  //   let email = e.target.email.value;
+  //   let password = e.target.password.value;
+  //   let phone = e.target.phone.value;
+  //   let job = e.target.job.value;
+  //   let livingPlace = e.target.livingPlace.value;
+  //   let have = e.target.have.value;
+  //   let availability = e.target.availability.value;
     
 
-    axios.post(`${config.API_URL}/user/application`, {
-      fullName: fullName,
-      email: email,
-      password: password,
-      phone: phone,
-      job: job,
-      livingPlace: livingPlace,
-      have: have, 
-      availability: availability,
-    }, { withCredentials: true})
-    .then((res) => {
-        this.setState({
-          loggedInUser: res.data
-        }, () => {
-          this.props.history.push('/user/pets')
-        })
-    })
+  //   axios.post(`${config.API_URL}/user/application`, {
+  //     fullName: fullName,
+  //     email: email,
+  //     password: password,
+  //     phone: phone,
+  //     job: job,
+  //     livingPlace: livingPlace,
+  //     have: have, 
+  //     availability: availability,
+  //   }, { withCredentials: true})
+  //   .then((res) => {
+  //       this.setState({
+  //         loggedInUser: res.data
+  //       }, () => {
+  //         this.props.history.push('/user/pets')
+  //       })
+  //   })
     
-  }
+  // }
 
   render(){
     const {loggedInUser} = this.state
@@ -269,13 +269,13 @@ class App extends React.Component {
               />
             }}/>
             <Route exact path="/user/application" render={(routeProps) => {
-              return <ApplicationUser onSignUp={this.handleSignUp} {...routeProps} />
+              return <ApplicationUser onSignUp={this.handleUserSignUp} {...routeProps} />
             }}/>
             <Route exact path="/shelter/signup" render={(routeProps) => {
-              return <SignupShelter onSignUp={this.handleSignUp} {...routeProps} />
+              return <SignupShelter onSignUp={this.handleShelterSignUp} {...routeProps} />
             }}/>
             <Route exact path="/user/signup" render={(routeProps) => {
-              return <SignupUser onSignUp={this.handleSignUp} {...routeProps} />
+              return <SignupUser onSignUp={this.handleuserSignUp} {...routeProps} />
             }}/>
 
             <Route exact path="/user/pets" render={(routeProps) => {

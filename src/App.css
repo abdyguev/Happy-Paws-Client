@@ -8,36 +8,89 @@ body {
   background-color: #fffcf8
 }
 
-svg {
-  fill: #b8926a
-}
+/* landing page */
 
 .content-wrapper {
   width: 90%;
+  display: block;
   margin-left: 10%; 
   margin-right: 3%;
-  margin-top: 5%; 
+  padding-top: ; 
 }
 .content-wrapper img{
-  width: 95%
+  width: 95%;
+  display: block;
 }
 
 .text-wrapper{
   width: 100%;
   position: relative;
-  margin-top: -40%;
-  margin-left: -10%;
+  margin-top: -30%;
+  margin-left: 20%;
+}
+
+h1 {
+  font-size: 4vw;
 }
 
 .signup-form {
   height: 80vh;
 }
 
-.error {
-  background: red;
-  box-sizing: border-box;
-  color: var(--highlight-color);
-  margin: 20px auto;
-  padding: 20px;
-  width: 100%;
+.landing {
+  height: 93vh;
+  display: grid;
+  background-color: #fffcf8
 }
+
+.landing-2 {
+  height: 75vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.user-1 {
+ background-color: white;
+}
+.user-2 {
+  background-color: white;
+  text-align: center;
+  padding-top: 30%;
+}
+
+.content-wrapper-1 img{
+  width: 50%;
+  display: block;
+  margin-left: auto;  
+  margin-right: auto; 
+  margin-top: 10%;
+  
+}
+
+.content-wrapper-2 img{
+  width: 70%;
+  display: block;
+  margin-left: auto;  
+  margin-right: auto; 
+  margin-top: 15%;
+  
+}
+
+.landing-3 {
+  height: 75vh;
+  background-color: rgba(255, 179, 79, 0.685);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.shelter-1 {
+  
+  text-align: center;
+  padding-top: 30%;
+}
+.nav {
+  background-color: transparent;
+  padding: 1vh;
+}
+
