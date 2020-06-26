@@ -34,6 +34,14 @@ h1 {
   font-size: 4vw;
 }
 
+a {
+  color: black
+}
+
+.heading{
+ text-align: center;
+}
+
 .signup-form {
   height: 80vh;
 }
@@ -115,3 +123,56 @@ h1 {
   padding: 1vh;
 }
 
+
+
+
+
+
+
+
+
+
+
+/* Cards CSS *//
+
+.cards-wrapper {
+  position: relative;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper {
+  display: block;
+  float: left;
+  position: relative;
+  margin: 0;
+  width: 28%;
+  height: 0;
+  padding: 0 0 28%;
+  perspective: 700px;
+}
+
+.card-object {
+  size: 88%;
+  color: #FFF;
+  display: block;
+  float: left;
+  position: absolute;
+  top: (100% - @size)/2;
+  left: (100% - @size)/2;
+  width: @size;
+  height: @size;
+  transform-style: preserve-3d;
+}
+  
+.front {
+  background: #222 url(https://www.dropbox.com/s/8cc22nblu4y4vzi/jenny.jpeg?raw=1) 90% 35%;
+  background-size: 115%; 
+}
+    
+    
