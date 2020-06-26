@@ -5,7 +5,8 @@
 
 body {
   font-family: 'Rufina', serif;
-  background-color: #fffcf8
+  background-color: #fffcf8;
+  max-width: 100%;
 }
 
 /* landing page */
@@ -49,6 +50,15 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+ 
+.onep {
+  text-align: end;
+  margin-top: -50%;
+  font-size: 1.7rem;
+  font-style: bold;
+  color: black;
+}
+
 
 .user-1 {
  background-color: white;
@@ -63,8 +73,9 @@ h1 {
   width: 50%;
   display: block;
   margin-left: auto;  
-  margin-right: auto; 
+  margin-right: 15%; 
   margin-top: 10%;
+  box-shadow: -3.5rem -28px tan
   
 }
 
@@ -75,6 +86,16 @@ h1 {
   margin-right: auto; 
   margin-top: 15%;
   
+  
+}
+
+.box {
+  /* width: 70%;
+  height: 80%;
+  display: block;
+  margin-left: 10px;   
+  margin-top: 15%;
+  background-color: teal; */
 }
 
 .landing-3 {

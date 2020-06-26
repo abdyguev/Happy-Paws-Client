@@ -25,7 +25,8 @@ class App extends React.Component {
 
   state = {
     animals: [],
-    loggedInUser: null
+    loggedInUser: null,
+    loggedInShelter: null, 
   }
 
   getAnimals = () => {
@@ -164,7 +165,6 @@ class App extends React.Component {
 
   handleShelterSignUp = (e) => {
     e.preventDefault()
-    let full_name = e.target.full_name.value;
     let email = e.target.email.value;
     let password = e.target.password.value;
     let shelter_name = e.target.shelter_name.value;
@@ -173,7 +173,6 @@ class App extends React.Component {
     let url = e.target.url.value;
 
     axios.post(`${config.API_URL}/shelter/signup`, {
-      full_name: full_name,
       email: email,
       password: password,
       shelter_name: shelter_name,
@@ -192,15 +191,15 @@ class App extends React.Component {
   }
   //USER SIGN UP 
   // handleUserSignUp = (e) => {
-  //   e.preventDefault()
-  //   let fullName = e.target.fullName.value;
-  //   let email = e.target.email.value;
-  //   let password = e.target.password.value;
-  //   let phone = e.target.phone.value;
-  //   let job = e.target.job.value;
-  //   let livingPlace = e.target.livingPlace.value;
-  //   let have = e.target.have.value;
-  //   let availability = e.target.availability.value;
+    // e.preventDefault()
+    // let fullName = e.target.fullName.value;
+    // let email = e.target.email.value;
+    // let password = e.target.password.value;
+    // let phone = e.target.phone.value;
+    // let job = e.target.job.value;
+    // let livingPlace = e.target.livingPlace.value;
+    // let have = e.target.have.value;
+    // let availability = e.target.availability.value;
     
 
   //   axios.post(`${config.API_URL}/user/application`, {

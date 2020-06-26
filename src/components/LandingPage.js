@@ -25,19 +25,22 @@ export default class LandingPage extends Component {
             <div class="landing-2">
                 <div className="user-1">
 
+                   {/* <div className="box"> */}
                     <div className="content-wrapper-1">
                         <img src="/images/pup2.jpg" alt="cute puppy" />
+                        <p className="onep">Looking to <span>Adopt?</span></p>
                     </div>
+                    {/* </div> */}
                 </div>
                 <div className="user-2">
                     <h1>USER</h1>
-                    <button ><Link to={'/user/signup'}>User</Link></button>
+                    <button type="button" class="btn btn-light" ><Link to={'/user/signup'}>User</Link></button>
                 </div>
             </div>
             <div class="landing-3">
                 <div className="shelter-1">
                     <h1>SHELTER</h1>
-                    <button ><Link to={'/shelter/signup'}>Shelter</Link></button>
+                    <button type="button" class="btn btn-light" ><Link to={'/shelter/signup'}>Shelter</Link></button>
 
 
                 </div>
