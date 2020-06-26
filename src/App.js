@@ -17,7 +17,6 @@ import SignupShelter from './components/SignupShelter';
 import ApplicationUser from './components/users/ApplicationUser'
 
 import UserProfile from './components/users/Profileuser'
-import DonateUser from './components/users/DonateUser'
 import FavoriteUser from './components/users/FavoriteUser'
 import PetsUser from './components/users/PetsUser'
 
@@ -57,7 +56,7 @@ class App extends React.Component {
     })  
   }
   getAdopter(){
-    axios.get(`${config.API_URL}/shelteruser`, {withCredentials: true})
+    axios.get(`${config.API_URL}/adopter`, {withCredentials: true})
     .then((res) => {
       this.setState({
         loggednInAdopt: res.data,
@@ -154,8 +153,7 @@ class App extends React.Component {
     .then((res) => {
       console.log(res)
       this.setState({
-        loggedInUser: null,
-        loggednInAdopt: null
+        loggedInUser: null
       }, () => {
         this.props.history.push('/')
       })
@@ -216,9 +214,10 @@ class App extends React.Component {
     let email = e.target.email.value;
     let password = e.target.password.value;
     let phone = e.target.phone.value;
+    let location = e.target.location.value;
     let job = e.target.job.value;
     let livingPlace = e.target.livingPlace.value;
-    let have = e.target.have.value;
+    let otherowned = e.target.otherowned.value;
     let availability = e.target.availability.value;
     
 
@@ -227,9 +226,10 @@ class App extends React.Component {
       email: email,
       password: password,
       phone: phone,
+      location: location,
       job: job,
       livingPlace: livingPlace,
-      have: have, 
+      otherowned: otherowned, 
       availability: availability,
     }, { withCredentials: true})
     .then((res) => {
@@ -290,13 +290,13 @@ class App extends React.Component {
               />
             }}/>
             <Route exact path="/user/application" render={(routeProps) => {
-              return <ApplicationUser onSignUp={this.handleUserSignUp} {...routeProps} />
+              return <ApplicationUser onSignUpUser={this.handleUserSignUp} {...routeProps} />
             }}/>
             <Route exact path="/shelter/signup" render={(routeProps) => {
               return <SignupShelter onSignUp={this.handleShelterSignUp} {...routeProps} />
             }}/>
             <Route exact path="/user/signup" render={(routeProps) => {
-              return <SignupUser onSignUp={this.handleuserSignUp} {...routeProps} />
+              return <SignupUser  {...routeProps} />
             }}/>
 
             <Route exact path="/user/pets" render={(routeProps) => {
@@ -307,9 +307,6 @@ class App extends React.Component {
             }}/>
             <Route exact path="/user/favorite" render={(routeProps) => {
               return <FavoriteUser {...routeProps} />
-            }}/>
-            <Route exact path="/user/donate" render={(routeProps) => {
-              return <DonateUser {...routeProps} />
             }}/>
         </Switch>
       </> 

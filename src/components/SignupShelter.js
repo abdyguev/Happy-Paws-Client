@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-export default function SignupShelter(props) {
+export default function SignupShelter(props){
     return (
         <>
-        <div>
+        {/* <div>
         <h1>Sign In Shelter</h1>    
         <form onSubmit={props.onSignUp}> 
             <div className="form-group">
@@ -18,7 +18,7 @@ export default function SignupShelter(props) {
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        </div>
+        </div> */}
         
         <div>
         <h1>Sign up Shelter</h1>    
@@ -56,10 +56,11 @@ export default function SignupShelter(props) {
                 <label htmlFor="exampleUrl">Shelter Website</label>
                 <input name="url" type="text" className="form-control"  />
                 <small id="url" className="form-text text-muted"></small>
-                </div>
+            </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
         </div>
+
         </>
     )
 }
