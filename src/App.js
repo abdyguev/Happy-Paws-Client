@@ -26,7 +26,7 @@ class App extends React.Component {
   state = {
     animals: [],
     loggedInUser: null,
-    loggedInShelter: null, 
+    loggednInAdopt: null
   }
 
   getAnimals = () => {
@@ -47,7 +47,20 @@ class App extends React.Component {
     axios.get(`${config.API_URL}/user`, {withCredentials: true})
     .then((res) => {
       this.setState({
-        loggedInUser: res.data
+        loggedInUser: res.data,
+      })
+    })
+    .catch((err) => {
+      if(err.response.status === 401) {
+        this.props.history.push('/')
+      }
+    })  
+  }
+  getAdopter(){
+    axios.get(`${config.API_URL}/shelteruser`, {withCredentials: true})
+    .then((res) => {
+      this.setState({
+        loggednInAdopt: res.data,
       })
     })
     .catch((err) => {
@@ -61,6 +74,9 @@ class App extends React.Component {
     this.getAnimals();
     if (!this.state.loggedInUser) {
       this.getUser();
+    }
+    if (!this.state.loggednInAdopt) {
+      this.getAdopter();
     }
   }
 
@@ -138,7 +154,8 @@ class App extends React.Component {
     .then((res) => {
       console.log(res)
       this.setState({
-        loggedInUser: null
+        loggedInUser: null,
+        loggednInAdopt: null
       }, () => {
         this.props.history.push('/')
       })
@@ -156,7 +173,8 @@ class App extends React.Component {
     })
     .then((res) => {
       this.setState({
-        loggedInUser: res.data
+        loggedInUser: res.data,
+        // loggednInShelter: res.data
       }, () => {
         this.props.history.push('/shelter/animals')
       })
@@ -184,7 +202,7 @@ class App extends React.Component {
     }, { withCredentials: true})
     .then((res) => {
         this.setState({
-          loggedInUser: res.data
+          loggedInUser: res.data,
         }, () => {
           this.props.history.push('/shelter/animals')
         })
@@ -192,40 +210,41 @@ class App extends React.Component {
     
   }
   //USER SIGN UP 
-  // handleUserSignUp = (e) => {
-    // e.preventDefault()
-    // let fullName = e.target.fullName.value;
-    // let email = e.target.email.value;
-    // let password = e.target.password.value;
-    // let phone = e.target.phone.value;
-    // let job = e.target.job.value;
-    // let livingPlace = e.target.livingPlace.value;
-    // let have = e.target.have.value;
-    // let availability = e.target.availability.value;
+  handleUserSignUp = (e) => {
+    e.preventDefault()
+    let fullName = e.target.fullName.value;
+    let email = e.target.email.value;
+    let password = e.target.password.value;
+    let phone = e.target.phone.value;
+    let job = e.target.job.value;
+    let livingPlace = e.target.livingPlace.value;
+    let have = e.target.have.value;
+    let availability = e.target.availability.value;
     
 
-  //   axios.post(`${config.API_URL}/user/application`, {
-  //     fullName: fullName,
-  //     email: email,
-  //     password: password,
-  //     phone: phone,
-  //     job: job,
-  //     livingPlace: livingPlace,
-  //     have: have, 
-  //     availability: availability,
-  //   }, { withCredentials: true})
-  //   .then((res) => {
-  //       this.setState({
-  //         loggedInUser: res.data
-  //       }, () => {
-  //         this.props.history.push('/user/pets')
-  //       })
-  //   })
+    axios.post(`${config.API_URL}/user/application`, {
+      fullName: fullName,
+      email: email,
+      password: password,
+      phone: phone,
+      job: job,
+      livingPlace: livingPlace,
+      have: have, 
+      availability: availability,
+    }, { withCredentials: true})
+    .then((res) => {
+        this.setState({
+          loggednInAdopt: res.data
+        }, () => {
+          this.props.history.push('/user/pets')
+        })
+    })
     
-  // }
+  }
 
   render(){
-    const {loggedInUser} = this.state
+    const {loggedInUser} = this.state;
+    const {loggednInAdopt} = this.state;
     return (
       <>
               

@@ -4,7 +4,7 @@ import React from 'react';
 export default function SignupShelter(props) {
     return (
         <>
-            {/* <div>
+        <div>
         <h1>Sign In Shelter</h1>    
         <form onSubmit={props.onSignUp}> 
             <div className="form-group">
@@ -18,7 +18,7 @@ export default function SignupShelter(props) {
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        </div> */}
+        </div>
         
         <div>
         <h1>Sign up Shelter</h1>    
