@@ -25,8 +25,7 @@ class App extends React.Component {
 
   state = {
     animals: [],
-    loggedInUser: null,
-    loggedInShelter: null
+    loggedInUser: null
   }
 
   getAnimals = () => {
@@ -192,37 +191,37 @@ class App extends React.Component {
     
   }
   //USER SIGN UP 
-  handleUserSignUp = (e) => {
-    e.preventDefault()
-    let fullName = e.target.fullName.value;
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-    let phone = e.target.phone.value;
-    let job = e.target.job.value;
-    let livingPlace = e.target.livingPlace.value;
-    let have = e.target.have.value;
-    let availability = e.target.availability.value;
+  // handleUserSignUp = (e) => {
+  //   e.preventDefault()
+  //   let fullName = e.target.fullName.value;
+  //   let email = e.target.email.value;
+  //   let password = e.target.password.value;
+  //   let phone = e.target.phone.value;
+  //   let job = e.target.job.value;
+  //   let livingPlace = e.target.livingPlace.value;
+  //   let have = e.target.have.value;
+  //   let availability = e.target.availability.value;
     
 
-    axios.post(`${config.API_URL}/user/application`, {
-      fullName: fullName,
-      email: email,
-      password: password,
-      phone: phone,
-      job: job,
-      livingPlace: livingPlace,
-      have: have, 
-      availability: availability,
-    }, { withCredentials: true})
-    .then((res) => {
-        this.setState({
-          loggedInUser: res.data
-        }, () => {
-          this.props.history.push('/user/pets')
-        })
-    })
+  //   axios.post(`${config.API_URL}/user/application`, {
+  //     fullName: fullName,
+  //     email: email,
+  //     password: password,
+  //     phone: phone,
+  //     job: job,
+  //     livingPlace: livingPlace,
+  //     have: have, 
+  //     availability: availability,
+  //   }, { withCredentials: true})
+  //   .then((res) => {
+  //       this.setState({
+  //         loggedInUser: res.data
+  //       }, () => {
+  //         this.props.history.push('/user/pets')
+  //       })
+  //   })
     
-  }
+  // }
 
   render(){
     const {loggedInUser} = this.state
@@ -231,40 +230,41 @@ class App extends React.Component {
               
         
         <Switch>
-            <Route exact path="/shelter/profile"  render={() => {
-              return <ShelterProfile />
+            <Route exact path="/shelter/profile"  render={(routeProps) => {
+              return <ShelterProfile onLogout={this.handleLogout} loggedInUser={this.state.loggedInUser} {...routeProps}/>
             }}/>
             <Route exact path="/"  render={() => {
               return <LandingPage 
                 />
               }}/>
             <Route exact path="/shelter/animals"  render={(routeProps) => {
-              return <AnimalList 
+              return <AnimalList onLogout={this.handleLogout}
+              loggedInUser={this.state.loggedInUser}
                   animals={this.state.animals} 
                   {...routeProps} 
                 />
             }}/>
             <Route exact path="/shelter/applications"  render={(routeProps) => {
-              return <ShelterAplic  
+              return <ShelterAplic onLogout={this.handleLogout}
               loggedInUser={loggedInUser}
               {...routeProps}  />
             }}/>
             <Route path="/shelter/add-form" render={(routeProps) => {
-              return <AddAnimals 
+              return <AddAnimals onLogout={this.handleLogout}
                   loggedInUser={loggedInUser} 
                   onAdd={this.handleAddAnimals} 
                   {...routeProps} 
               />
             }}/>
            <Route exact path="/shelter/animal/:id" render={(routeProps) => {
-              return <AnimalDetail 
+              return <AnimalDetail onLogout={this.handleLogout}
                 loggedInUser={loggedInUser} 
                 afterDelete={this.handleDelete} 
                 {...routeProps} 
               />
             }}/>
             <Route path="/shelter/animal/:id/edit" render={(routeProps) => {
-              return <EditAnimals 
+              return <EditAnimals onLogout={this.handleLogout}
                 loggedInUser={loggedInUser} 
                 {...routeProps} 
               />

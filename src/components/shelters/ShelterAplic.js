@@ -5,7 +5,8 @@ import Nav from './Nav'
 export default function ShelterProfile(props){
     return (
 <>
-<Nav />
+<Nav onLogout={props.onLogout}
+                loggedInUser={props.loggedInUser}/>
 Application page
 {/* <button ><Link to={'/application/:id'}>Details</Link></button> */}
 </>
