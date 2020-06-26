@@ -25,7 +25,8 @@ class App extends React.Component {
 
   state = {
     animals: [],
-    loggedInUser: null
+    loggedInUser: null,
+    loggedInShelter: null
   }
 
   getAnimals = () => {
@@ -164,19 +165,19 @@ class App extends React.Component {
 
   handleShelterSignUp = (e) => {
     e.preventDefault()
-    let full_name = e.target.full_name.value;
+    let shelter_name = e.target.shelter_name.value;
     let email = e.target.email.value;
     let password = e.target.password.value;
-    let shelter_name = e.target.shelter_name.value;
+    let phone = e.target.phone.value;
     let location = e.target.location.value;
     let description = e.target.description.value;
     let url = e.target.url.value;
 
     axios.post(`${config.API_URL}/shelter/signup`, {
-      full_name: full_name,
+      shelter_name: shelter_name,
       email: email,
       password: password,
-      shelter_name: shelter_name,
+      phone: phone,
       location: location,
       description: description,
       url: url
@@ -191,37 +192,37 @@ class App extends React.Component {
     
   }
   //USER SIGN UP 
-  // handleUserSignUp = (e) => {
-  //   e.preventDefault()
-  //   let fullName = e.target.fullName.value;
-  //   let email = e.target.email.value;
-  //   let password = e.target.password.value;
-  //   let phone = e.target.phone.value;
-  //   let job = e.target.job.value;
-  //   let livingPlace = e.target.livingPlace.value;
-  //   let have = e.target.have.value;
-  //   let availability = e.target.availability.value;
+  handleUserSignUp = (e) => {
+    e.preventDefault()
+    let fullName = e.target.fullName.value;
+    let email = e.target.email.value;
+    let password = e.target.password.value;
+    let phone = e.target.phone.value;
+    let job = e.target.job.value;
+    let livingPlace = e.target.livingPlace.value;
+    let have = e.target.have.value;
+    let availability = e.target.availability.value;
     
 
-  //   axios.post(`${config.API_URL}/user/application`, {
-  //     fullName: fullName,
-  //     email: email,
-  //     password: password,
-  //     phone: phone,
-  //     job: job,
-  //     livingPlace: livingPlace,
-  //     have: have, 
-  //     availability: availability,
-  //   }, { withCredentials: true})
-  //   .then((res) => {
-  //       this.setState({
-  //         loggedInUser: res.data
-  //       }, () => {
-  //         this.props.history.push('/user/pets')
-  //       })
-  //   })
+    axios.post(`${config.API_URL}/user/application`, {
+      fullName: fullName,
+      email: email,
+      password: password,
+      phone: phone,
+      job: job,
+      livingPlace: livingPlace,
+      have: have, 
+      availability: availability,
+    }, { withCredentials: true})
+    .then((res) => {
+        this.setState({
+          loggedInUser: res.data
+        }, () => {
+          this.props.history.push('/user/pets')
+        })
+    })
     
-  // }
+  }
 
   render(){
     const {loggedInUser} = this.state

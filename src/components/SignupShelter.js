@@ -24,9 +24,9 @@ export default function SignupShelter(props){
         <h1>Sign up Shelter</h1>    
         <form onSubmit={props.onSignUp} >
             <div className="form-group">
-                <label htmlFor="exampleFullName">Full Name</label>
-                <input type="text" className="form-control" id="exampleInputEmail1" name="full_name" />
-                <small id="full_name" className="form-text text-muted"></small>
+                <label htmlFor="exampleShelterName">Shelter name</label>
+                <input type="text" className="form-control" id="exampleShelterName" name="shelter_name"  />
+                <small id="shelter_name" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Email</label>
@@ -37,9 +37,9 @@ export default function SignupShelter(props){
                 <input name="password" type="password" className="form-control" id="password" />
             </div>
             <div className="form-group">
-                <label htmlFor="exampleShelterName">Phone</label>
-                <input type="text" className="form-control" id="exampleShelterName" name="shelter_name"  />
-                <small id="shelter_name" className="form-text text-muted"></small>
+                <label htmlFor="examplePhone">Phone</label>
+                <input type="text" className="form-control" id="examplePhone" name="phone"  />
+                <small id="phone" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Location</label>
