@@ -165,17 +165,19 @@ class App extends React.Component {
 
   handleShelterSignUp = (e) => {
     e.preventDefault()
+    let shelter_name = e.target.shelter_name.value;
     let email = e.target.email.value;
     let password = e.target.password.value;
-    let shelter_name = e.target.shelter_name.value;
+    let phone = e.target.phone.value;
     let location = e.target.location.value;
     let description = e.target.description.value;
     let url = e.target.url.value;
 
     axios.post(`${config.API_URL}/shelter/signup`, {
+      shelter_name: shelter_name,
       email: email,
       password: password,
-      shelter_name: shelter_name,
+      phone: phone,
       location: location,
       description: description,
       url: url
@@ -229,40 +231,41 @@ class App extends React.Component {
               
         
         <Switch>
-            <Route exact path="/shelter/profile"  render={() => {
-              return <ShelterProfile />
+            <Route exact path="/shelter/profile"  render={(routeProps) => {
+              return <ShelterProfile onLogout={this.handleLogout} loggedInUser={this.state.loggedInUser} {...routeProps}/>
             }}/>
             <Route exact path="/"  render={() => {
               return <LandingPage 
                 />
               }}/>
             <Route exact path="/shelter/animals"  render={(routeProps) => {
-              return <AnimalList 
+              return <AnimalList onLogout={this.handleLogout}
+              loggedInUser={this.state.loggedInUser}
                   animals={this.state.animals} 
                   {...routeProps} 
                 />
             }}/>
             <Route exact path="/shelter/applications"  render={(routeProps) => {
-              return <ShelterAplic  
+              return <ShelterAplic onLogout={this.handleLogout}
               loggedInUser={loggedInUser}
               {...routeProps}  />
             }}/>
             <Route path="/shelter/add-form" render={(routeProps) => {
-              return <AddAnimals 
+              return <AddAnimals onLogout={this.handleLogout}
                   loggedInUser={loggedInUser} 
                   onAdd={this.handleAddAnimals} 
                   {...routeProps} 
               />
             }}/>
            <Route exact path="/shelter/animal/:id" render={(routeProps) => {
-              return <AnimalDetail 
+              return <AnimalDetail onLogout={this.handleLogout}
                 loggedInUser={loggedInUser} 
                 afterDelete={this.handleDelete} 
                 {...routeProps} 
               />
             }}/>
             <Route path="/shelter/animal/:id/edit" render={(routeProps) => {
-              return <EditAnimals 
+              return <EditAnimals onLogout={this.handleLogout}
                 loggedInUser={loggedInUser} 
                 {...routeProps} 
               />

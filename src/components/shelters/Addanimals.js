@@ -4,9 +4,9 @@ import Nav from './Nav'
 
 export default function AddAnimals(props){
 
-    if (!props.loggedInUser) {
-        return <Redirect to='/' />
-    }
+    // if (!props.loggedInUser) {
+    //     return <Redirect to='/' />
+    // }
     return (
         <>
         <Nav />
