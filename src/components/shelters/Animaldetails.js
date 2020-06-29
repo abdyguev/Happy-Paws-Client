@@ -59,7 +59,14 @@ export default class AnimalDetail extends React.Component{
         return (
             <>
                 <Nav />
-               <p>Name: {name}</p>
+                <div id="wrapper">
+    <div id="my-icon">
+      <img src="/images/pup2.jpg"></img>
+      </div>
+     <div id="my-info">
+       <h1>{name}</h1>
+       
+    
                <p>Looks like: {breed}</p>
                <p>Color: {color}</p>
                <p>Age: {age}</p>
@@ -74,10 +81,12 @@ export default class AnimalDetail extends React.Component{
                <p>Description: {description}</p>
                <p>Funfact: {funfact}</p>
                <p>Location: {location}</p>
-               <button type="submit" className="btn btn-info">
+               <button type="submit" className="btn btn-primary">
                    <Link to={`/shelter/animal/${id}/edit`}>Edit</Link>
                </button>
-               <button onClick={this.handleDeleteAnimal} type="submit" className="btn btn-primary">Delete</button>
+               <button onClick={this.handleDeleteAnimal} type="submit" className="btn btn-danger">Delete</button>
+             </div>
+             </div>
             </>
         )
     }
