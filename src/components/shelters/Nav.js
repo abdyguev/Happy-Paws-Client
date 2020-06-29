@@ -19,7 +19,7 @@ export default function Nav(props){
                 <Link className="nav-link active myContainer" to="/shelter/applications">Applications</Link>
             </li>
             <li className="nav-item">
-                            <button className="nav-link" onClick={props.onLogout}>Logout</button>
+                            <Link className="nav-link" onClick={props.onLogout}>Logout</Link>
             </li>
             {/* {
                 props.loggedInUser ? (

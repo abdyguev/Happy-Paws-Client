@@ -47,7 +47,7 @@ export default class LandingPage extends Component {
                 <div className="shelter-2">
 
                     <div className="content-wrapper-2">
-                        <img src="/images/pups.jpg" alt="cute puppy" />
+                        <img src="/images/pups2.jpg" alt="cute puppy" />
                     </div>
                 </div>
 

@@ -5,21 +5,18 @@
 
 body {
   font-family: 'Rufina', serif;
-  background-color: #fffcf8;
+  background-color: #ded2c2;
   max-width: 100%;
 }
 
 /* landing page */
 
 .content-wrapper {
-  width: 90%;
+  width: 100%;
   display: block;
-  margin-left: 10%; 
-  margin-right: 3%;
-  padding-top: ; 
 }
 .content-wrapper img{
-  width: 95%;
+  width: 100%;
   display: block;
 }
 
@@ -35,7 +32,7 @@ h1 {
 }
 
 a {
-  color: black
+  color: #272727
 }
 
 .heading{
@@ -49,7 +46,7 @@ a {
 .landing {
   height: 93vh;
   display: grid;
-  background-color: #fffcf8
+  background-color: #c2c9c9
 }
 
 .landing-2 {
@@ -64,7 +61,7 @@ a {
   margin-top: -50%;
   font-size: 1.7rem;
   font-style: bold;
-  color: black;
+  color: #272727;
 }
 
 
@@ -108,7 +105,7 @@ a {
 
 .landing-3 {
   height: 75vh;
-  background-color: rgba(255, 179, 79, 0.685);
+  background-color: #ded2c2;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -119,60 +116,299 @@ a {
   padding-top: 30%;
 }
 .nav {
-  background-color: transparent;
+  background-color: whitesmoke;
   padding: 1vh;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Cards CSS *//
-
-.cards-wrapper {
-  position: relative;
-  height: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-wrapper {
-  display: block;
-  float: left;
-  position: relative;
-  margin: 0;
-  width: 28%;
-  height: 0;
-  padding: 0 0 28%;
-  perspective: 700px;
-}
-
-.card-object {
-  size: 88%;
-  color: #FFF;
-  display: block;
-  float: left;
-  position: absolute;
-  top: (100% - @size)/2;
-  left: (100% - @size)/2;
-  width: @size;
-  height: @size;
-  transform-style: preserve-3d;
-}
   
-.front {
-  background: #222 url(https://www.dropbox.com/s/8cc22nblu4y4vzi/jenny.jpeg?raw=1) 90% 35%;
-  background-size: 115%; 
 }
-    
-    
+
+/* SIGN UP SHELTER  */
+
+.signup-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: whitesmoke;
+}
+
+.signup {
+  text-align: center;
+
+
+}
+
+.form-group {
+  justify-content: center
+}
+
+.login {
+  text-align: center;
+  justify-content: center
+}
+
+.login h1 {
+  color: #ded2c2;
+}
+
+.login-form{
+ max-width: 50%;
+ margin-left: auto;
+ background-color: #ebb28e;
+ position: absolute;
+ top: 50%;
+ left: 28%;
+ -ms-transform: translateY(-50%);
+ transform: translateY(-50%);
+  
+}
+
+.form-group {
+  color: #272727
+}
+
+.form-control{
+  justify-content: center;
+  min-width: 80%;
+  
+}
+.signup h1 {
+  color: #ebb28e;
+  font-size: 4rem;
+  margin: 1rem 2rem;
+
+}
+
+.signup-form {
+  max-width: 50%;
+  background-color: #ded2c2;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow-y: auto;
+
+
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  background-color: whitesmoke
+}
+
+
+/* SIGNUP USER */
+.signup-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: whitesmoke;
+}
+
+.signup-user {
+  text-align: center;
+}
+
+
+.form-group {
+  justify-content: center
+}
+
+.login-user {
+  text-align: center;
+  justify-content: center
+}
+
+.login-user h1 {
+  color: #ded2c2;
+}
+.login-user p {
+  margin: .5rem 1rem;
+  color: #272727
+}
+
+.login-form-user {
+ max-width: 50%;
+ margin-left: auto;
+ background-color: #ebb28e;
+ position: absolute;
+ top: 50%;
+ left: 28%;
+ -ms-transform: translateY(-50%);
+ transform: translateY(-50%);
+  
+}
+
+.form-group {
+  color: #272727
+}
+
+.form-control{
+  width: 60%;
+  
+}
+.signup-user h1 {
+  color: #ebb28e;
+  font-size: 4rem;
+  margin: 1rem 2rem;
+
+}
+
+.signup-form-user {
+  max-width: 50%;
+  background-color: #ded2c2;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+ 
+
+
+}
+
+
+
+
+
+
+/* ANIMAL DETAIL CARDS *//
+
+
+
+.box {
+  width: 800px;  
+  margin: 10% auto;
+  position: relative;
+  
+}
+
+#card-container {
+  position: relative;
+  margin: 3.5%;
+  width: 20rem;
+  height: 20rem;
+  z-index: 1;
+  float: left;
+  perspective: 1000px;
+}
+
+#card, #card2, #card3 {
+  width: 100%;
+  height: 100%;
+  margin: 10%;
+  transform-style: preserve-3d;
+  transition: all .8s linear;
+  box-shadow: 5px 5px 15px rgba(0,0,0, .3);
+}
+
+#card:hover {
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 15px rgba(0,0,0, .3);
+  }
+
+
+.face {
+  text-align: center;
+  padding-top: 6rem;
+  padding-bottom: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #d08a55
+  
+}
+
+.face h1 {
+  font-size: 3rem;
+  color: #ded2c2;
+}
+.face h2 {
+  font-size: 1rem;
+  margin-top: -4rem;
+  color: #272727;
+}
+
+.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  opacity: 100;
+  background: #ebb28e;
+}
+
+
+
+  
+ /*BUTTON TO ANIMAL DETAIL */ 
+.btn-2 {
+  letter-spacing: 0;
+}
+
+.btn-2:hover,
+.btn-2:active {
+letter-spacing: 5px;
+}
+
+.btn-2:after,
+.btn-2:before {
+backface-visibility: hidden;
+border: 1px solid tan;
+bottom: 0px;
+content: " ";
+display: block;
+margin: 0 auto;
+position: relative;
+transition: all 280ms ease-in-out;
+width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+backface-visibility: hidden;
+border-color: tan;
+transition: width 350ms ease-in-out;
+width: 70%;
+}
+
+.btn-2:hover:before {
+bottom: auto;
+top: 0;
+width: 70%;
+}    
+
+/* ANIMAL DETAILS */
+#wrapper { 
+  width: 700px;
+  margin: 2rem auto; 
+  overflow: auto;
+  background-color: #ebb28e;
+  border-radius: 1px;
+  box-shadow: 5px 5px 20px;
+}
+
+
+#my-icon{
+  margin: 50px;
+  position: relative;
+  float: left; 
+}
+
+#my-icon img{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px; 
+}
+
+#my-info{
+  margin: 50px; 
+  font-family: Sans-Serif; 
+  color: white; 
+  line-height: 150%; 
+}
+
+#my-info h1{
+  text-transform: uppercase; 
+  text-align: center; 
+}

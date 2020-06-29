@@ -7,7 +7,7 @@ import Nav from './Nav'
 export default class EditAnimals extends React.Component {
 
     state = {
-        animal: ''
+        animal: []
     }
 
     componentDidMount(){
@@ -41,7 +41,10 @@ export default class EditAnimals extends React.Component {
             location: this.state.animal.location
         }, {withCredentials: true})
             .then((res) => {
-               //redirect to App.js
+                this.setState({
+                  }, () => {
+                    this.props.history.push('/shelter/animals')
+                  })
             })
     }
 
