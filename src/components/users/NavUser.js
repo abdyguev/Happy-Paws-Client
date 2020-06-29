@@ -22,7 +22,7 @@ export default function NavUser(props){
                 <Link className="nav-link active myContainer" to="/user/donate">Donate</Link>
             </li>
             <li className="nav-item">
-                            <button className="nav-link" onClick={props.onLogout}>Logout</button>
+                            <Link className="nav-link" onClick={props.onLogout}>Logout</Link>
             </li>
             {/* {
                 props.loggedInUser ? (

@@ -96,16 +96,21 @@ class App extends React.Component {
       let good_with = e.target.good_with.value;
       let bad_with = e.target.bad_with.value;
       let needs_time = e.target.needs_time.value;
-      // let image = e.target.image.value
+      let image = e.target.image.files[0]
 
-      // let myImage = e.target.image.files[0]
-      // let uploadData = new FormData();
-      // uploadData.append('imageUrl', myImage)
+     
+      let uploadData = new FormData();
+      uploadData.append('imageUrl', image)
+
+      axios.post(`${config.API_URL}/upload`, uploadData)
+         .then((res) => {
+           console.log(res)
+         })
 
       axios.post(`${config.API_URL}/create`, {
         name: name,
         description: description,
-        // image: uploadData,
+        image: uploadData,
         breed: breed, 
         color: color, 
         age: age, 
