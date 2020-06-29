@@ -9,9 +9,9 @@ export default function NavUser(props){
             <li className="nav-item">
                 <Link className="nav-link" to="/">Home</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link className="nav-link" to="/user/profile">Profile</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
                 <Link className="nav-link active myContainer" to="/user/pets">Pets</Link>
             </li>
@@ -19,7 +19,7 @@ export default function NavUser(props){
                 <Link className="nav-link active myContainer" to="/user/favorite">Favorites</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link active myContainer" to="/user/donate">Donate</Link>
+                <Link className="nav-link active myContainer" to="/donate">Donate</Link>
             </li>
             <li className="nav-item">
                             <Link className="nav-link" onClick={props.onLogout}>Logout</Link>

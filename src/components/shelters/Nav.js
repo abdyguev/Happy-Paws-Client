@@ -9,17 +9,17 @@ export default function Nav(props){
             <li className="nav-item">
                 <Link className="nav-link" to="/">Home</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link className="nav-link" to="/shelter/profile">Profile</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
                 <Link className="nav-link active myContainer" to="/shelter/animals">Animals</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link className="nav-link active myContainer" to="/shelter/applications">Applications</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
-                            <Link className="nav-link" onClick={props.onLogout}>Logout</Link>
+                            <button className="nav-link" onClick={props.onLogout}>Logout</button>
             </li>
             {/* {
                 props.loggedInUser ? (

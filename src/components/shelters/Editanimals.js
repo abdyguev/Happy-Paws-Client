@@ -180,9 +180,9 @@ export default class EditAnimals extends React.Component {
     }
 
     render(){
-        // if (!this.props.loggedInUser) {
-        //     return <Redirect to='/' />
-        // }
+        if (!this.props.loggedInUser) {
+            return <Redirect to='/shelter/signup' />
+        }
         if (!this.state.animal){
             return(
                 <div className="text-center">
@@ -195,7 +195,8 @@ export default class EditAnimals extends React.Component {
         const {name, description, breed, color, age, height, weight, hair_length, available_housing, good_with, bad_with, needs_time, funfact, location} = this.state.animal
         return (
             <>
-            <Nav />
+            <Nav onLogout={this.props.onLogout}
+                loggedInUser={this.props.loggedInUser}/>
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>

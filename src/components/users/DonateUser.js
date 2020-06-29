@@ -1,10 +1,10 @@
 import React from 'react';
-import NavUser from './NavUser' 
+import HomeNav from '../HomeNav'
 
 export default function DonateUser(props){
     return (
 <>
-<NavUser />
+<HomeNav />
 User donate page
 </>
     )

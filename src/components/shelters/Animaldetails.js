@@ -42,9 +42,9 @@ export default class AnimalDetail extends React.Component{
     }
 
     render(){
-        // if (!this.props.loggedInUser) {
-        //     return <Redirect to='/' />
-        // }
+        if (!this.props.loggedInUser) {
+            return <Redirect to='/shelter/signup' />
+        }
         if (!this.state.animal){
             return(
                 <div className="text-center">
@@ -58,10 +58,11 @@ export default class AnimalDetail extends React.Component{
         let id = this.props.match.params.id
         return (
             <>
-                <Nav />
+               <Nav onLogout={this.props.onLogout}
+                loggedInUser={this.props.loggedInUser}/>
                 <div id="wrapper">
     <div id="my-icon">
-      <img src="/images/pup2.jpg"></img>
+      {/* <img src="/images/pup2.jpg"></img> */}
       </div>
      <div id="my-info">
        <h1>{name}</h1>

@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Nav from './Nav'
+import Nav from './Nav';
+import { Redirect } from 'react-router-dom';
 
 
 export default function AnimalsList(props) {
 
 
+    // if (!props.loggedInUser) {
+    //     return <Redirect to='/shelter/signup' />
+    // }
     return (
         <>
-            <Nav />
+            <Nav onLogout={props.onLogout}
+                loggedInUser={props.loggedInUser}/>
             <div className="heading">
                 <h1 style={{marginTop:"2rem", marginBottom:"1rem", color:"#272727"}}>Available Pets </h1>
 
@@ -24,7 +29,7 @@ export default function AnimalsList(props) {
                                 <div id="card">
                                     <div class="front face">
                                         
-                                        <h1>{animal.name}</h1><br></br><h1></h1><br></br><h2>{animal.breed}</h2>
+                                        <h1>{animal.name}</h1><br></br><h1>{animal.breed}</h1><br></br><h2>{animal.description}</h2>
                                     </div>
                                     <div class="back face">
                                         

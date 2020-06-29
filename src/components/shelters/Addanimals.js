@@ -4,12 +4,13 @@ import Nav from './Nav'
 
 export default function AddAnimals(props){
 
-    // if (!props.loggedInUser) {
-    //     return <Redirect to='/' />
-    // }
+    if (!props.loggedInUser) {
+        return <Redirect to='/shelter/signup' />
+    }
     return (
         <>
-        <Nav />
+        <Nav onLogout={props.onLogout}
+                loggedInUser={props.loggedInUser}/>
             <form onSubmit={props.onAdd}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>

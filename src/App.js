@@ -10,15 +10,17 @@ import AnimalDetail from './components/shelters/Animaldetails'
 import EditAnimals from './components/shelters/Editanimals'
 import SignupUser from './components/SignupUser';
 import config from './config';
-import EditProfile from './components/shelters/EditProfilesh'
+// import EditProfile from './components/shelters/EditProfilesh'
 import ShelterAplic from './components/shelters/ShelterAplic'
 import LandingPage from './components/LandingPage'
+
 import SignupShelter from './components/SignupShelter';
 import ApplicationUser from './components/users/ApplicationUser'
 
 import UserProfile from './components/users/Profileuser'
 import FavoriteUser from './components/users/FavoriteUser'
 import PetsUser from './components/users/PetsUser'
+import DonateUser from './components/users/DonateUser'
 
 class App extends React.Component {
 
@@ -256,6 +258,19 @@ class App extends React.Component {
     
   }
 
+  handleLogoutUser = () => {
+    console.log(document.cookie)
+    axios.post(`${config.API_URL}/user/logout`, {}, { withCredentials: true})
+    .then((res) => {
+      console.log(res)
+      this.setState({
+        loggednInAdopt: null
+      }, () => {
+        this.props.history.push('/')
+      })
+    })
+  }
+
   render(){
     const {loggedInUser} = this.state;
     const {loggednInAdopt} = this.state;
@@ -264,17 +279,19 @@ class App extends React.Component {
               
         
         <Switch>
-            <Route exact path="/shelter/profile"  render={(routeProps) => {
+            {/* <Route exact path="/shelter/profile"  render={(routeProps) => {
               return <EditProfile onLogout={this.handleLogout} 
               loggedInUser={this.state.loggedInUser} {...routeProps}/>
-            }}/>
-            <Route exact path="/"  render={() => {
-              return <LandingPage 
+            }}/> */}
+            <Route exact path="/"  render={(routeProps) => {
+              return <LandingPage loggedInUser={this.state.loggedInUser} 
+              loggednInAdopt={loggednInAdopt}
+              {...routeProps} 
                 />
               }}/>
             <Route exact path="/shelter/animals"  render={(routeProps) => {
               return <AnimalList onLogout={this.handleLogout}
-              loggedInUser={this.state.loggedInUser}
+              loggedInUser={loggedInUser}
                   animals={this.state.animals} 
                   {...routeProps} 
                 />
@@ -306,23 +323,32 @@ class App extends React.Component {
               />
             }}/>
             <Route exact path="/user/application" render={(routeProps) => {
-              return <ApplicationUser onSignUpUser={this.handleUserSignUp} {...routeProps} />
+              return <ApplicationUser onSignUpUser={this.handleUserSignUp} 
+               {...routeProps} />
             }}/>
             <Route exact path="/shelter/signup" render={(routeProps) => {
-              return <SignupShelter onSignUp={this.handleShelterSignUp} {...routeProps} />
+              return <SignupShelter onSignUp={this.handleShelterSignUp} 
+              {...routeProps} />
             }}/>
             <Route exact path="/user/signup" render={(routeProps) => {
               return <SignupUser  {...routeProps} />
             }}/>
 
             <Route exact path="/user/pets" render={(routeProps) => {
-              return <PetsUser {...routeProps} />
+              return <PetsUser animals={this.state.animals}
+              loggednInAdopt={loggednInAdopt} 
+              onLogout={this.handleLogoutUser} {...routeProps} />
             }}/>
             <Route exact path="/user/profile" render={(routeProps) => {
-              return <UserProfile {...routeProps} />
+              return <UserProfile loggednInAdopt={loggednInAdopt} 
+              onLogout={this.handleLogoutUser} {...routeProps} />
             }}/>
             <Route exact path="/user/favorite" render={(routeProps) => {
-              return <FavoriteUser {...routeProps} />
+              return <FavoriteUser loggednInAdopt={loggednInAdopt} 
+              onLogout={this.handleLogoutUser} {...routeProps} />
+            }}/>
+            <Route exact path="/donate" render={() => {
+              return <DonateUser />
             }}/>
         </Switch>
       </> 
