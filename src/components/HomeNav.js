@@ -10,10 +10,10 @@ export default function HomeNav(props){
                 <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/shelter/profile">Shelter</Link>
+                <Link className="nav-link" to="/shelter/animals">Shelter</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/user/profile">User</Link>
+                <Link className="nav-link" to="/user/pets">User</Link>
             </li>
             {
                 props.loggedInUser ? (

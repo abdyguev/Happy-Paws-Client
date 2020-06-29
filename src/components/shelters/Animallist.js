@@ -53,6 +53,9 @@ export default function AnimalsList(props) {
                             }
                         </div>
                         <div class="back face">
+            <ul class="list-group" >
+                <div className="cards-wrapper">
+                    <div className="card-wrapper">
                             {
                                 props.animals.map((animal, i) => {
                                     return <Link key={i} to={`/shelter/animal/${animal._id}`}>{animal.name}<br></br>{animal.breed}<br></br>{animal.description}</Link>

@@ -10,7 +10,7 @@ import AnimalDetail from './components/shelters/Animaldetails'
 import EditAnimals from './components/shelters/Editanimals'
 import SignupUser from './components/SignupUser';
 import config from './config';
-import ShelterProfile from './components/shelters/ShelterProfile'
+import EditProfile from './components/shelters/EditProfilesh'
 import ShelterAplic from './components/shelters/ShelterAplic'
 import LandingPage from './components/LandingPage'
 import SignupShelter from './components/SignupShelter';
@@ -146,6 +146,15 @@ class App extends React.Component {
       })
       console.log(this.state.animals)
   }
+  
+  handleEdit = () => {
+
+      this.setState({
+        animals: [...this.state.animals]
+      }, () => {
+        this.props.history.push('/shelter/animals')
+      })
+}
 
   handleLogout = () => {
     console.log(document.cookie)
@@ -251,7 +260,8 @@ class App extends React.Component {
         
         <Switch>
             <Route exact path="/shelter/profile"  render={(routeProps) => {
-              return <ShelterProfile onLogout={this.handleLogout} loggedInUser={this.state.loggedInUser} {...routeProps}/>
+              return <EditProfile onLogout={this.handleLogout} 
+              loggedInUser={this.state.loggedInUser} {...routeProps}/>
             }}/>
             <Route exact path="/"  render={() => {
               return <LandingPage 
@@ -286,6 +296,7 @@ class App extends React.Component {
             <Route path="/shelter/animal/:id/edit" render={(routeProps) => {
               return <EditAnimals onLogout={this.handleLogout}
                 loggedInUser={loggedInUser} 
+                afterEdit={this.handleEdit}
                 {...routeProps} 
               />
             }}/>
