@@ -20,7 +20,7 @@ export default function AnimalsList(props) {
                 <button className="btn btn-light">   <Link className="nav-link" to="/shelter/add-form">Add Puppy</Link></button>
             </div>
             <div>
-                {/* <ul class="list-group" > */}
+                
                 {
                     props.animals.map((animal, i) => {
                         return <div className="list-pets">
@@ -43,7 +43,7 @@ export default function AnimalsList(props) {
                         </div>
                     })
                 }
-                {/* </ul> */}
+            
             </div>
 
 
