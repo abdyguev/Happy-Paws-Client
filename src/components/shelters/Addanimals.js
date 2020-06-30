@@ -2,11 +2,13 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Nav from './Nav'
 export default function AddAnimals(props) {
-    // if (!props.loggedInUser) {
-    //     return <Redirect to='/shelter/signup' />
-    // }
+    
+    if (!props.loggedInUser) {
+        return <Redirect to='/shelter/signup' />
+    }
     return (
         <>
+        
         <Nav onLogout={props.onLogout}
                 loggedInUser={props.loggedInUser}/>
             <form onSubmit={props.onAdd}>

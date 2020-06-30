@@ -7,9 +7,9 @@ import { Redirect } from 'react-router-dom';
 export default function AnimalsList(props) {
 
 
-    // if (!props.loggedInUser) {
-    //     return <Redirect to='/shelter/signup' />
-    // }
+    if (!props.loggedInUser) {
+        return <Redirect to='/shelter/signup' />
+    }
     return (
         <>
             <Nav onLogout={props.onLogout}

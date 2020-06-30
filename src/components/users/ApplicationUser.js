@@ -1,11 +1,17 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 
 export default function ApplicationUser(props) {
+
+    if (!props.loggedInAdopt) {
+        return <Redirect to='/user/signup' />
+    }
     return (
+
         <>
             <h1>Sign Up User</h1>
-                  <form onSubmit={props.onSignUpUser} >
+            <form onSubmit={props.onSignUpUser} >
                 <div className="form-group">
                     <label htmlFor="exampleFullName">Full Name</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" name="fullName" />

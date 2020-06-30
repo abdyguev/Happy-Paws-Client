@@ -194,6 +194,7 @@ export default class EditAnimals extends React.Component {
         }
         const {name, description, breed, color, age, height, weight, hair_length, available_housing, good_with, bad_with, needs_time, funfact, location} = this.state.animal
         return (
+            
             <>
             <Nav onLogout={this.props.onLogout}
                 loggedInUser={this.props.loggedInUser}/>
