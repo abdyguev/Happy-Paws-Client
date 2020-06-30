@@ -1,11 +1,18 @@
 
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-export default function NavUser(props){
+export default function NavUser(props) {
     return (
-        <ul className="nav ">
+        <nav className="navbar navbar-expand-sm" style={{maxWidth:"100%"}}>
+            <button style={{backgroundColor: "transparent", border: "white", maxHeight:"5rem"}} class="nav-brand" >
+                <img width= "90px" height= "auto"
+                    src="/images/Happypaws.png"
+                    alt="sailr"></img>
+            </button>
+            <ul className="navbar-nav ml-auto">
+            
             <li className="nav-item">
                 <Link className="nav-link" to="/">Home</Link>
             </li>
@@ -22,7 +29,7 @@ export default function NavUser(props){
                 <Link className="nav-link active myContainer" to="/user/donate">Donate</Link>
             </li>
             <li className="nav-item">
-                            <Link className="nav-link" onClick={props.onLogout}>Logout</Link>
+                <Link className="nav-link" onClick={props.onLogout}>Logout</Link>
             </li>
             {/* {
                 props.loggedInUser ? (
@@ -41,5 +48,6 @@ export default function NavUser(props){
                 )
             } */}
         </ul>
+        </nav>
     )
 }

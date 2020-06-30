@@ -1,6 +1,5 @@
 * {
-  font-family: 'Rufina', serif;
-  font-family: 'Sintony', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -11,11 +10,12 @@ body {
 
 /* landing page */
 
+
 .content-wrapper {
   width: 100%;
   display: block;
 }
-.content-wrapper img{
+.content-wrapper video{
   width: 100%;
   display: block;
 }
@@ -44,14 +44,15 @@ a {
 }
 
 .landing {
-  height: 93vh;
+  height: 116vh;
   display: grid;
-  background-color: #c2c9c9
+  
 }
+
 
 .landing-2 {
   height: 75vh;
-  background-color: white;
+  background-color: whitesmoke;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -71,7 +72,7 @@ a {
 .user-2 {
   background-color: white;
   text-align: center;
-  padding-top: 30%;
+  padding-top: 20%;
 }
 
 .content-wrapper-1 img{
@@ -80,7 +81,7 @@ a {
   margin-left: auto;  
   margin-right: 15%; 
   margin-top: 10%;
-  box-shadow: -3.5rem -28px tan
+  box-shadow: -3.5rem -28px #ded2c2
   
 }
 
@@ -90,6 +91,7 @@ a {
   margin-left: auto;  
   margin-right: auto; 
   margin-top: 15%;
+  box-shadow: 3.5rem 28px whitesmoke
   
   
 }
@@ -105,19 +107,40 @@ a {
 
 .landing-3 {
   height: 75vh;
-  background-color: #ded2c2;
+  background-color: #ebb48e;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
+.landing-4 {
+  height: 75vh;
+  background-image: url("/images/donate.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  
+}
+.landing-4 h1{
+  text-align: center;
+  padding-top: 14rem;
+  font-size: 3rem;
+
+}
 .shelter-1 {
   
   text-align: center;
   padding-top: 30%;
 }
 .nav {
-  background-color: whitesmoke;
+  background-color: #ded2c2;
   padding: 1vh;
+  
+}
+.navbar {
+  font-size: 1.3rem;
+  padding-right: 2rem;
+  padding-left: 2.5rem;
+  
   
 }
 
@@ -145,7 +168,7 @@ a {
 }
 
 .login h1 {
-  color: #ded2c2;
+  color: #e7daca;
 }
 
 .login-form{
@@ -178,7 +201,7 @@ a {
 
 .signup-form {
   max-width: 50%;
-  background-color: #ded2c2;
+  background-color: #e7daca;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -218,7 +241,7 @@ input {
 }
 
 .login-user h1 {
-  color: #ded2c2;
+  color: #e7daca;
 }
 .login-user p {
   margin: .5rem 1rem;
@@ -254,7 +277,7 @@ input {
 
 .signup-form-user {
   max-width: 50%;
-  background-color: #ded2c2;
+  background-color: #e7daca;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -267,6 +290,17 @@ input {
 
 
 
+
+/* ADD ANIMAL PAGE */
+
+.form-group-add {
+  text-align: center;
+  
+}
+
+select {
+  max-width: 80%
+}
 
 
 
@@ -379,6 +413,14 @@ width: 70%;
 }    
 
 /* ANIMAL DETAILS */
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
 #wrapper { 
   width: 700px;
   margin: 2rem auto; 
@@ -390,7 +432,7 @@ width: 70%;
 
 
 #my-icon{
-  margin: 50px;
+  margin: 20% 5%;
   position: relative;
   float: left; 
 }
@@ -411,4 +453,5 @@ width: 70%;
 #my-info h1{
   text-transform: uppercase; 
   text-align: center; 
+  font-style: italic;
 }
