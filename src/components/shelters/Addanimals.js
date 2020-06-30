@@ -37,7 +37,7 @@ export default function AddAnimals(props) {
                     <input style={{ textAlign: "center" }} type="number" className="form-control" name="age" id="age" />
                 </div>
                 <div className="form-group-add">
-                    <label htmlFor="height">Heigh</label>
+                    <label htmlFor="height">Height</label>
                     <input style={{ textAlign: "center" }} type="number" className="form-control" name="height" id="height" />
                 </div>
                 <div className="form-group-add">
@@ -57,10 +57,10 @@ export default function AddAnimals(props) {
                     <label htmlFor="available_housing">Available for housing in</label><br></br>
                     <select className="custom-select my-1 mr-sm-2" name="available_housing" id="available_housing">
                         <option selected>Choose...</option>
-                        <option value="house with garden">house with garden</option>
-                        <option value="apartment with garden">apartment with garden</option>
-                        <option value="rented apartment">rented apartment</option>
-                        <option value="rented house">rented house</option>
+                        <option value="1">house with garden</option>
+                        <option value="2">apartment with garden</option>
+                        <option value="3">rented apartment</option>
+                        <option value="4">rented house</option>
                         <option value="5">owned apartment</option>
                         <option value="6">owned house</option>
                     </select>
@@ -80,11 +80,11 @@ export default function AddAnimals(props) {
                     <label htmlFor="bad_with">Bad with:</label><br></br>
                     <select className="custom-select my-1 mr-sm-2" name="bad_with" id="bad_with">
                         <option selected>Choose...</option>
-                        <option value="dogs">dogs</option>
-                        <option value="cats">cats</option>
-                        <option value="children">children</option>
-                        <option value="all">all</option>
-                        <option value="none">none</option>
+                        <option value="1">dogs</option>
+                        <option value="2">cats</option>
+                        <option value="3">children</option>
+                        <option value="4">all</option>
+                        <option value="5">none</option>
                     </select>
                 </div>
                 <div className="form-group-add">

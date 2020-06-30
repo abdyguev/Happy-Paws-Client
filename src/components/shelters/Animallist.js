@@ -29,7 +29,7 @@ export default function AnimalsList(props) {
                                 <div id="card">
                                     <div style={{backgroundImage:`url(${animal.image})`, backgroundSize: "cover", opacity: ".85"}} class="front face">
                                         
-                                        <h1>{animal.name}</h1><br></br><h1>{animal.breed}</h1><br></br><h2>{animal.description}</h2>
+                                        <h1>{animal.name}</h1><br></br><h2>{animal.description}</h2>
                                     </div>
                                     <div class="back face">
                                         
