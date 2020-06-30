@@ -1,20 +1,58 @@
 import React from 'react';
 import NavUser from './NavUser';
 import { Redirect } from 'react-router-dom';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import axios from 'axios';
+import config from '../../config';
 
+export default class PetsUser extends React.Component{
 
-export default function PetsUser(props){
-    if (!props.loggednInAdopt) {
-        return <Redirect to='/user/signup' />
+    state = {
+        pets: []
     }
+
+    componentDidMount() {
+        axios.get(`${config.API_URL}/user/pets`, { withCredentials: true })
+        .then((res) => {
+            this.setState({
+                pets: res.data
+            })
+        })
+        .catch((err) => {
+            if (err.response.status === 401) {
+                this.props.history.push('/user/signup')
+            }
+        })
+    }
+    handleAddPets = (e) => {
+        e.preventDefault()
+        axios.post(`${config.API_URL}/user/favorite/:itemId/add`, { withCredentials: true })
+            .then((res) => {
+              this.setState({
+                pets: [...this.state.pets, res.data]
+              }, () => {
+                this.props.history.push('/pets/favorite')
+              })
+            })
+            .catch((err) => {''
+              if(err.response.status === 401) {
+                this.props.history.push('/')
+              }
+            })
+    }
+
+    
+    render(){
+        if (!this.props.loggednInAdopt) {
+            return <Redirect to='/user/signup' />
+        }
     return (
 <>
-<NavUser onLogout={props.onLogout}
-loggednInAdopt={props.loggednInAdopt}/>
+<NavUser onLogout={this.props.onLogout}
+loggednInAdopt={this.props.loggednInAdopt}/>
 User pets pages
                 {
-                    props.animals.map((animal, i) => {
+                    this.state.pets.map((animal, i) => {
                         return <>   
                             <div class="card" style={{width: "18rem"}}>
                                 <img src="..." class="card-img-top" alt="..."/>
@@ -34,7 +72,7 @@ User pets pages
                                     <li class="list-group-item">Contact: </li>
                                 </ul>
                                 <div class="card-body">
-                                    <Link href="#" class="card-link" >Add</Link>
+                                    <Link type="button" class="card-link" onClick={this.state.handleAddPets}>Add</Link>
                                 </div>
                             </div>         
                         </>
@@ -42,4 +80,5 @@ User pets pages
                 }
 </>
     )
+            }
 }
