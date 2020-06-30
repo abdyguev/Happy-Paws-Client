@@ -10,22 +10,21 @@ export default class LandingPage extends Component {
 
                 <div className="content-wrapper">
                     <HomeNav />
-                    <img src="/images/pup.jpg" alt="cute puppy" />
-                    </div>
-                    <div className="text-wrapper">
-                        <h1>HAPPY PAWS</h1>
-                        <p>some text about how amazingthis app is</p> 
-                    </div>
-                    <div className="content-wrapper" id="icons">
-
+                    <video autoPlay loop muted>
+                        <source src="images/sundog.mp4" type="video/mp4"></source>
+                        
+                    </video>
+                    
                     
                 </div>
-
+                
+                
+                
             </div>
             <div class="landing-2">
                 <div className="user-1">
 
-                   {/* <div className="box"> */}
+                    {/* <div className="box"> */}
                     <div className="content-wrapper-1">
                         <img src="/images/pup2.jpg" alt="cute puppy" />
                         <p className="onep">Looking to <span>Adopt?</span></p>
@@ -33,25 +32,34 @@ export default class LandingPage extends Component {
                     {/* </div> */}
                 </div>
                 <div className="user-2">
+                    
                     <h1>USER</h1>
+                    <p>It has never been easier to get matched<br></br>with your perfect puppy. All you need to <br></br>do is fill out a few questions and we will<br></br>automatically match you with the dogs<br></br>youd be the most compatible with!<br></br>Log-In or Sign-Up to meet your new<br></br> Best Friend!</p> 
                     <button type="button" class="btn btn-light" ><Link to={'/user/signup'}>User</Link></button>
+                    
                 </div>
+                
             </div>
+            
             <div class="landing-3">
                 <div className="shelter-1">
                     <h1>SHELTER</h1>
                     <button type="button" class="btn btn-light" ><Link to={'/shelter/signup'}>Shelter</Link></button>
-
-
+                    
+  
                 </div>
                 <div className="shelter-2">
 
                     <div className="content-wrapper-2">
-                        <img src="/images/pups2.jpg" alt="cute puppy" />
+                        <img src="/images/pug.jpg" alt="cute puppy" />
                     </div>
                 </div>
 
 
+            </div>
+            <div className="landing-4">
+                <h1>Help become an Animal defender</h1>
+                <a type="button" class="btn btn-outline-secondary" to="https://donate.hsi.org/page/23410/donate/1?">Donate</a>
             </div>
         </>)
     }

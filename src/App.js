@@ -106,38 +106,66 @@ class App extends React.Component {
 
       axios.post(`${config.API_URL}/upload`, uploadData)
          .then((res) => {
-           console.log(res)
+          axios.post(`${config.API_URL}/create`, {
+            name: name,
+            description: description,
+            image: res.data.secure_url,
+            breed: breed, 
+            color: color, 
+            age: age, 
+            height: height, 
+            weight: weight,
+            hair_length: hair_length,
+            available_housing: available_housing, 
+            good_with: good_with,
+            bad_with: bad_with, 
+            needs_time: needs_time, 
+            funfact: funfact, 
+            location: location
+          }, {withCredentials: true})
+          .then((res) => {
+            this.setState({
+              animals: [...this.state.animals, res.data]
+            }, () => {
+              this.props.history.push('/shelter/animals')
+            })
+          })
+          .catch((err) => {''
+            if(err.response.status === 401) {
+              this.props.history.push('/')
+            }
+          })
          })
 
-      axios.post(`${config.API_URL}/create`, {
-        name: name,
-        description: description,
-        image: uploadData,
-        breed: breed, 
-        color: color, 
-        age: age, 
-        height: height, 
-        weight: weight,
-        hair_length: hair_length,
-        available_housing: available_housing, 
-        good_with: good_with,
-        bad_with: bad_with, 
-        needs_time: needs_time, 
-        funfact: funfact, 
-        location: location
-      }, {withCredentials: true})
-      .then((res) => {
-        this.setState({
-          animals: [...this.state.animals, res.data]
-        }, () => {
-          this.props.history.push('/shelter/animals')
-        })
-      })
-      .catch((err) => {''
-        if(err.response.status === 401) {
-          this.props.history.push('/')
-        }
-      })
+      // axios.post(`${config.API_URL}/create`, {
+      //   name: name,
+      //   description: description,
+      //   image: res.data.secure_url,
+      //   breed: breed, 
+      //   color: color, 
+      //   age: age, 
+      //   height: height, 
+      //   weight: weight,
+      //   hair_length: hair_length,
+      //   available_housing: available_housing, 
+      //   good_with: good_with,
+      //   bad_with: bad_with, 
+      //   needs_time: needs_time, 
+      //   funfact: funfact, 
+      //   location: location
+      // }, {withCredentials: true})
+      // .then((res) => {
+      //   this.setState({
+      //     animals: [...this.state.animals, res.data]
+      //   }, () => {
+      //     this.props.history.push('/shelter/animals')
+      //   })
+      // })
+      // .catch((err) => {''
+      //   if(err.response.status === 401) {
+      //     this.props.history.push('/')
+      //   }
+      // })
   }
 
   handleDelete = (id) => {
