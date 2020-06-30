@@ -376,9 +376,13 @@ class App extends React.Component {
               return <FavoriteUser loggednInAdopt={loggednInAdopt} 
               onLogout={this.handleLogoutUser} {...routeProps} />
             }}/>
-            <Route exact path="/donate" render={() => {
-              return <DonateUser />
+            <Route path='/donate' component={() => { 
+                window.location.href = 'https://donate.hsi.org/page/23410/donate/1?'; 
+                return null;
             }}/>
+            {/* <Route exact path="/donate" render={() => {
+              return <DonateUser />
+            }}/> */}
         </Switch>
       </> 
     )

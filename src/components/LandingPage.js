@@ -59,7 +59,7 @@ export default class LandingPage extends Component {
             </div>
             <div className="landing-4">
                 <h1>Help become an Animal defender</h1>
-                <a type="button" class="btn btn-outline-secondary" to="https://donate.hsi.org/page/23410/donate/1?">Donate</a>
+                <Link type="button" class="btn btn-outline-secondary" to="/donate" target="_blank">Donate</Link>
             </div>
         </>)
     }

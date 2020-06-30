@@ -23,12 +23,18 @@ User pets pages
                                     <p class="card-text">{animal.description}</p>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">{animal.breed}</li>
-                                    <li class="list-group-item">{animal.color}</li>
-                                    <li class="list-group-item">{animal.age}</li>
+                                    <li class="list-group-item">Looks like: {animal.breed}</li>
+                                    <li class="list-group-item">Color: {animal.color}</li>
+                                    <li class="list-group-item">Age: {animal.age}</li>
+                                    <li class="list-group-item">Height: {animal.height}</li>
+                                    <li class="list-group-item">Weight: {animal.weight}</li>
+                                    <li class="list-group-item">Hair length: {animal.hair_length}</li>
+                                    <li class="list-group-item">Fun fact: {animal.funfact}</li>
+                                    <li class="list-group-item">Location: {animal.location}</li>
+                                    <li class="list-group-item">Contact: </li>
                                 </ul>
                                 <div class="card-body">
-                                    <Link href="#" class="card-link" >Card link</Link>
+                                    <Link href="#" class="card-link" >Add</Link>
                                 </div>
                             </div>         
                         </>
