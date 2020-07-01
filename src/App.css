@@ -310,14 +310,14 @@ select {
 
 .box {
   width: 800px;  
-  margin: 10% auto;
+  margin: auto;
   position: relative;
   
 }
 
 #card-container {
   position: relative;
-  margin: 3.5%;
+  margin: 3.5rem;
   width: 20rem;
   height: 20rem;
   z-index: 1;
@@ -325,10 +325,11 @@ select {
   perspective: 1000px;
 }
 
-#card, #card2, #card3 {
+#card {
+  position: relative;
   width: 100%;
   height: 100%;
-  margin: 10%;
+  margin: auto;
   transform-style: preserve-3d;
   transition: all .8s linear;
   box-shadow: 5px 5px 15px rgba(0,0,0, .3);
@@ -354,7 +355,7 @@ select {
 
 .face h1 {
   font-size: 3rem;
-  color: #ded2c2;
+  color: #272727;
 }
 .face h2 {
   font-size: 1rem;
@@ -454,4 +455,135 @@ width: 70%;
   text-transform: uppercase; 
   text-align: center; 
   font-style: italic;
+}
+
+
+
+
+/* TINDER APP  */
+.heart-wrapper {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin:1rem auto;
+  background-color: white;
+  border-radius: 40px;
+  
+  -webkit-box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
+  -moz-box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
+  box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
+  transition: 0.3s;
+}
+.heart-wrapper-2 {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin: auto;
+  background-color: white;
+  border-radius: 40px;
+  
+  -webkit-box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
+  -moz-box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
+  box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
+  transition: 0.3s;
+}
+.heart-wrapper:hover {
+  -webkit-box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
+  -moz-box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
+  box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
+}
+.heart-wrapper-2:hover {
+  -webkit-box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
+  -moz-box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
+  box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
+}
+.fa-heart {
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #ff8484;
+  transition: 1s;
+}
+.icon-list {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+.fa-times {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #ff8484;
+  transition: 1s;
+}
+.background-heart{
+  background-color:white;
+}
+.background-heart::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f004";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  color: red;
+  transition: 1s;
+  z-index: -1;
+  animation: fill-heart 1s;
+}
+
+.background-heart::before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  opacity: 0.2;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 200px;
+  animation: circle-expand 1s;
+}
+
+@keyframes fill-heart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes circle-expand {
+  0% {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+  40% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.2;
+  }
+  80% {
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+  }
+
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+  }
 }
