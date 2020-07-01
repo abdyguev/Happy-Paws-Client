@@ -12,6 +12,7 @@ export default class PetsUser extends React.Component {
     }
 
     componentDidMount() {
+        if (this.props.loggedInAdopt) {
         axios.get(`${config.API_URL}/user/pets`, { withCredentials: true })
             .then((res) => {
                 this.setState({
@@ -24,15 +25,12 @@ export default class PetsUser extends React.Component {
                 }
             })
     }
-    handleAddPets = (e) => {
+}
+    handleAddPets = (e, petId) => {
         e.preventDefault()
-        axios.post(`${config.API_URL}/user/favorite/:itemId/add`, { withCredentials: true })
+        axios.post(`${config.API_URL}/user/favorite/${petId}/add`, {}, { withCredentials: true })
             .then((res) => {
-                this.setState({
-                    pets: [...this.state.pets, res.data]
-                }, () => {
-                    this.props.history.push('/user/favorite')
-                })
+                this.props.history.push('/user/favorite')
             })
             .catch((err) => {
                 ''
@@ -43,47 +41,17 @@ export default class PetsUser extends React.Component {
             })
     }
 
-
-
-    render() {
-        if (!this.props.loggednInAdopt) {
+    
+    render(){
+        if (!this.props.loggedInAdopt) {
             return <Redirect to='/user/signup' />
         }
-        return (
-            <>
-                <NavUser onLogout={this.props.onLogout}
-                    loggednInAdopt={this.props.loggednInAdopt} />
-User pets pages
-                {/* {
-                    this.state.pets.map((animal, i) => {
-                        return <>   
-                            <div className="card" style={{width: "18rem"}}>
-                                <img src="..." className="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{animal.name}</h5>
-                                    <p class="card-text">{animal.description}</p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Looks like: {animal.breed}</li>
-                                    <li class="list-group-item">Color: {animal.color}</li>
-                                    <li class="list-group-item">Age: {animal.age}</li>
-                                    <li class="list-group-item">Height: {animal.height}</li>
-                                    <li class="list-group-item">Weight: {animal.weight}</li>
-                                    <li class="list-group-item">Hair length: {animal.hair_length}</li>
-                                    <li class="list-group-item">Fun fact: {animal.funfact}</li>
-                                    <li class="list-group-item">Location: {animal.location}</li>
-                                    <li class="list-group-item">Contact: </li>
-                                </ul>
-                                <div class="card-body">
-                                    <Link type="button" class="card-link" onClick={this.state.handleAddPets}>Add</Link>
-                                </div>
-                            </div>         
-                        </>
-                    })
-                }  */}
+    return (
+<>
+<NavUser onLogout={this.props.onLogout}
+loggedInAdopt={this.props.loggedInAdopt}/>
 
 
-                   RIGHT ONE
                 {
                     this.state.pets.map((animal, i) => {
                         return <div key={i} className="list-pets">
@@ -113,20 +81,19 @@ User pets pages
                                                     <p>Funfact: {animal.funfact}</p>
                                                     <p>Location: {animal.location}</p>
                                                     <p>Needs time with an owner: {animal.needs_time}</p>
+                                                    <p>Contact: </p>
                                                 </div>
 
                                             </div>
 
                                         </div>
-                                        
-
                                     </div>
                                     <div className="icon-list">
 
                                         <div class="heart-wrapper">
+                                        <Link type="button" className="card-link" onClick={(e) => this.handleAddPets(e, animal._id)}>Add</Link>
                                             <i class="fas fa-times"></i></div>
                                         <div class="heart-wrapper-2">
-                                            <i class="far fa-heart"></i>
                                         </div>
                                     
                                     </div>
@@ -141,3 +108,4 @@ User pets pages
         )
     }
 }
+

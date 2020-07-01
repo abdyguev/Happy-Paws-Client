@@ -30,17 +30,17 @@ export default function AnimalsList(props) {
                 {
                     props.animals.map((animal, i) => {
                         return <div className="list-pets">
-                        <div key={i} class="box">
+                        <div key={i} className="box">
                             <div id="card-container">
                                 <div id="card">
-                                    <div style={{backgroundImage:`url(${animal.image})`, backgroundSize: "cover", opacity: ".85"}} class="front face">
+                                    <div style={{backgroundImage:`url(${animal.image})`, backgroundSize: "cover", opacity: ".85"}} className="front face">
                                         
                                         <h1>{animal.name}</h1><br></br><h2>{animal.description}</h2>
                                     </div>
-                                    <div class="back face">
+                                    <div className="back face">
                                         
                                            {/* <button>      <Link to={`/shelter/animal/${animal._id}`}>More Details</Link></button>  */}
-                                           <Link to={`/shelter/animal/${animal._id}`} class="btn btn-2">More Details</Link> 
+                                           <Link to={`/shelter/animal/${animal._id}`} className="btn btn-2">More Details</Link> 
                                         
                                     </div>
                                 </div>

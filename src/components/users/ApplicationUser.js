@@ -39,7 +39,7 @@ export default function ApplicationUser(props) {
                     <small id="availability" className="form-text text-muted"></small>
                 </div>
                 <div className="form-group">
-                    <label class="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">Job</label>
+                    <label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">Job</label>
                     <select name="job" className="custom-select my-1 mr-sm-2" id="job">
                         <option selected>Choose...</option>
                         <option value="1">Full-Time</option>

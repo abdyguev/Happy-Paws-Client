@@ -15,8 +15,9 @@ export default class FavoriteUser extends React.Component {
     componentDidMount() {
         axios.get(`${config.API_URL}/user/favorite`, { withCredentials: true })
         .then((res) => {
+            console.log(res)
             this.setState({
-                favoritPets: res.data
+                favoritPets: res.data.likedDogs
             })
         })
         .catch((err) => {
@@ -25,25 +26,23 @@ export default class FavoriteUser extends React.Component {
             }
         })
     }
-    handleDeleteFav = (id) => {
+    handleDeleteFav = (petId) => {
         //filter animals
         let newAnimal = this.state.favoritPets.filter((animal) => {
-            return animal._id !== id
+            return animal._id !== petId
         })
         this.setState({
-          pets: newAnimal 
+            favoritPets: newAnimal 
         }, () => {
           this.props.history.push('/user/favorite')
         })
-        console.log(this.state.favoritPets)
     }
 
-    handleDeletePet = () => {
-        let id = this.props.match.params.id
-        axios.delete(`${config.API_URL}/user/favorite/${id}/delete`, { withCredentials: true })
-            .then(() => {
-                // we will redirect here
-                this.state.handleDeleteFav(id)
+    handleDeletePet = (e, petId) => {
+        e.preventDefault()
+        axios.delete(`${config.API_URL}/user/favorite/${petId}/delete`, { withCredentials: true })
+            .then((res) => {
+                this.handleDeleteFav(petId)
             })
             .catch((err) => {
                 if (err.response.status === 401) {
@@ -53,10 +52,10 @@ export default class FavoriteUser extends React.Component {
     }
 
     render() {
-        if (!this.props.loggednInAdopt) {
+        if (!this.props.loggedInAdopt) {
             return <Redirect to='/user/signup' />
         }
-        if (!this.state.pets){
+        if (!this.state.favoritPets){
             return(
                 <div className="text-center">
                     <div className="spinner-border" role="status">
@@ -69,36 +68,38 @@ export default class FavoriteUser extends React.Component {
     return (
             <>
             <NavUser onLogout={this.props.onLogout}
-            loggednInAdopt={this.props.loggednInAdopt}/>
+            loggedInAdopt={this.props.loggedInAdopt}/>
             {
                     this.state.favoritPets.map((animal, i) => {
-                        return <>   
-                            <div className="card" style={{width: "18rem"}}>
-                                <img src="..." className="card-img-top" alt="..."/>
-                                <div className="card-body">
-                                    <h5 className="card-title">{animal.name}</h5>
-                                    <p className="card-text">{animal.description}</p>
+            
+
+                            return <div key={i} className="list-pets">
+                        <div className="box">
+                            <div id="card-container">
+                                <div id="card">
+                                    <div style={{ backgroundImage: `url(${animal.image})`, backgroundSize: "cover", opacity: ".85" }} className="front face">
+
+                                        <h1>{animal.name}</h1><br></br><h2>{animal.description}</h2>
+                                    </div>
+                                    <div className="back face">
+                                        
+                                            <ul className="list-group list-group-flush">
+                                                <li className="list-group-item">Looks like: {animal.breed}, Age: {animal.age}</li>
+                                                <li className="list-group-item">Height: {animal.height}, Weight: {animal.weight} </li>                                                
+                                                <li className="list-group-item">Hair length: {animal.hair_length}</li>
+                                                <li className="list-group-item">Fun fact: {animal.funfact}</li>
+                                                <li className="list-group-item">Location: {animal.location} </li>
+                                                <li className="list-group-item">Contact: </li>
+                                            </ul>
+                                            <button><Link type="button" className="card-link" onClick={(e) => this.handleDeletePet(e, animal._id)} >Delete</Link></button>
+
+                                    </div>
+                                    </div>
                                 </div>
-                                <ul className="list-group list-group-flush">
-                                    <li className="list-group-item">Looks like: {animal.breed}</li>
-                                    <li className="list-group-item">Color: {animal.color}</li>
-                                    <li className="list-group-item">Age: {animal.age}</li>
-                                    <li className="list-group-item">Height: {animal.height}</li>
-                                    <li className="list-group-item">Weight: {animal.weight}</li>
-                                    <li className="list-group-item">Hair length: {animal.hair_length}</li>
-                                    <li className="list-group-item">Fun fact: {animal.funfact}</li>
-                                    <li className="list-group-item">Location: {animal.location}</li>
-                                    <li className="list-group-item">Contact: </li>
-                                </ul>
-                                <div className="card-body">
-                                    <Link type="button" className="card-link" onClick={this.handleDeletePet}>Delete</Link>
-                                </div>
-                            </div>         
-                        </>
+                            </div>
+                        </div>       
                     })
                 }
-
-            User favorite page
             </>
     )
     }

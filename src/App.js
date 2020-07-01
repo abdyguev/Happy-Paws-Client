@@ -24,7 +24,7 @@ class App extends React.Component {
   state = {
     animals: [],
     loggedInUser: null,
-    loggednInAdopt: null,
+    loggedInAdopt: null,
   }
 
   getAnimals = () => {
@@ -58,7 +58,7 @@ class App extends React.Component {
     axios.get(`${config.API_URL}/adopter`, { withCredentials: true })
       .then((res) => {
         this.setState({
-          loggednInAdopt: res.data,
+          loggedInAdopt: res.data,
         })
       })
       .catch((err) => {
@@ -73,7 +73,7 @@ class App extends React.Component {
     if (!this.state.loggedInUser) {
       this.getUser();
     }
-    if (!this.state.loggednInAdopt) {
+    if (!this.state.loggedInAdopt) {
       this.getAdopter();
     }
   }
@@ -202,7 +202,7 @@ class App extends React.Component {
       }, { withCredentials: true })
         .then((res) => {
           this.setState({
-            loggedInUser: res.data
+            loggedInAdopt: res.data
           }, () => {
             this.props.history.push('/user/pets')
           })
@@ -265,7 +265,7 @@ class App extends React.Component {
     }, { withCredentials: true })
       .then((res) => {
         this.setState({
-          loggednInAdopt: res.data
+          loggedInAdopt: res.data
         }, () => {
           this.props.history.push('/user/pets')
         })
@@ -279,7 +279,7 @@ class App extends React.Component {
       .then((res) => {
         console.log(res)
         this.setState({
-          loggednInAdopt: null
+          loggedInAdopt: null
         }, () => {
           this.props.history.push('/')
         })
@@ -288,7 +288,7 @@ class App extends React.Component {
 
   render() {
     const { loggedInUser } = this.state;
-    const { loggednInAdopt } = this.state;
+    const { loggedInAdopt } = this.state;
     return (
       <>
 
@@ -347,7 +347,7 @@ class App extends React.Component {
 
           <Route exact path="/user/pets" render={(routeProps) => {
             return <PetsUser
-              loggednInAdopt={loggednInAdopt}
+            loggedInAdopt={loggedInAdopt}
               onLogout={this.handleLogoutUser} {...routeProps} />
           }} />
           <Route path='/donate' component={() => {
@@ -355,17 +355,17 @@ class App extends React.Component {
             return null;
           }} />
 
-          <Route exact path="/user/pets/:itemId/add" render={(routeProps) => {
+          {/* <Route exact path="/user/pets/:itemId/add" render={(routeProps) => {
               return <PetsUser animals={this.state.animals}
-              loggednInAdopt={loggednInAdopt} 
+              loggedInAdopt={loggedInAdopt} 
               onLogout={this.handleLogoutUser} {...routeProps} />
             }}/>
             <Route exact path="/user/favorite/:itemId/delete" render={(routeProps) => {
-              return <FavoriteUser loggednInAdopt={loggednInAdopt} 
+              return <FavoriteUser loggedInAdopt={loggedInAdopt} 
               onLogout={this.handleLogoutUser} {...routeProps} />
-            }}/>
+            }}/> */}
             <Route exact path="/user/favorite" render={(routeProps) => {
-              return <FavoriteUser loggednInAdopt={loggednInAdopt} 
+              return <FavoriteUser loggedInAdopt={loggedInAdopt} 
               onLogout={this.handleLogoutUser} {...routeProps} />
             }}/>
         </Switch>
