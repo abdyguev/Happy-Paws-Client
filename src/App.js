@@ -162,7 +162,7 @@ class App extends React.Component {
 
   handleLogoutShelter = () => {
     console.log(document.cookie)
-    axios.post(`${config.API_URL}/shelter/logout`, {}, { withCredentials: true })
+    axios.post(`${config.API_URL}/logout`, {}, { withCredentials: true })
       .then((res) => {
         console.log(res)
         this.setState({
@@ -276,7 +276,7 @@ class App extends React.Component {
 
   handleLogoutUser = () => {
     console.log(document.cookie)
-    axios.post(`${config.API_URL}/user/logout`, {}, { withCredentials: true })
+    axios.post(`${config.API_URL}/logout`, {}, { withCredentials: true })
       .then((res) => {
         console.log(res)
         this.setState({
@@ -295,13 +295,8 @@ class App extends React.Component {
 
 
         <Switch>
-          {/* <Route exact path="/shelter/profile"  render={(routeProps) => {
-              return <EditProfile onLogout={this.handleLogout} 
-              loggedInUser={this.state.loggedInUser} {...routeProps}/>
-            }}/> */}
           <Route exact path="/" render={(routeProps) => {
-            return <LandingPage loggedInUser={this.state.loggedInUser}
-              loggednInAdopt={loggednInAdopt}
+            return <LandingPage
               {...routeProps}
             />
           }} />
@@ -327,7 +322,7 @@ class App extends React.Component {
             />
           }} />
           <Route path="/shelter/animal/:id/edit" render={(routeProps) => {
-            return <EditAnimals onLogoutShelter={this.handleLogout}
+            return <EditAnimals onLogout={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               afterEdit={this.handleEdit}
               {...routeProps}
@@ -339,12 +334,13 @@ class App extends React.Component {
               {...routeProps} />
           }} />
           <Route exact path="/shelter/signup" render={(routeProps) => {
-            return <SignupShelter onSignIn={this.handleSignIn}
+            return <SignupShelter 
               onSignUp={this.handleShelterSignUp}
               {...routeProps} />
           }} />
           <Route exact path="/shelter/signin" render={(routeProps) => {
             return <ShelterSignIn onSignUpUser={this.handleUserSignUp} onSignIn={this.handleSignIn}
+            // return <ShelterSignIn onSignIn={this.handleShelterSignIn}
              
               {...routeProps} />
           }} />
@@ -358,10 +354,6 @@ class App extends React.Component {
               loggednInAdopt={loggednInAdopt}
               onLogout={this.handleLogoutUser} {...routeProps} />
           }} />
-          {/* <Route exact path="/user/profile" render={(routeProps) => {
-            return <UserProfile loggednInAdopt={loggednInAdopt}
-              onLogout={this.handleLogoutUser} {...routeProps} />
-          }} /> */}
           <Route path='/donate' component={() => {
             window.location.href = 'https://donate.hsi.org/page/23410/donate/1?';
             return null;

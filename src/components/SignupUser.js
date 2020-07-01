@@ -30,7 +30,7 @@ export default function SignupUser(props) {
             <div className="signup-page">
                 <div className="login-user">
 
-                    <form class="login-form-user" onSubmit={props.onSignUpUser}>
+                    <form class="login-form-user" onSubmit={props.onSignUp}>
                         <h1>Sign Up </h1>
                         <p>Looking to adopt the perfect pup?<br></br>Sign Up to start getting matched<br></br> with your new best-friend! </p>
                         <button style={{marginBottom: "1rem"}} className="btn btn-light"><Link to={'/user/application'}>Sign Up</Link></button>
@@ -51,7 +51,7 @@ export default function SignupUser(props) {
                             <label htmlFor="exampleInputPassword1">Password</label>
                             <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
                         </div>
-                        <button style={{marginBottom: "1rem"}}type="submit" className="btn btn-light">Submit</button>
+                        <button style={{marginBottom: "1rem"}} type="submit" className="btn btn-light">Submit</button>
                     </form>
 
                 </div>
