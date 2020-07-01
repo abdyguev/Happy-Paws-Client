@@ -30,7 +30,7 @@ export default function AnimalsList(props) {
                 {
                     props.animals.map((animal, i) => {
                         return <div className="list-pets">
-                        <div class="box">
+                        <div key={i} class="box">
                             <div id="card-container">
                                 <div id="card">
                                     <div style={{backgroundImage:`url(${animal.image})`, backgroundSize: "cover", opacity: ".85"}} class="front face">

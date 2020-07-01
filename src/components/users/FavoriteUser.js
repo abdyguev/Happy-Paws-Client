@@ -21,7 +21,7 @@ export default class FavoriteUser extends React.Component {
         })
         .catch((err) => {
             if (err.response.status === 401) {
-                this.props.history.push('/shelter/signup')
+                this.props.history.push('/')
             }
         })
     }
@@ -73,25 +73,25 @@ export default class FavoriteUser extends React.Component {
             {
                     this.state.favoritPets.map((animal, i) => {
                         return <>   
-                            <div class="card" style={{width: "18rem"}}>
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{animal.name}</h5>
-                                    <p class="card-text">{animal.description}</p>
+                            <div className="card" style={{width: "18rem"}}>
+                                <img src="..." className="card-img-top" alt="..."/>
+                                <div className="card-body">
+                                    <h5 className="card-title">{animal.name}</h5>
+                                    <p className="card-text">{animal.description}</p>
                                 </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Looks like: {animal.breed}</li>
-                                    <li class="list-group-item">Color: {animal.color}</li>
-                                    <li class="list-group-item">Age: {animal.age}</li>
-                                    <li class="list-group-item">Height: {animal.height}</li>
-                                    <li class="list-group-item">Weight: {animal.weight}</li>
-                                    <li class="list-group-item">Hair length: {animal.hair_length}</li>
-                                    <li class="list-group-item">Fun fact: {animal.funfact}</li>
-                                    <li class="list-group-item">Location: {animal.location}</li>
-                                    <li class="list-group-item">Contact: </li>
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item">Looks like: {animal.breed}</li>
+                                    <li className="list-group-item">Color: {animal.color}</li>
+                                    <li className="list-group-item">Age: {animal.age}</li>
+                                    <li className="list-group-item">Height: {animal.height}</li>
+                                    <li className="list-group-item">Weight: {animal.weight}</li>
+                                    <li className="list-group-item">Hair length: {animal.hair_length}</li>
+                                    <li className="list-group-item">Fun fact: {animal.funfact}</li>
+                                    <li className="list-group-item">Location: {animal.location}</li>
+                                    <li className="list-group-item">Contact: </li>
                                 </ul>
-                                <div class="card-body">
-                                    <Link type="button" class="card-link" onClick={this.state.handleDeletePet}>Delete</Link>
+                                <div className="card-body">
+                                    <Link type="button" className="card-link" onClick={this.handleDeletePet}>Delete</Link>
                                 </div>
                             </div>         
                         </>

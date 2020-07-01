@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function HomeNav(props) {
     return (
         <nav className="navbar navbar-expand-sm" style={{maxWidth:"100%"}}>
-            <button style={{backgroundColor: "transparent", border: "white", maxHeight:"5rem"}} class="nav-brand" >
+            <button style={{backgroundColor: "transparent", border: "white", maxHeight:"5rem"}} className="nav-brand" >
                 <img width= "90px" height= "auto"
                     src="/images/Happypaws.png"
                     alt="sailr"></img>
