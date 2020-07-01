@@ -341,7 +341,7 @@ class App extends React.Component {
           }} />
 
           <Route exact path="/user/signup" render={(routeProps) => {
-            return <SignupUser  onSignUp={this.handleUserSignUp} {...routeProps} />
+            return <SignupUser  onSignUp={this.handleUserSignUp} onSignIn={this.handleSignIn} {...routeProps} />
           }} />
 
 
