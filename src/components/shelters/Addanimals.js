@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Nav from './Nav'
 export default function AddAnimals(props) {
-    
     if (!props.loggedInUser) {
         return <Redirect to='/shelter/signup' />
     }
@@ -99,10 +98,6 @@ export default function AddAnimals(props) {
                     <label htmlFor="funfact">Funfact</label>
                     <input style={{ textAlign: "center" }} type="text" className="form-control" name="funfact" id="funfact" />
                 </div>
-                {/* <div className="form-group-add">
-                    <label htmlFor="image">Image</label>
-                    <input style={{textAlign: "center"}} type="file" className="form-control" name="image" id="image" />
-                </div> */}
                 <div style={{ textAlign: "center", margin: "1rem 0" }}>
                     <button style={{ textAlign: "center" }} type="submit" className="btn btn-primary">Create</button>
                 </div>

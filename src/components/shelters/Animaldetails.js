@@ -22,7 +22,7 @@ export default class AnimalDetail extends React.Component {
             })
             .catch((err) => {
                 if (err.response.status === 401) {
-                    this.props.history.push('/')
+                    this.props.history.push('/shelter/signup')
                 }
             })
     }
@@ -62,7 +62,7 @@ export default class AnimalDetail extends React.Component {
                 loggedInUser={this.props.loggedInUser}/>
                 <div id="wrapper">
                     <div id="my-icon">
-                        <img src={image}></img>
+                        <img src={image} alt="dog"></img>
                     </div>
                     <div id="my-info">
                         <h1>{name}</h1>
@@ -70,6 +70,7 @@ export default class AnimalDetail extends React.Component {
                         <div className="row">
                             <div className="column">
                                 <p>Description: {description}</p>
+                                <p>Looks like: {breed}</p>
                                 <p>Color: {color}</p>
                                 <p>Age: {age}</p>
                                 <p>Height: {height}</p>

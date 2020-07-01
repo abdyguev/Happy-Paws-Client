@@ -11,17 +11,14 @@ import EditAnimals from './components/shelters/Editanimals'
 import SignupUser from './components/SignupUser';
 import config from './config';
 // import EditProfile from './components/shelters/EditProfilesh'
-import ShelterAplic from './components/shelters/ShelterAplic'
 import LandingPage from './components/LandingPage'
 
 import SignupShelter from './components/SignupShelter';
 import ApplicationUser from './components/users/ApplicationUser'
 import ShelterSignIn from './components/shelters/ShelterSignIn'
-import UserProfile from './components/users/Profileuser'
+// import UserProfile from './components/users/Profileuser'
 import FavoriteUser from './components/users/FavoriteUser'
 import PetsUser from './components/users/PetsUser'
-import DonateUser from './components/users/DonateUser'
-
 
 class App extends React.Component {
 
@@ -82,7 +79,6 @@ class App extends React.Component {
     }
   }
 
-
   handleAddAnimals = (e) => {
     e.preventDefault()
     let name = e.target.name.value;
@@ -97,6 +93,7 @@ class App extends React.Component {
     let hair_length = e.target.hair_length.value;
     let available_housing = e.target.available_housing.value;
     let good_with = e.target.good_with.value;
+    console.log("this is my input")
     let bad_with = e.target.bad_with.value;
     let needs_time = e.target.needs_time.value;
     let image = e.target.image.files[0]
@@ -137,37 +134,7 @@ class App extends React.Component {
               this.props.history.push('/')
             }
           })
-      })
-
-    // axios.post(`${config.API_URL}/create`, {
-    //   name: name,
-    //   description: description,
-    //   image: res.data.secure_url,
-    //   breed: breed, 
-    //   color: color, 
-    //   age: age, 
-    //   height: height, 
-    //   weight: weight,
-    //   hair_length: hair_length,
-    //   available_housing: available_housing, 
-    //   good_with: good_with,
-    //   bad_with: bad_with, 
-    //   needs_time: needs_time, 
-    //   funfact: funfact, 
-    //   location: location
-    // }, {withCredentials: true})
-    // .then((res) => {
-    //   this.setState({
-    //     animals: [...this.state.animals, res.data]
-    //   }, () => {
-    //     this.props.history.push('/shelter/animals')
-    //   })
-    // })
-    // .catch((err) => {''
-    //   if(err.response.status === 401) {
-    //     this.props.history.push('/')
-    //   }
-    // })
+         })
   }
 
   handleDelete = (id) => {
@@ -224,6 +191,25 @@ class App extends React.Component {
         })
       })
   }
+
+  handleSignIn = (e) => {
+      e.preventDefault();
+      let email = e.target.email.value;
+      let password = e.target.password.value;
+  
+      axios.post(`${config.API_URL}/user/signup`, {
+        email: email,
+        password: password
+      }, { withCredentials: true })
+        .then((res) => {
+          this.setState({
+            loggedInUser: res.data
+          }, () => {
+            this.props.history.push('/user/pets')
+          })
+        })
+    }
+  
 
   handleShelterSignUp = (e) => {
     e.preventDefault()
@@ -320,38 +306,34 @@ class App extends React.Component {
             />
           }} />
           <Route exact path="/shelter/animals" render={(routeProps) => {
-            return <AnimalList onLogout={this.handleLogoutShelter}
+            return <AnimalList onLogoutShelter={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               animals={this.state.animals}
               {...routeProps}
             />
           }} />
-          <Route exact path="/shelter/applications" render={(routeProps) => {
-            return <ShelterAplic onLogout={this.handleLogoutShelter}
-              loggedInUser={loggedInUser}
-              {...routeProps} />
-          }} />
           <Route path="/shelter/add-form" render={(routeProps) => {
-            return <AddAnimals onLogout={this.handleLogoutShelter}
+            return <AddAnimals onLogoutShelter={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               onAdd={this.handleAddAnimals}
               {...routeProps}
             />
           }} />
           <Route exact path="/shelter/animal/:id" render={(routeProps) => {
-            return <AnimalDetail onLogout={this.handleLogoutShelter}
+            return <AnimalDetail onLogoutShelter={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               afterDelete={this.handleDelete}
               {...routeProps}
             />
           }} />
           <Route path="/shelter/animal/:id/edit" render={(routeProps) => {
-            return <EditAnimals onLogout={this.handleLogout}
+            return <EditAnimals onLogoutShelter={this.handleLogout}
               loggedInUser={loggedInUser}
               afterEdit={this.handleEdit}
               {...routeProps}
             />
           }} />
+
           <Route exact path="/user/application" render={(routeProps) => {
             return <ApplicationUser onSignUpUser={this.handleUserSignUp}
               {...routeProps} />
@@ -362,34 +344,42 @@ class App extends React.Component {
               {...routeProps} />
           }} />
           <Route exact path="/shelter/signin" render={(routeProps) => {
-            return <ShelterSignIn onSignIn={this.handleSignIn}
+            return <ShelterSignIn onSignUpUser={this.handleUserSignUp} onSignIn={this.handleSignIn}
              
               {...routeProps} />
           }} />
           <Route exact path="/user/signup" render={(routeProps) => {
-            return <SignupUser  {...routeProps} />
+            return <SignupUser  onSignUpUser={this.handleUserSignUp} {...routeProps} />
           }} />
 
+
           <Route exact path="/user/pets" render={(routeProps) => {
-            return <PetsUser animals={this.state.animals}
+            return <PetsUser
               loggednInAdopt={loggednInAdopt}
               onLogout={this.handleLogoutUser} {...routeProps} />
           }} />
-          <Route exact path="/user/profile" render={(routeProps) => {
+          {/* <Route exact path="/user/profile" render={(routeProps) => {
             return <UserProfile loggednInAdopt={loggednInAdopt}
               onLogout={this.handleLogoutUser} {...routeProps} />
-          }} />
-          <Route exact path="/user/favorite" render={(routeProps) => {
-            return <FavoriteUser loggednInAdopt={loggednInAdopt}
-              onLogout={this.handleLogoutUser} {...routeProps} />
-          }} />
+          }} /> */}
           <Route path='/donate' component={() => {
             window.location.href = 'https://donate.hsi.org/page/23410/donate/1?';
             return null;
           }} />
-          {/* <Route exact path="/donate" render={() => {
-              return <DonateUser />
-            }}/> */}
+
+          <Route exact path="/user/pets/:itemId/add" render={(routeProps) => {
+              return <PetsUser animals={this.state.animals}
+              loggednInAdopt={loggednInAdopt} 
+              onLogout={this.handleLogoutUser} {...routeProps} />
+            }}/>
+            <Route exact path="/user/favorite/:itemId/delete" render={(routeProps) => {
+              return <FavoriteUser loggednInAdopt={loggednInAdopt} 
+              onLogout={this.handleLogoutUser} {...routeProps} />
+            }}/>
+            <Route exact path="/user/favorite" render={(routeProps) => {
+              return <FavoriteUser loggednInAdopt={loggednInAdopt} 
+              onLogout={this.handleLogoutUser} {...routeProps} />
+            }}/>
         </Switch>
       </>
     )

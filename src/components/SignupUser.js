@@ -30,7 +30,7 @@ export default function SignupUser(props) {
             <div className="signup-page">
                 <div className="login-user">
 
-                    <form class="login-form-user" onSubmit={props.onSignUp}>
+                    <form class="login-form-user" onSubmit={props.onSignUpUser}>
                         <h1>Sign Up </h1>
                         <p>Looking to adopt the perfect pup?<br></br>Sign Up to start getting matched<br></br> with your new best-friend! </p>
                         <button style={{marginBottom: "1rem"}} className="btn btn-light"><Link to={'/user/application'}>Sign Up</Link></button>

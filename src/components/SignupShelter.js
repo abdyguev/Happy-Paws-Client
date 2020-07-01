@@ -5,7 +5,7 @@ export default function SignupShelter(props) {
     return (
         <>
             <div className="signup-page">
-                {/* <div className="login">
+                 <div className="login">
 
                     <form class="login-form" onSubmit={props.onSignIn}>
                         <h1>Sign In</h1>
@@ -20,7 +20,7 @@ export default function SignupShelter(props) {
                         </div>
                         <button style={{ marginBottom: "1rem" }} type="submit" className="btn btn-light">Submit</button>
                     </form>
-                </div> */} 
+                </div> 
 
                 <div class="signup">
 

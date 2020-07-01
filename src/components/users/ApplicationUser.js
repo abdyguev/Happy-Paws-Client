@@ -4,9 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 export default function ApplicationUser(props) {
 
-    if (!props.loggedInAdopt) {
-        return <Redirect to='/user/signup' />
-    }
+    
     return (
 
         <>
