@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import Nav from './Nav';
 import { Redirect } from 'react-router-dom';
@@ -7,12 +7,18 @@ import { Redirect } from 'react-router-dom';
 export default function AnimalsList(props) {
 
 
+    useEffect(() => {
+        if (props.loggedInUser) {
+            props.getAnimals()
+        }
+    }, [])
+
     if (!props.loggedInUser) {
         return <Redirect to='/shelter/signup' />
     }
     return (
         <>
-            <Nav onLogout={props.onLogout}
+            <Nav onLogout={props.onLogoutShelter}
                 loggedInUser={props.loggedInUser}/>
             <div className="heading">
                 <h1 style={{marginTop:"2rem", marginBottom:"1rem", color:"#272727"}}>Available Pets </h1>

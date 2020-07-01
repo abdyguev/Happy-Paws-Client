@@ -15,7 +15,6 @@ import LandingPage from './components/LandingPage'
 
 import SignupShelter from './components/SignupShelter';
 import ApplicationUser from './components/users/ApplicationUser'
-import ShelterSignIn from './components/shelters/ShelterSignIn'
 // import UserProfile from './components/users/Profileuser'
 import FavoriteUser from './components/users/FavoriteUser'
 import PetsUser from './components/users/PetsUser'
@@ -29,7 +28,7 @@ class App extends React.Component {
   }
 
   getAnimals = () => {
-    axios.get(`${config.API_URL}/shelter/animals`)
+    axios.get(`${config.API_URL}/shelter/animals`, {withCredentials: true})
       .then((res) => {
         this.setState({
           animals: res.data
@@ -161,7 +160,7 @@ class App extends React.Component {
   }
 
   handleLogoutShelter = () => {
-    console.log(document.cookie)
+   console.log('Logout called Shelter')
     axios.post(`${config.API_URL}/logout`, {}, { withCredentials: true })
       .then((res) => {
         console.log(res)
@@ -304,6 +303,7 @@ class App extends React.Component {
             return <AnimalList onLogoutShelter={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               animals={this.state.animals}
+              getAnimals={this.getAnimals}
               {...routeProps}
             />
           }} />
@@ -336,16 +336,12 @@ class App extends React.Component {
           <Route exact path="/shelter/signup" render={(routeProps) => {
             return <SignupShelter 
               onSignUp={this.handleShelterSignUp}
+              onSignIn={this.handleShelterSignIn}
               {...routeProps} />
           }} />
-          <Route exact path="/shelter/signin" render={(routeProps) => {
-            return <ShelterSignIn onSignUpUser={this.handleUserSignUp} onSignIn={this.handleSignIn}
-            // return <ShelterSignIn onSignIn={this.handleShelterSignIn}
-             
-              {...routeProps} />
-          }} />
+
           <Route exact path="/user/signup" render={(routeProps) => {
-            return <SignupUser  onSignUpUser={this.handleUserSignUp} {...routeProps} />
+            return <SignupUser  onSignUp={this.handleUserSignUp} {...routeProps} />
           }} />
 
 

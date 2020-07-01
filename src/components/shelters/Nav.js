@@ -22,7 +22,7 @@ export default function Nav(props) {
                     <Link className="nav-link active myContainer" to="/shelter/animals">Animals</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" onClick={props.onLogoutShelter}>Logout</Link>
+                    <Link className="nav-link" onClick={props.onLogout}>Logout</Link>
                 </li>
             </ul>
         </nav>
