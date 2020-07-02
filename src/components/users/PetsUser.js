@@ -96,7 +96,7 @@ loggedInAdopt={this.props.loggedInAdopt}/>
                                                     <p>Funfact: {animal.funfact}</p>
                                                     <p>Location: {animal.location}</p>
                                                     <p>Needs time with an owner: {animal.needs_time}</p>
-                                                    <p>Contact: </p>
+                                                    <p>Contact: {animal.contact}</p>
                                                 </div>
 
                                             </div>
