@@ -220,18 +220,19 @@ export default class EditAnimals extends React.Component {
                         <input type="text" className="form-control" onChange={this.handleAgeChange} name="age" id="age" value={age} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="height">Heigh</label>
+                        <label htmlFor="height">Heigh in cm</label>
                         <input type="number" className="form-control" onChange={this.handleHeightChange} name="height" id="height" value={height}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="weight">Weight</label>
+                        <label htmlFor="weight">Weight in kg</label>
                         <input type="number" className="form-control" onChange={this.handleWeightChange} name="weight" id="weight" value={weight}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="hair_length">Hair length</label>
-                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleHairLengthChange} name="hair_length" id="hair_length" value={hair_length}>                            <option value="1">short</option>
-                            <option value="2">medium</option>
-                            <option value="3">long</option>
+                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleHairLengthChange} name="hair_length" id="hair_length" value={hair_length}>                            
+                            <option value="short">short</option>
+                            <option value="medium">medium</option>
+                            <option value="long">long</option>
                         </select>
                     </div>
                     <div className="form-group">
