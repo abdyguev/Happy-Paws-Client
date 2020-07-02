@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-
+import "./Usersignup.css"
 export default function SignupUser(props) {
     return (
         // <>
@@ -27,7 +27,7 @@ export default function SignupUser(props) {
         // </>
         <>
 
-            <div className="signup-page">
+            {/* <div className="signup-page">
                 <div className="login-user">
 
                     <form className="login-form-user" onSubmit={props.onSignUp}>
@@ -55,6 +55,45 @@ export default function SignupUser(props) {
                     </form>
 
                 </div>
+            </div> */}
+
+
+<div className="signup-all">
+            <div class="signup-container-user" >
+                <div class="left-container" style={{backgroundColor:"#ebb48e"}}>
+
+                <h1 style={{fontSize:"3rem", marginTop:"1rem"}}>Sign Up </h1>
+                <form onSubmit={props.onSignUp}>
+                        
+                        <p>Looking to adopt the perfect pup?<br></br>Sign Up to start getting matched<br></br> with your new best-friend! </p>
+                        <button style={{marginBottom: "1rem"}} className="btn btn-light"><Link to={'/user/application'}>Sign Up</Link></button>
+                    </form>
+
+
+                    {/* <div class="puppy-3">
+                        <img src="/images/ppp.png" /></div> */}
+                </div>
+                <div class="right-container-user" style={{backgroundColor:"#d08a55"}}>
+                    <header>
+                        <h1 style={{fontSize:"3rem", marginTop:"2rem", textAlign:"center"}}>Log In</h1>
+                        <form  onSubmit={props.onSignIn} >
+                            
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input type="email" className="form-control text-center" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" />
+                                <small id="email" style={{ margin: " 0 3.5rem" }} className="form-text text-muted">We'll never share your email.</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input name="password" type="password" className="form-control text-center" id="exampleInputPassword1" />
+                            </div>
+                            <button style={{ marginBottom: "1rem" }} type="submit" className="btn btn-light">Submit</button>
+                        </form>
+
+                    </header>
+
+                </div>
+            </div>
             </div>
         </>
     )

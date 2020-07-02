@@ -91,10 +91,10 @@ loggedInAdopt={this.props.loggedInAdopt}/>
                                     <div className="icon-list">
 
                                         <div class="heart-wrapper">
-                                        <Link type="button" className="card-link" onClick={(e) => this.handleAddPets(e, animal._id)}>Add</Link>
-                                            <i class="fas fa-times"></i></div>
-                                        <div class="heart-wrapper-2">
-                                        </div>
+                                        
+                                            <Link class="far fa-heart" onClick={(e) => this.handleAddPets(e, animal._id)}/></div>
+                                        
+                                       
                                     
                                     </div>
                                     
