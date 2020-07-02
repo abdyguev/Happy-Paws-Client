@@ -80,6 +80,7 @@ class App extends React.Component {
 
   handleAddAnimals = (e) => {
     e.preventDefault()
+    console.log(e.target.hair_length.value)
     let name = e.target.name.value;
     let description = e.target.description.value;
     let breed = e.target.breed.value;
@@ -92,9 +93,9 @@ class App extends React.Component {
     let hair_length = e.target.hair_length.value;
     let available_housing = e.target.available_housing.value;
     let good_with = e.target.good_with.value;
-    console.log("this is my input")
     let bad_with = e.target.bad_with.value;
     let needs_time = e.target.needs_time.value;
+    let contact = e.target.contact.value;
     let image = e.target.image.files[0]
 
 
@@ -118,7 +119,8 @@ class App extends React.Component {
           bad_with: bad_with,
           needs_time: needs_time,
           funfact: funfact,
-          location: location
+          location: location,
+          contact: contact
         }, { withCredentials: true })
           .then((res) => {
             this.setState({
@@ -130,6 +132,7 @@ class App extends React.Component {
           .catch((err) => {
             ''
             if (err.response.status === 401) {
+              console(err)
               this.props.history.push('/')
             }
           })

@@ -8,7 +8,8 @@ import config from '../../config';
 export default class PetsUser extends React.Component {
 
     state = {
-        pets: []
+        pets: [],
+        adopter: [this.props.loggedInAdopt]
     }
 
     componentDidMount() {
@@ -50,6 +51,20 @@ export default class PetsUser extends React.Component {
 <>
 <NavUser onLogout={this.props.onLogout}
 loggedInAdopt={this.props.loggedInAdopt}/>
+{/* {
+    this.state.adopter.map((adopt, i) => {
+        {
+                    this.state.pets.map((animal, i) => {
+                        if (adopt.otherowned == "cat" && animal.bad_with == "cat"){
+                        }
+                    })
+        }
+        
+        return <div key={i}>
+        <p>{adopt.fullName}</p>
+        </div>
+    })
+} */}
 
 
                 {

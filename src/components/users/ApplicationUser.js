@@ -76,6 +76,14 @@ export default function ApplicationUser(props) {
                         <input className="form-check-input" type="radio" name="otherowned" id="otherowned" value="option3"></input>
                         <label className="form-check-label" htmlFor="inlineRadio3">Children</label>
                     </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="radio" name="otherowned" id="otherowned" value="option3"></input>
+                        <label className="form-check-label" htmlFor="inlineRadio3">All</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="radio" name="otherowned" id="otherowned" value="option3"></input>
+                        <label className="form-check-label" htmlFor="inlineRadio3">None</label>
+                    </div>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

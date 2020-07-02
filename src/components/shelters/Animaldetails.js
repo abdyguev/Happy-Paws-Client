@@ -54,7 +54,7 @@ export default class AnimalDetail extends React.Component {
                 </div>
             )
         }
-        const { name, image, breed, color, age, height, weight, hair_length, available_housing, good_with, bad_with, needs_time, description, funfact, location } = this.state.animal
+        const { name, image, breed, color, age, height, weight, hair_length, available_housing, good_with, bad_with, needs_time, description, funfact, location, contact } = this.state.animal
         let id = this.props.match.params.id
         return (
             <>
@@ -73,17 +73,18 @@ export default class AnimalDetail extends React.Component {
                                 <p>Looks like: {breed}</p>
                                 <p>Color: {color}</p>
                                 <p>Age: {age}</p>
-                                <p>Height: {height}</p>
-                                <p>Weight: {weight}</p>
+                                <p>Height in cm: {height}</p>
+                                <p>Weight in kg: {weight}</p>
                                 <p>Available housing: {available_housing}</p>
                             </div>
                             <div className="column">
                                 <p>Hair length: {hair_length}</p>
                                 <p>Good with: {good_with}</p>
                                 <p>Bad with: {bad_with}</p>
+                                <p>Needs time with an owner: {needs_time}</p>
                                 <p>Funfact: {funfact}</p>
                                 <p>Location: {location}</p>
-                                <p>Needs time with an owner: {needs_time}</p>
+                                <p>Contact for adoption: {contact}</p>
                             </div>
                             <div className="button" style={{ textAlign: "center", margin: "1rem 0"}}>
                                 <button type="submit" className="btn btn-primary">
