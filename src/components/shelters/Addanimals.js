@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Redirect } from 'react-router-dom';
 import Nav from './Nav'
 export default function AddAnimals(props) {
     if (!props.loggedInUser) {
         return <Redirect to='/shelter/signup' />
     }
+        
+    const [available_housing, setAvailableHousing] = useState("house with garden")    
+        
     return (
         <>
         
         <Nav onLogout={props.onLogout}
                 loggedInUser={props.loggedInUser}/>
-            <form onSubmit={props.onAdd}>
+            <form onSubmit={() => {props.onAdd(available_housing)}}>
                 <div className="form-group-add">
                     <label htmlFor="name">Name</label>
                     <input style={{ textAlign: "center" }} type="text" className="form-control" name="name" id="name" />
@@ -54,14 +57,14 @@ export default function AddAnimals(props) {
                 </div>
                 <div className="form-group-add">
                     <label htmlFor="available_housing">Available for housing in</label><br></br>
-                    <select className="custom-select my-1 mr-sm-2" name="available_housing" id="available_housing">
+                    <select className="custom-select my-1 mr-sm-2" name="available_housing" id="available_housing" value={available_housing} onChange={(e) => {setAvailableHousing(e.target.value)}}>
                         <option selected>Choose...</option>
-                        <option value="1">house with garden</option>
-                        <option value="2">apartment with garden</option>
-                        <option value="3">rented apartment</option>
-                        <option value="4">rented house</option>
-                        <option value="5">owned apartment</option>
-                        <option value="6">owned house</option>
+                        <option value="house with garden">house with garden</option>
+                        <option value="apartment with garden">apartment with garden</option>
+                        <option value="rented apartment">rented apartment</option>
+                        <option value="rented house">rented house</option>
+                        <option value="owned apartment">owned apartment</option>
+                        <option value="owned house">owned house</option>
                     </select>
                 </div>
                 <div className="form-group-add">
