@@ -37,25 +37,25 @@ export default function AddAnimals(props) {
                                     <label htmlFor="image">Image</label>
                                     <input style={{ alignContent: "center" }} type="file" className="form-control" name="image" id="image" />
 
-                                    <label htmlFor="weight">Weight</label>
+                                    <label htmlFor="weight">Weight in kg</label>
                                     <input style={{ textAlign: "center" }} type="number" className="form-control" name="weight" id="weight" />
 
                                     <label htmlFor="hair_length">Hair length</label>
                                     <select className="custom-select my-1 mr-sm-2" name="hair_length" id="hair_length">
                                         <option selected>Choose...</option>
-                                        <option value="1">short</option>
-                                        <option value="2">medium</option>
-                                        <option value="3">long</option>
+                                        <option value="short">short</option>
+                                        <option value="medium">medium</option>
+                                        <option value="long">long</option>
                                     </select><br></br>
 
                                     <label htmlFor="bad_with">Bad with:</label>
                                     <select className="custom-select my-1 mr-sm-2" name="bad_with" id="bad_with">
                                         <option selected>Choose...</option>
-                                        <option value="1">dogs</option>
-                                        <option value="2">cats</option>
-                                        <option value="3">children</option>
-                                        <option value="4">all</option>
-                                        <option value="5">none</option>
+                                        <option value="dogs">dogs</option>
+                                        <option value="cats">cats</option>
+                                        <option value="children">children</option>
+                                        <option value="all">all</option>
+                                        <option value="none">none</option>
                                     </select>
 
                                     {/* </div> */}
@@ -68,28 +68,28 @@ export default function AddAnimals(props) {
                                     <label htmlFor="color">Color</label>
                                     <input style={{ textAlign: "center" }} type="text" className="form-control" name="color" id="color" />
 
-                                    <label htmlFor="height">Height</label>
+                                    <label htmlFor="height">Height in cm</label>
                                     <input style={{ textAlign: "center" }} type="number" className="form-control" name="height" id="height" />
 
                                     <label htmlFor="available_housing">Available for housing in</label>
                                     <select className="custom-select my-1 mr-sm-2" name="available_housing" id="available_housing">
                                         <option selected>Choose...</option>
-                                        <option value="1">house with garden</option>
-                                        <option value="2">apartment with garden</option>
-                                        <option value="3">rented apartment</option>
-                                        <option value="4">rented house</option>
-                                        <option value="5">owned apartment</option>
-                                        <option value="6">owned house</option>
+                                        <option value="house with garden">house with garden</option>
+                                        <option value="apartment with garden">apartment with garden</option>
+                                        <option value="rented apartment">rented apartment</option>
+                                        <option value="rented house">rented house</option>
+                                        <option value="owned apartment">owned apartment</option>
+                                        <option value="owned house">owned house</option>
                                     </select>
 
                                     <label htmlFor="needs_time">Need time with the owner</label>
-                                    <input style={{ textAlign: "center" }} type="number" className="form-control" name="needs_time" id="needs_time" />
+                                    <input style={{ textAlign: "center" }} type="text" className="form-control" name="needs_time" id="needs_time" />
 
                                 </div>
                                 {/* <div class="set"> */}
                                 <div class="pets-gender">
                                     <label htmlFor="age">Age</label>
-                                    <input style={{ textAlign: "center" }} type="number" className="form-control" name="age" id="age" />
+                                    <input style={{ textAlign: "center" }} type="text" className="form-control" name="age" id="age" />
 
 
                                     <label htmlFor="breed">Looks like</label>
@@ -103,11 +103,11 @@ export default function AddAnimals(props) {
                                     <label htmlFor="good_with">Good with:</label>
                                     <select className="custom-select my-1 mr-sm-2" name="good_with" id="good_with">
                                         <option selected>Choose...</option>
-                                        <option value="1">dogs</option>
-                                        <option value="2">cats</option>
-                                        <option value="3">children</option>
-                                        <option value="4">all</option>
-                                        <option value="5">none</option>
+                                        <option value="dogs">dogs</option>
+                                        <option value="cats">cats</option>
+                                        <option value="children">children</option>
+                                        <option value="all">all</option>
+                                        <option value="none">none</option>
                                     </select>
 
                                     <label htmlFor="funfact">Funfact</label>
