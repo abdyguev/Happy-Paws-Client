@@ -101,6 +101,8 @@ export default class PetsUser extends React.Component {
                                                     <li class="info-content-item">Contact<span>{animal.contact}</span></li>
                                                     <li class="info-content-item"> <span></span></li>
                                                 </ul>
+                                                <Link to="/donate" style={{marginTop:"1rem"}} className="btn btn-2" target="_blank">Donate</Link>
+
 
 
                                             </div>
@@ -109,9 +111,9 @@ export default class PetsUser extends React.Component {
                                     </div>
                                     <div className="icon-list">
 
-                                        <div class="heart-wrapper">
+                                        <div className="heart-wrapper">
 
-                                            <Link class="far fa-heart" onClick={(e) => this.handleAddPets(e, animal._id)} /></div>
+                                            <Link className="far fa-heart" onClick={(e) => this.handleAddPets(e, animal._id)} /></div>
 
 
 

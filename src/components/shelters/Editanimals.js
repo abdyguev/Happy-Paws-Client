@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import config from '../../config'
 import { Redirect } from 'react-router-dom';
-import Nav from './Nav'
 import { Link } from 'react-router-dom'
 
 export default class EditAnimals extends React.Component {
@@ -39,6 +38,7 @@ export default class EditAnimals extends React.Component {
             bad_with: this.state.animal.bad_with,
             needs_time: this.state.animal.needs_time,
             funfact: this.state.animal.funfact,
+            contact: this.state.animal.contact,
             location: this.state.animal.location
         }, { withCredentials: true })
             .then((res) => {
@@ -215,7 +215,7 @@ export default class EditAnimals extends React.Component {
                                         <label htmlFor="name">Name</label>
                                         <input type="text" className="form-control"
                                             onChange={this.handleNameChange} name="name" id="name" value={name} />
-                                        <label htmlFor="funfact">Contact for adoption</label>
+                                        <label htmlFor="contact">Contact for adoption</label>
                                         <input type="text" className="form-control" onChange={this.handleContactChange} name="contact" id="contact" value={contact} />
                                         <label htmlFor="weight">Weight in kg</label>
                                         <input type="number" className="form-control" onChange={this.handleWeightChange} name="weight" id="weight" value={weight} />

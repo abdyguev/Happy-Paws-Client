@@ -303,7 +303,7 @@ class App extends React.Component {
             />
           }} />
           <Route exact path="/shelter/animals" render={(routeProps) => {
-            return <AnimalList onLogoutShelter={this.handleLogoutShelter}
+            return <AnimalList onLogout={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               animals={this.state.animals}
               getAnimals={this.getAnimals}
@@ -311,14 +311,14 @@ class App extends React.Component {
             />
           }} />
           <Route path="/shelter/add-form" render={(routeProps) => {
-            return <AddAnimals onLogoutShelter={this.handleLogoutShelter}
+            return <AddAnimals 
               loggedInUser={loggedInUser}
               onAdd={this.handleAddAnimals}
               {...routeProps}
             />
           }} />
           <Route exact path="/shelter/animal/:id" render={(routeProps) => {
-            return <AnimalDetail onLogoutShelter={this.handleLogoutShelter}
+            return <AnimalDetail onLogout={this.handleLogoutShelter}
               loggedInUser={loggedInUser}
               afterDelete={this.handleDelete}
               {...routeProps}

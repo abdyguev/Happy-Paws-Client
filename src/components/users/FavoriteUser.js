@@ -101,11 +101,8 @@ export default class FavoriteUser extends React.Component {
                                                     <li class="info-content-item">Contact<span>{animal.contact}</span></li>
                                                     <li class="info-content-item"> <span></span></li>
                                                 </ul>
-
-
-
                                             
-                                            <Link to={`/shelter/animal/${animal._id}`} style={{ marginTop: "1rem" }} className="btn btn-2">More Details</Link>
+                                                <Link type="button" className="btn btn-2" onClick={(e) => this.handleDeletePet(e, animal._id)} >Delete</Link>
 
 
                                         </div>

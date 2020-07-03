@@ -344,7 +344,6 @@ select {
   width: 800px;  
   margin: auto;
   position: relative;
-  display: 
   
 }
 
@@ -428,7 +427,6 @@ select {
   right: 0;
   bottom: 0;
   padding: 4% 15% 15%;
-  background-color: 
 }
 
 .info-title {
@@ -440,7 +438,6 @@ select {
   text-align: center;
   display: block;
   width: 100%;
-  background-color: 
 }
 .info-content {
   display: flex;
@@ -450,7 +447,6 @@ select {
   padding: 3% 0 0;
   margin: 3% 0 0;
   border-top: 2px solid #272727;
-  background-color: 
 }
 .info-content-item {
   color: #222;
@@ -462,7 +458,6 @@ select {
   margin: 0;
   text-transform: uppercase;
   color: #272727;
-  background-color: 
 }
 .info-content-item span {
   display: block;
@@ -471,7 +466,6 @@ select {
   margin-top: 4px;
   text-transform: none;
   color: #222;
-  background-color: 
 }
 
 

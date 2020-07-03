@@ -18,7 +18,7 @@ export default function AnimalsList(props) {
     }
     return (
         <>
-            <Nav onLogout={props.onLogoutShelter}
+            <Nav onLogout={props.onLogout}
                 loggedInUser={props.loggedInUser} />
             <div className="heading">
                 <h1 style={{ marginTop: "2rem", marginBottom: "1rem", color: "#272727" }}>Available Pets </h1>
@@ -29,14 +29,12 @@ export default function AnimalsList(props) {
 
                 {
                     props.animals.map((animal, i) => {
-                        return <div className="list-pets">
-                            <div key={i} className="box">
+                        return <div  key={i} className="list-pets">
+                            <div className="box">
                                 <div id="card-container">
                                     <div id="card" style={{backgroundColor: "#d08a55"}}>
                                         <div style={{ backgroundImage: `url(${animal.image})`, backgroundSize: "cover"}} className="front face">
 
-                                            {/* <h1 style={{color: "#8f8f8f", backgroundColor:"white", opacity:".75", marginTop:"auto"}}>{animal.name}</h1><br></br> */}
-                                            {/* <h2>{animal.description}</h2> */}
                                         </div>
                                         <div className="back-face">
 
@@ -63,31 +61,6 @@ export default function AnimalsList(props) {
                 }
 
             </div>
-
-
-            {/* <ul className="list-group" >
-                <div id="card-container">
-                    <div id="card">
-                        <div class="front face">
-                            {
-                                props.animals.map((animal, i) => {
-                                    return <Link key={i} to={`/shelter/animal/${animal._id}`}>{animal.name}<br></br>{animal.breed}<br></br>{animal.description}</Link>
-                                })
-                            }
-                        </div>
-                        <div class="back face">
-            <ul class="list-group" >
-                <div className="cards-wrapper">
-                    <div className="card-wrapper">
-                            {
-                                props.animals.map((animal, i) => {
-                                    return <Link key={i} to={`/shelter/animal/${animal._id}`}>{animal.name}<br></br>{animal.breed}<br></br>{animal.description}</Link>
-                                })
-                            }
-                        </div>
-                    </div>
-                </div>
-            </ul> */}
 
 
         </>
