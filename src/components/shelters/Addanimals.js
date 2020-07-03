@@ -20,7 +20,7 @@ export default function AddAnimals(props) {
                             <img src="/images/Happypaws.png" class="fas fa-paw" alt="paw"/>
 
                         </h1>
-                        <div class="puppy">
+                        <div  class="puppy">
                             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png" alt="pet" /></div>
                     </div>
                     <div class="right-container">
@@ -82,6 +82,10 @@ export default function AddAnimals(props) {
                                         <option value="6">owned house</option>
                                     </select>
 
+                                    <label htmlFor="funfact">Funfact</label>
+                                    <input style={{ textAlign: "center" }} type="text" className="form-control" name="funfact" id="funfact" />
+
+
                                     <label htmlFor="needs_time">Need time with the owner</label>
                                     <input style={{ textAlign: "center" }} type="number" className="form-control" name="needs_time" id="needs_time" />
 
@@ -97,7 +101,7 @@ export default function AddAnimals(props) {
 
                                     <label htmlFor="location">Location</label>
                                     <input style={{ textAlign: "center" }} type="text" className="form-control" name="location" id="location" />
-                                    <label htmlFor="contact">Contact for adoption. Email or phone</label>
+                                    <label htmlFor="contact">Contact (Email or phone)</label>
                                     <input style={{ textAlign: "center" }} type="text" className="form-control" name="contact" id="contact" />
 
                                     <label htmlFor="good_with">Good with:</label>
@@ -110,9 +114,7 @@ export default function AddAnimals(props) {
                                         <option value="5">none</option>
                                     </select>
 
-                                    <label htmlFor="funfact">Funfact</label>
-                                    <input style={{ textAlign: "center" }} type="text" className="form-control" name="funfact" id="funfact" />
-
+                                    
                                 </div>
 
 

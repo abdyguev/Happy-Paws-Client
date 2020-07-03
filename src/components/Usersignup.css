@@ -39,13 +39,7 @@
     padding: 10px;
     transform: rotate(-45deg);
   }
-  .left-container .puppy {
-    /* bottom: -20px; */
-    left: 50px;
-    
-    margin-left: auto;
-    text-align: right;
-  }
+ 
   
   .left-container img {
     

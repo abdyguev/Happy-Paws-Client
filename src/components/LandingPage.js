@@ -12,14 +12,18 @@ export default class LandingPage extends Component {
                     <HomeNav />
                     <video autoPlay loop muted>
                         <source src="images/sundog.mp4" type="video/mp4"></source>
-                        
+
                     </video>
-                    
-                    
+                    {/* <div class="overlay">
+                        <p>MEET YOUR NEW <br></br>BEST FRIEND</p>
+                    {/* <img src="./images/Happypaws.png"/> */}
+                    {/* </div> */} */}
+
+
                 </div>
-                
-                
-                
+
+
+
             </div>
             <div className="landing-2">
                 <div className="user-1">
@@ -32,23 +36,23 @@ export default class LandingPage extends Component {
                     {/* </div> */}
                 </div>
                 <div className="user-2">
-                    
+
                     <h1>USER</h1>
-                    <p>It has never been easier to get matched<br></br>with your perfect puppy. All you need to <br></br>do is fill out a few questions and we will<br></br>automatically match you with the dogs<br></br>youd be the most compatible with!<br></br>Log-In or Sign-Up to meet your new<br></br> Best Friend!</p> 
+                    <p>It has never been easier to get matched<br></br>with your perfect puppy. All you need to <br></br>do is fill out a few questions and we will<br></br>automatically match you with the dogs<br></br>youd be the most compatible with!<br></br>Log-In or Sign-Up to meet your new<br></br> Best Friend!</p>
                     <button type="button" className="btn btn-light" ><Link to={'/user/signup'}>Sign In</Link></button>
-                    
+
                 </div>
-                
+
             </div>
-            
+
             <div className="landing-3">
                 <div className="shelter-1">
                     <h1>SHELTER</h1>
-                    <p>We help you make sure your puppies<br></br>go to the perfect home based on their needs!<br></br>We make it easy for you to find the right adopter</p> 
-                   
+                    <p>We help you make sure your puppies<br></br>go to the perfect home based on their needs!<br></br>We make it easy for you to find the right adopter</p>
+
                     <button type="button" className="btn btn-light" ><Link to={'/shelter/signup'}>Sign In</Link></button>
-                    
-  
+
+
                 </div>
                 <div className="shelter-2">
 

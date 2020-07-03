@@ -76,6 +76,7 @@ export default class AnimalDetail extends React.Component {
                                 <p>Height in cm: {height}</p>
                                 <p>Weight in kg: {weight}</p>
                                 <p>Available housing: {available_housing}</p>
+                                
                             </div>
                             <div className="column">
                                 <p>Hair length: {hair_length}</p>
@@ -85,9 +86,9 @@ export default class AnimalDetail extends React.Component {
                                 <p>Funfact: {funfact}</p>
                                 <p>Location: {location}</p>
                                 <p>Contact for adoption: {contact}</p>
-                            </div>
+                                </div>
                             <div className="button" style={{ textAlign: "center", margin: "1rem 0"}}>
-                                <button type="submit" className="btn btn-primary">
+                                <button type="submit" className="btn btn-light">
                                     <Link to={`/shelter/animal/${id}/edit`}>Edit</Link>
                                 </button>
                                 <button onClick={this.handleDeleteAnimal} type="submit" className="btn btn-danger">Delete</button>
