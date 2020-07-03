@@ -14,19 +14,19 @@ export default class PetsUser extends React.Component {
 
     componentDidMount() {
         if (this.props.loggedInAdopt) {
-        axios.get(`${config.API_URL}/user/pets`, { withCredentials: true })
-            .then((res) => {
-                this.setState({
-                    pets: res.data
+            axios.get(`${config.API_URL}/user/pets`, { withCredentials: true })
+                .then((res) => {
+                    this.setState({
+                        pets: res.data
+                    })
                 })
-            })
-            .catch((err) => {
-                if (err.response.status === 401) {
-                    this.props.history.push('/user/signup')
-                }
-            })
+                .catch((err) => {
+                    if (err.response.status === 401) {
+                        this.props.history.push('/user/signup')
+                    }
+                })
+        }
     }
-}
     handleAddPets = (e, petId) => {
         e.preventDefault()
         axios.post(`${config.API_URL}/user/favorite/${petId}/add`, {}, { withCredentials: true })
@@ -42,16 +42,16 @@ export default class PetsUser extends React.Component {
             })
     }
 
-    
-    render(){
+
+    render() {
         if (!this.props.loggedInAdopt) {
             return <Redirect to='/user/signup' />
         }
-    return (
-<>
-<NavUser onLogout={this.props.onLogout}
-loggedInAdopt={this.props.loggedInAdopt}/>
-{/* {
+        return (
+            <>
+                <NavUser onLogout={this.props.onLogout}
+                    loggedInAdopt={this.props.loggedInAdopt} />
+                {/* {
     this.state.adopter.map((adopt, i) => {
         {
                     this.state.pets.map((animal, i) => {
@@ -65,57 +65,69 @@ loggedInAdopt={this.props.loggedInAdopt}/>
         </div>
     })
 } */}
+<div style={{textAlign:"center"}}>
+                <h1 style={{ marginTop: "2rem", marginBottom: "1rem", color: "#272727" }}>Available Pets </h1>
 
 
+</div>
                 {
                     this.state.pets.map((animal, i) => {
                         return <div key={i} className="list-pets">
                             <div className="box">
                                 <div id="card-container">
                                     <div id="card">
-                                        <div style={{ backgroundImage: `url(${animal.image})`, backgroundSize: "cover", opacity: ".85" }} className="front face">
+                                        <div style={{ backgroundImage: `url(${animal.image})`, backgroundSize: "cover" }} className="front face">
 
-                                            <h1>{animal.name}</h1><br></br><h2>{animal.description}</h2>
+                                            {/* <h1>{animal.name}</h1><br></br><h2>{animal.description}</h2> */}
                                         </div>
 
-                                        <div className="back face">
-                                            <div className="row">
-                                                <div className="column">
-                                                    <p>Description: {animal.description}</p>
-                                                    <p>Looks like: {animal.breed}</p>
-                                                    <p>Color: {animal.color}</p>
-                                                    <p>Age: {animal.age}</p>
-                                                    <p>Height: {animal.height}</p>
-                                                    <p>Weight: {animal.weight}</p>
-                                                    <p>Available housing: {animal.available_housing}</p>
-                                                </div>
-                                                <div className="column">
-                                                    <p>Hair length: {animal.hair_length}</p>
-                                                    <p>Good with: {animal.good_with}</p>
-                                                    <p>Bad with: {animal.bad_with}</p>
-                                                    <p>Funfact: {animal.funfact}</p>
-                                                    <p>Location: {animal.location}</p>
-                                                    <p>Needs time with an owner: {animal.needs_time}</p>
-                                                    <p>Contact: {animal.contact}</p>
-                                                </div>
+                                        <div className="back-face">
+
+
+                                            <div class="info-wrapper">
+                                                <div class="info-title">{animal.name}</div>
+                                                <ul class="info-content">
+                                                    <li class="info-content-item">Breed<span>{animal.breed}</span></li>
+                                                    <li class="info-content-item">Color <span>{animal.color}</span></li>
+                                                    <li class="info-content-item">Weight <span>{animal.weight}</span></li>
+                                                </ul>
+                                                <ul class="info-content" style={{ borderTop: 'none' }}>
+                                                    <li class="info-content-item">Hair<span>{animal.hair_length}</span></li>
+                                                    <li class="info-content-item">Age <span>{animal.age}</span></li>
+                                                    <li class="info-content-item">Height <span>{animal.height}</span></li>
+                                                </ul>
+                                                <ul class="info-content" style={{ borderTop: 'none' }}>
+                                                    <li class="info-content-item"><span></span></li>
+                                                    <li class="info-content-item">Contact<span>{animal.contact}</span></li>
+                                                    <li class="info-content-item"> <span></span></li>
+                                                </ul>
+
 
                                             </div>
-
                                         </div>
+
                                     </div>
                                     <div className="icon-list">
 
                                         <div class="heart-wrapper">
-                                        
-                                            <Link class="far fa-heart" onClick={(e) => this.handleAddPets(e, animal._id)}/></div>
-                                        
-                                       
-                                    
+
+                                            <Link class="far fa-heart" onClick={(e) => this.handleAddPets(e, animal._id)} /></div>
+
+
+
                                     </div>
-                                    
+
                                 </div>
+
                             </div>
+
+
+
+
+
                         </div>
+
+
 
                     })
                 }
@@ -123,4 +135,3 @@ loggedInAdopt={this.props.loggedInAdopt}/>
         )
     }
 }
-

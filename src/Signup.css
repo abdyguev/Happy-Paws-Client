@@ -70,8 +70,8 @@
     padding: 40px;
   }
   .right-container label, .right-container input, .right-container select{
-    min-width: 220px;
-    max-width: 220px
+    min-width: 11rem;
+    max-width: 11rem
   }
   .right-container .pets-photo {
     align-items: center;

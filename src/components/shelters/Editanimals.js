@@ -3,6 +3,7 @@ import axios from 'axios'
 import config from '../../config'
 import { Redirect } from 'react-router-dom';
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 export default class EditAnimals extends React.Component {
 
@@ -10,9 +11,9 @@ export default class EditAnimals extends React.Component {
         animal: []
     }
 
-    componentDidMount(){
+    componentDidMount() {
         let id = this.props.match.params.id
-        axios.get(`${config.API_URL}/shelter/animal/${id}`, {withCredentials: true})
+        axios.get(`${config.API_URL}/shelter/animal/${id}`, { withCredentials: true })
             .then((res) => {
                 this.setState({
                     animal: res.data
@@ -27,24 +28,24 @@ export default class EditAnimals extends React.Component {
             name: this.state.animal.name,
             description: this.state.animal.description,
             image: this.state.animal.image,
-            breed: this.state.animal.breed, 
-            color: this.state.animal.color, 
-            age: this.state.animal.age, 
-            height: this.state.animal.height, 
+            breed: this.state.animal.breed,
+            color: this.state.animal.color,
+            age: this.state.animal.age,
+            height: this.state.animal.height,
             weight: this.state.animal.weight,
             hair_length: this.state.animal.hair_length,
-            available_housing: this.state.animal.available_housing, 
+            available_housing: this.state.animal.available_housing,
             good_with: this.state.animal.good_with,
-            bad_with: this.state.animal.bad_with, 
-            needs_time: this.state.animal.needs_time,  
-            funfact: this.state.animal.funfact, 
+            bad_with: this.state.animal.bad_with,
+            needs_time: this.state.animal.needs_time,
+            funfact: this.state.animal.funfact,
             location: this.state.animal.location
-        }, {withCredentials: true})
+        }, { withCredentials: true })
             .then((res) => {
                 this.setState({
-                  }, () => {
+                }, () => {
                     this.props.history.push('/shelter/animals')
-                  })
+                })
             })
     }
 
@@ -144,7 +145,7 @@ export default class EditAnimals extends React.Component {
         this.setState({
             animal: newAnimal
         })
-    }    
+    }
     handleTimeChange = (e) => {
         let newAnimal = JSON.parse(JSON.stringify(this.state.animal))
         newAnimal.needs_time = e.target.value
@@ -169,7 +170,7 @@ export default class EditAnimals extends React.Component {
             animal: newAnimal
         })
     }
-    handleContacthange = (e) => {
+    handleContactChange = (e) => {
         let newAnimal = JSON.parse(JSON.stringify(this.state.animal))
         newAnimal.contact = e.target.value
 
@@ -178,12 +179,12 @@ export default class EditAnimals extends React.Component {
         })
     }
 
-    render(){
+    render() {
         if (!this.props.loggedInUser) {
             return <Redirect to='/shelter/signup' />
         }
-        if (!this.state.animal){
-            return(
+        if (!this.state.animal) {
+            return (
                 <div className="text-center">
                     <div className="spinner-border" role="status">
                         <span className="sr-only">Loading...</span>
@@ -191,98 +192,117 @@ export default class EditAnimals extends React.Component {
                 </div>
             )
         }
-        const {name, description, breed, color, age, height, weight, hair_length, available_housing, good_with, bad_with, needs_time, funfact, location, contact} = this.state.animal
+        const { name, description, breed, color, age, height, weight, hair_length, available_housing, good_with, bad_with, needs_time, funfact, location, contact } = this.state.animal
         return (
-            
+
             <>
-            <Nav onLogout={this.props.onLogout}
-                loggedInUser={this.props.loggedInUser}/>
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" className="form-control" 
-                        onChange={this.handleNameChange} name="name" id="name" value={name}/>
+
+                <form >
+                    <div class="signup-container">
+                        <div class="left-container">
+                            <h1>
+                                <img src="/images/Happypaws.png" class="fas fa-paw" alt="paw" />
+
+                            </h1>
+                            <div class="puppy">
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png" alt="pet" /></div>
+                        </div>
+                        <div class="right-container">
+                            <header>
+                                <h1>Edit {name}'s Details</h1>
+                                <div class="set">
+                                    <div class="pets-name">
+                                        <label htmlFor="name">Name</label>
+                                        <input type="text" className="form-control"
+                                            onChange={this.handleNameChange} name="name" id="name" value={name} />
+                                        <label htmlFor="funfact">Contact for adoption</label>
+                                        <input type="text" className="form-control" onChange={this.handleContactChange} name="contact" id="contact" value={contact} />
+                                        <label htmlFor="weight">Weight in kg</label>
+                                        <input type="number" className="form-control" onChange={this.handleWeightChange} name="weight" id="weight" value={weight} />
+
+                                        <label htmlFor="hair_length">Hair length</label>
+                                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleHairLengthChange} name="hair_length" id="hair_length" value={hair_length}>                            
+                                            <option value="short">short</option>
+                                            <option value="medium">medium</option>
+                                            <option value="long">long</option>
+                                        </select><br></br>
+
+                                        <label htmlFor="bad_with">Bad with:</label>
+                                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleBadChange} name="bad_with" id="bad_with" value={bad_with}>
+                                            <option value="dogs">dogs</option>
+                                            <option value="cats">cats</option>
+                                            <option value="children">children</option>
+                                            <option value="all">all</option>
+                                            <option value="none">none</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="pets-breed">
+                                        <label htmlFor="description">Description</label>
+                                        <input type="text" className="form-control" onChange={this.handleDescChange} name="description" id="description" value={description} />
+
+                                        <label htmlFor="color">Color</label>
+                                        <input type="text" className="form-control" onChange={this.handleColorChange} name="color" id="color" value={color} />
+
+                                        <label htmlFor="height">Height in cm</label>
+                                        <input type="number" className="form-control" onChange={this.handleHeightChange} name="height" id="height" value={height} />
+
+                                        <label htmlFor="available_housing">Available for housing in</label>
+                                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleAvaiHousChange} name="available_housing" id="available_housing" value={available_housing}>
+                                            <option value="house with garden">house with garden</option>
+                                            <option value="apartment with garden">apartment with garden</option>
+                                            <option value="rented apartment">rented apartment</option>
+                                            <option value="rented house">rented house</option>
+                                            <option value="owned apartment">owned apartment</option>
+                                            <option value="owned house">owned house</option>
+                                        </select>
+
+                                        <label htmlFor="funfact">Funfact</label>
+                                        <input type="text" className="form-control" onChange={this.handleFactChange} name="funfact" id="funfact" value={funfact} />
+
+
+
+                                    </div>
+                                    <div class="pets-gender">
+                                        <label htmlFor="age">Age</label>
+                                        <input type="text" className="form-control" onChange={this.handleAgeChange} name="age" id="age" value={age} />
+
+
+                                        <label htmlFor="breed">Looks like</label>
+                                        <input type="text" className="form-control" onChange={this.handleBreedChange} name="breed" id="breed" value={breed} />
+
+                                        <label htmlFor="location">Location</label>
+                                        <input type="text" className="form-control" onChange={this.handleLocationChange} name="location" id="location" value={location} />
+
+
+
+                                        <label htmlFor="good_with">Good with:</label>
+                                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleGoodChange} name="good_with" id="good_with" value={good_with}>
+                                            <option value="dogs">dogs</option>
+                                            <option value="cats">cats</option>
+                                            <option value="children">children</option>
+                                            <option value="all">all</option>
+                                            <option value="none">none</option>
+                                        </select>
+
+                                        <label htmlFor="needs_time">Need time with the owner</label>
+                                        <input type="text" id="next" className="form-control" onChange={this.handleTimeChange} name="needs_time" value={needs_time} />
+
+
+                                    </div>
+
+
+                                </div>
+                            </header>
+                            <footer>
+                                <div class="set">
+                                <button id="back"><Link className="nav-link active myContainer" to="/shelter/animals">Animals</Link></button>
+                                    <button type="submit" id="next" className="btn btn-info" onClick={this.handleEdit}>Submit</button>
+
+                                </div>
+                            </footer>
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="description">Description</label>
-                        <input type="text" className="form-control"  onChange={this.handleDescChange} name="description" id="description" value={description}/>
-                    </div>
-                    <div className="form-group">
-                    <label htmlFor="breed">Looks like</label>
-                    <input type="text" className="form-control" onChange={this.handleBreedChange} name="breed" id="breed" value={breed} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="color">Color</label>
-                        <input type="text" className="form-control" onChange={this.handleColorChange} name="color" id="color" value={color}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="age">Age</label>
-                        <input type="text" className="form-control" onChange={this.handleAgeChange} name="age" id="age" value={age} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="height">Heigh in cm</label>
-                        <input type="number" className="form-control" onChange={this.handleHeightChange} name="height" id="height" value={height}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="weight">Weight in kg</label>
-                        <input type="number" className="form-control" onChange={this.handleWeightChange} name="weight" id="weight" value={weight}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="hair_length">Hair length</label>
-                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleHairLengthChange} name="hair_length" id="hair_length" value={hair_length}>                            
-                            <option value="short">short</option>
-                            <option value="medium">medium</option>
-                            <option value="long">long</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="available_housing">Available for housing in</label>
-                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleAvaiHousChange} name="available_housing" id="available_housing" value={available_housing}>
-                            <option value="house with garden">house with garden</option>
-                            <option value="apartment with garden">apartment with garden</option>
-                            <option value="rented apartment">rented apartment</option>
-                            <option value="rented house">rented house</option>
-                            <option value="owned apartment">owned apartment</option>
-                            <option value="owned house">owned house</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="good_with">Good with:</label>
-                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleGoodChange} name="good_with" id="good_with" value={good_with}>                            <option value="1">dogs</option>
-                            <option value="dogs">dogs</option>
-                            <option value="cats">cats</option>
-                            <option value="children">children</option>
-                            <option value="all">all</option>
-                            <option value="none">none</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="bad_with">Bad with:</label>
-                        <select className="custom-select my-1 mr-sm-2" onChange={this.handleBadChange} name="bad_with" id="bad_with" value={bad_with}>
-                            <option value="dogs">dogs</option>
-                            <option value="cats">cats</option>
-                            <option value="children">children</option>
-                            <option value="all">all</option>
-                            <option value="none">none</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="needs_time">Need time with the owner</label>
-                        <input type="text" className="form-control" onChange={this.handleTimeChange} name="needs_time" id="needs_time" value={needs_time}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="funfact">Funfact</label>
-                        <input type="text" className="form-control" onChange={this.handleFactChange} name="funfact" id="funfact" value={funfact}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="location">Location</label>
-                        <input type="text" className="form-control" onChange={this.handleLocationChange} name="location" id="location" value={location}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="funfact">Contact for adoption</label>
-                        <input type="text" className="form-control" onChange={this.handleContactChange} name="contact" id="contact" value={contact}/>
-                    </div>
-                    <button type="submit" className="btn btn-info" onClick={this.handleEdit}>Submit</button>
                 </form>
             </>
         )

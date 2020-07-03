@@ -63,6 +63,23 @@ a {
   display: grid;
   
 }
+.overlay {
+  position: absolute; 
+  top: 0 ;
+  bottom: 0;
+  left: 0;
+  right:0;
+  text-align: center;
+  padding-top: 10rem;
+  padding-left: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  opacity: 0.50;
+  font-style: italic;
+  font-size: 60px;
+  color: #272727;
+}
 
 
 .landing-2 {
@@ -339,6 +356,7 @@ select {
   z-index: 1;
   float: left;
   perspective: 1000px;
+  
 }
 
 #card {
@@ -349,6 +367,7 @@ select {
   transform-style: preserve-3d;
   transition: all .8s linear;
   box-shadow: 5px 5px 15px rgba(0,0,0, .3);
+  /* */
 }
 
 #card:hover {
@@ -369,16 +388,15 @@ select {
   
 }
 
-.face h1 {
-  font-size: 3rem;
-  color: #272727;
+/* .face h1 {
+  font-size: .5rem;
+  color: #8f8f8f;
 }
 .face h2 {
-  font-size: 1rem;
+  font-size: .3rem;
   margin-top: -2rem;
-  color: #272727;
-}
-
+  color: #8f8f8f;
+} */
 .back {
   display: block;
   transform: rotateY(180deg);
@@ -388,6 +406,74 @@ select {
   opacity: 100;
   background: #ebb28e;
 }
+
+.back-face {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  text-align: center;
+
+  background-color: #d08a55;
+  
+}
+
+.info-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50.92%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4% 15% 15%;
+  background-color: 
+}
+
+.info-title {
+  font-size: 3vw;
+  font-family: 'Archivo Black', sans-serif;
+  text-align: left;
+  padding: 0;
+  margin: 3rem 0 1rem 0;
+  text-align: center;
+  display: block;
+  width: 100%;
+  background-color: 
+}
+.info-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 3% 0 0;
+  margin: 3% 0 0;
+  border-top: 2px solid #272727;
+  background-color: 
+}
+.info-content-item {
+  color: #222;
+  font-size: .75vw;
+  line-height: 1;
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: #272727;
+  background-color: 
+}
+.info-content-item span {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1vw;
+  margin-top: 4px;
+  text-transform: none;
+  color: #222;
+  background-color: 
+}
+
 
 
 
@@ -478,6 +564,7 @@ width: 70%;
 
 /* TINDER APP  */
 .heart-wrapper {
+  text-decoration: none;
   width: 70px;
   height: 70px;
   position: relative;
@@ -534,7 +621,7 @@ width: 70%;
   animation-name: example;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  color: black;
+  color: red;
   transition: 1s;
 }
 
@@ -643,6 +730,7 @@ width: 70%;
   position: relative;
   text-align: center;
   width: 350px;
+  box-shadow: 5px 5px 15px rgba(0,0,0, .3);
 }
 .left-container h1 {
   color: rgba(0, 0, 0, 0.8);
@@ -663,11 +751,12 @@ width: 70%;
   position: absolute;
   text-align: center;
 }
-.left-container .puppy {
-  height: 2rem;
 
-  /* position: absolute; */
-  width:100%
+.puppy {
+  /* height: 2rem; */
+
+  /* justify-content: center; */
+  margin:0
 }
 /* .left-container .puppy:before {
   background: transparent;
@@ -681,7 +770,7 @@ width: 70%;
 /* } */
 .left-container img {
   
-  width: 60%;
+  max-width: 80%;
 }
 .right-container {
   background: #ebb28e;
@@ -826,5 +915,12 @@ width: 70%;
 .left-container p{
   font-size: .9rem;
   margin-top: .5rem;
+}
+
+.right-container-user {
+  overflow: hidden;
+  padding: 1rem 0 0 0;
+  position: relative;
+  text-align: center;
 }
 
