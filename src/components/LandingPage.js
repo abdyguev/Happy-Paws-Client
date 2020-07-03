@@ -14,10 +14,6 @@ export default class LandingPage extends Component {
                         <source src="images/sundog.mp4" type="video/mp4"></source>
 
                     </video>
-                    {/* <div class="overlay">
-                        <p>MEET YOUR NEW <br></br>BEST FRIEND</p>
-                    {/* <img src="./images/Happypaws.png"/> */}
-                    {/* </div> */} */}
 
 
                 </div>
