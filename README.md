@@ -272,7 +272,9 @@ https://trello.com/b/HawL7mgm/happy-paws
 [Client repository Link](https://github.com/abdyguev/Happy-Paws-Client)
 [Server repository Link](https://github.com/AruneM/Happy-paws-backend)
 
-[Deploy Link](http://heroku.com)
+Deployed app:
+
+https://happy-paws.herokuapp.com/
 
 ### Slides
 
